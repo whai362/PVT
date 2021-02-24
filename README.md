@@ -6,7 +6,12 @@ Like ResNet, PVT is a pure transformer backbone that can be easily plugged in mo
 
 With a comparable number of parameters, PVT-Small+RetinaNet achieves 40.4 AP on the COCO dataset, surpassing ResNet50+RetinNet (36.3 AP) by 4.1 AP.
 
-![PVT](.github/pvt.png)
+<div align="center">
+  <img src="https://github.com/whai362/PVT/blob/main/.github/pvt.png">
+</div>
+<p align="center">
+  Figure 1: Performance of RetinaNet 1x with different backbones.
+</p>
 
 This repository is developed on the top of [pytorch-image-models](https://github.com/rwightman/pytorch-image-models) and [deit](https://github.com/facebookresearch/deit).
 
