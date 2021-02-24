@@ -23,7 +23,7 @@ Todo.
 We provide baseline DeiT models pretrained on ImageNet 2012.
 
 | name | acc@1 | #params (M) | url |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | PVT-Tiny | 75.1 | 13.2 | Todo. |
 | PVT-Small | 79.8 | 24.5 | Todo. |
 | PVT-Medium | 81.2 | 44.2 | Todo. |
