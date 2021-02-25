@@ -23,6 +23,13 @@ If you use this code for a paper please cite:
 Todo.
 ```
 
+# Todo List
+- ImageNet model weights
+- PVT + RetinaNet/Mask R-CNN config & models
+- PVT + Semantic FPN config & models
+- PVT + DETR config & models
+- PVT + Trans2Seg config & models
+
 # Model Zoo
 
 We provide baseline DeiT models pretrained on ImageNet 2012.
