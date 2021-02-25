@@ -20,7 +20,14 @@ For details see [Pyramid Vision Transformer: A Versatile Backbone for Dense Pred
 If you use this code for a paper please cite:
 
 ```
-Todo.
+@misc{wang2021pyramid,
+      title={Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions}, 
+      author={Wenhai Wang and Enze Xie and Xiang Li and Deng-Ping Fan and Kaitao Song and Ding Liang and Tong Lu and Ping Luo and Ling Shao},
+      year={2021},
+      eprint={2102.12122},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
 ```
 
 # Todo List
