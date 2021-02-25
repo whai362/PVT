@@ -5,3 +5,4 @@ imnet_resnet50_scratch/timm_temp/
 checkpoints/
 data/
 tmp.txt
+data

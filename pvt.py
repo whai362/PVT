@@ -206,22 +206,22 @@ class PyramidVisionTransformer(nn.Module):
         cur = 0
         for i in range(self.depths[0]):
             self.block1[i].drop_path.drop_prob = dpr[cur + i]
-            print(dpr[cur + i])
+            # print(dpr[cur + i])
 
         cur += self.depths[0]
         for i in range(self.depths[1]):
             self.block2[i].drop_path.drop_prob = dpr[cur + i]
-            print(dpr[cur + i])
+            # print(dpr[cur + i])
 
         cur += self.depths[1]
         for i in range(self.depths[2]):
             self.block3[i].drop_path.drop_prob = dpr[cur + i]
-            print(dpr[cur + i])
+            # print(dpr[cur + i])
 
         cur += self.depths[2]
         for i in range(self.depths[3]):
             self.block4[i].drop_path.drop_prob = dpr[cur + i]
-            print(dpr[cur + i])
+            # print(dpr[cur + i])
 
     def _init_weights(self, m):
         if isinstance(m, nn.Linear):
