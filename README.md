@@ -32,7 +32,7 @@ Todo.
 
 # Model Zoo
 
-We provide baseline DeiT models pretrained on ImageNet 2012.
+We provide baseline PVT models pretrained on ImageNet 2012.
 
 | name | acc@1 | #params (M) | url |
 | --- | --- | --- | --- |
