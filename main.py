@@ -382,7 +382,7 @@ def main(args):
         max_epoch_dp_warm_up = 0
     for epoch in range(args.start_epoch, args.epochs):
         if epoch == max_epoch_dp_warm_up:
-            model_without_ddp.reset_drop_path(drop_path)
+            model_without_ddp.reset_drop_path(args.drop_path)
 
         if args.distributed:
             data_loader_train.sampler.set_epoch(epoch)
