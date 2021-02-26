@@ -42,11 +42,11 @@ def get_args_parser():
     parser.add_argument('--drop-path', type=float, default=0.1, metavar='PCT',
                         help='Drop path rate (default: 0.1)')
 
-    parser.add_argument('--model-ema', action='store_true')
-    parser.add_argument('--no-model-ema', action='store_false', dest='model_ema')
-    parser.set_defaults(model_ema=True)
-    parser.add_argument('--model-ema-decay', type=float, default=0.99996, help='')
-    parser.add_argument('--model-ema-force-cpu', action='store_true', default=False, help='')
+    # parser.add_argument('--model-ema', action='store_true')
+    # parser.add_argument('--no-model-ema', action='store_false', dest='model_ema')
+    # parser.set_defaults(model_ema=True)
+    # parser.add_argument('--model-ema-decay', type=float, default=0.99996, help='')
+    # parser.add_argument('--model-ema-force-cpu', action='store_true', default=False, help='')
 
     # Optimizer parameters
     parser.add_argument('--opt', default='adamw', type=str, metavar='OPTIMIZER',
@@ -287,13 +287,13 @@ def main(args):
     model.to(device)
 
     model_ema = None
-    if args.model_ema:
-        # Important to create EMA model after cuda(), DP wrapper, and AMP but before SyncBN and DDP wrapper
-        model_ema = ModelEma(
-            model,
-            decay=args.model_ema_decay,
-            device='cpu' if args.model_ema_force_cpu else '',
-            resume='')
+    # if args.model_ema:
+    #     # Important to create EMA model after cuda(), DP wrapper, and AMP but before SyncBN and DDP wrapper
+    #     model_ema = ModelEma(
+    #         model,
+    #         decay=args.model_ema_decay,
+    #         device='cpu' if args.model_ema_force_cpu else '',
+    #         resume='')
 
     model_without_ddp = model
     if args.distributed:
@@ -354,7 +354,7 @@ def main(args):
                 args.resume, map_location='cpu', check_hash=True)
         else:
             checkpoint = torch.load(args.resume, map_location='cpu')
-        if model in checkpoint:
+        if 'model' in checkpoint:
             model_without_ddp.load_state_dict(checkpoint['model'])
         else:
             model_without_ddp.load_state_dict(checkpoint)
@@ -363,8 +363,8 @@ def main(args):
             optimizer.load_state_dict(checkpoint['optimizer'])
             lr_scheduler.load_state_dict(checkpoint['lr_scheduler'])
             args.start_epoch = checkpoint['epoch'] + 1
-            if args.model_ema:
-                utils._load_checkpoint_for_ema(model_ema, checkpoint['model_ema'])
+            # if args.model_ema:
+            #     utils._load_checkpoint_for_ema(model_ema, checkpoint['model_ema'])
             if 'scaler' in checkpoint:
                 loss_scaler.load_state_dict(checkpoint['scaler'])
 
@@ -377,9 +377,12 @@ def main(args):
     start_time = time.time()
     max_accuracy = 0.0
     model_without_ddp.reset_drop_path(0.0)
+    max_epoch_dp_warm_up = 100
+    if args.model == 'pvt_small' or args.model == 'pvt_tiny':
+        max_epoch_dp_warm_up = 0
     for epoch in range(args.start_epoch, args.epochs):
-        if epoch == 10:
-            model_without_ddp.reset_drop_path(args.drop_path)
+        if epoch == max_epoch_dp_warm_up:
+            model_without_ddp.reset_drop_path(drop_path)
 
         if args.distributed:
             data_loader_train.sampler.set_epoch(epoch)
@@ -400,7 +403,7 @@ def main(args):
                     'optimizer': optimizer.state_dict(),
                     'lr_scheduler': lr_scheduler.state_dict(),
                     'epoch': epoch,
-                    'model_ema': get_state_dict(model_ema),
+                    # 'model_ema': get_state_dict(model_ema),
                     'scaler': loss_scaler.state_dict(),
                     'args': args,
                 }, checkpoint_path)
