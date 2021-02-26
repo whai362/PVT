@@ -378,21 +378,3 @@ def pvt_large(pretrained=False, **kwargs):
     #     model.load_state_dict(checkpoint["model"])
 
     return model
-
-
-@register_model
-def pvt_huge(pretrained=False, **kwargs):
-    model = PyramidVisionTransformer(
-        patch_size=4, embed_dims=[128, 256, 768, 768], num_heads=[2, 4, 12, 12], mlp_ratios=[8, 8, 4, 4], qkv_bias=True,
-        norm_layer=partial(nn.LayerNorm, eps=1e-6), depths=[3, 8, 27, 3], sr_ratios=[8, 4, 2, 1],
-        # drop_rate=0.0, drop_path_rate=0.02)
-        **kwargs)
-    model.default_cfg = _cfg()
-    # if pretrained:
-    #     checkpoint = torch.hub.load_state_dict_from_url(
-    #         url=None,
-    #         map_location="cpu", check_hash=True
-    #     )
-    #     model.load_state_dict(checkpoint["model"])
-
-    return model
