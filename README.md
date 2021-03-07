@@ -33,7 +33,7 @@ If you use this code for a paper please cite:
 # Todo List
 - ImageNet model weights
 - PVT + Semantic FPN configs & models
-- PVT + DETR config & models
+- PVT + DETR/[Sparse R-CNN](https://github.com/PeizeSun/SparseR-CNN) config & models
 - PVT + Trans2Seg config & models
 
 # Model Zoo
