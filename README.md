@@ -49,7 +49,7 @@ conda install -c pytorch pytorch torchvision
 pip install timm==0.3.2
 ```
 
-## Data preparation
+# Data preparation
 
 Download and extract ImageNet train and val images from http://image-net.org/.
 The directory structure is the standard layout for the torchvision [`datasets.ImageFolder`](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder), and the training and validation data is expected to be in the `train/` folder and `val` folder respectively:
@@ -70,11 +70,11 @@ The directory structure is the standard layout for the torchvision [`datasets.Im
 
 # Model Zoo
 
-## Object Detection 
+### Object Detection 
 
 Detection configs & models see [here](https://github.com/whai362/PVT/tree/main/detection).
 
-## Image Classification
+### Image Classification
 
 We provide baseline PVT models pretrained on ImageNet 2012.
 
@@ -85,7 +85,7 @@ We provide baseline PVT models pretrained on ImageNet 2012.
 | PVT-Medium | 81.2 | 44.2 | Todo. |
 | PVT-Large | 81.7 | 61.4 | Todo. |
 
-## Evaluation
+# Evaluation
 To evaluate a pre-trained PVT-Small on ImageNet val with a single GPU run:
 ```
 sh dist_train.sh pvt_small 1 /path/to/checkpoint_root --data-path /path/to/imagenet --resume /path/to/checkpoint_file --eval
@@ -95,7 +95,7 @@ This should give
 Todo.
 ```
 
-## Training
+# Training
 To train PVT-Small on ImageNet on a single node with 8 gpus for 300 epochs run:
 
 ```
