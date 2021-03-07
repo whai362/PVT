@@ -32,12 +32,13 @@ If you use this code for a paper please cite:
 
 # Todo List
 - ImageNet model weights
-- PVT + RetinaNet/Mask R-CNN config & models
-- PVT + Semantic FPN config & models
+- PVT + Semantic FPN configs & models
 - PVT + DETR config & models
 - PVT + Trans2Seg config & models
 
 # Model Zoo
+
+Detection configs & models see [here](https://github.com/whai362/PVT/tree/main/detection).
 
 We provide baseline PVT models pretrained on ImageNet 2012.
 
