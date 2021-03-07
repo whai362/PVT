@@ -38,7 +38,11 @@ If you use this code for a paper please cite:
 
 # Model Zoo
 
-## Detection configs & models see [here](https://github.com/whai362/PVT/tree/main/detection).
+## Object Detection 
+
+Detection configs & models see [here](https://github.com/whai362/PVT/tree/main/detection).
+
+## Image Classification
 
 We provide baseline PVT models pretrained on ImageNet 2012.
 
