@@ -13,9 +13,9 @@ With a comparable number of parameters, PVT-Small+RetinaNet achieves 40.4 AP on 
   Figure 1: Performance of RetinaNet 1x with different backbones.
 </p>
 
-This repository is developed on the top of [pytorch-image-models](https://github.com/rwightman/pytorch-image-models) and [deit](https://github.com/facebookresearch/deit).
+This repository is developed on top of [pytorch-image-models](https://github.com/rwightman/pytorch-image-models) and [deit](https://github.com/facebookresearch/deit).
 
-For details see [Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions](None). 
+For details see [Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions](https://arxiv.org/pdf/2102.12122.pdf). 
 
 If you use this code for a paper please cite:
 

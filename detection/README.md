@@ -1,0 +1,61 @@
+# Applying PVT to Object Detection
+
+Here, we take [MMDetection v2.8.0](https://github.com/open-mmlab/mmdetection/tree/v2.8.0) as an example, applying PVT to RetinaNet and Mask R-CNN.
+
+For details see [Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions](https://arxiv.org/pdf/2102.12122.pdf). 
+
+If you use this code for a paper please cite:
+
+```
+@misc{wang2021pyramid,
+      title={Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions}, 
+      author={Wenhai Wang and Enze Xie and Xiang Li and Deng-Ping Fan and Kaitao Song and Ding Liang and Tong Lu and Ping Luo and Ling Shao},
+      year={2021},
+      eprint={2102.12122},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
+
+# Todo List
+- PVT-Medium/-Large + RetinaNet
+- Mask R-CNN
+
+## Results and models
+
+|    Method   | Lr schd | box AP | mask AP | Config | Download  |
+| :-------------: | :-----: | :-----: | :------: | :------------: | :----: |
+|    PVT-Small + RetinaNet (640x)  | 1x | 38.7    |  [config](https://github.com/whai362/PVT/blob/main/detection/configs/retinanet_pvt_s_fpn_1x_coco_640.py)  | - | - |
+|    PVT-Small + RetinaNet (800x)  | 1x | 40.4    |  [config](https://github.com/whai362/PVT/blob/main/detection/configs/retinanet_pvt_s_fpn_1x_coco.py)  | - | - |
+
+# Usage
+
+Install [MMDetection v2.8.0](https://github.com/open-mmlab/mmdetection/tree/v2.8.0).
+
+
+
+## Data preparation
+
+First, prepare COCO according to the guidelines in [MMDetection v2.8.0](https://github.com/open-mmlab/mmdetection/tree/v2.8.0).
+
+Then, download the [weights](https://github.com/whai362/PVT/blob/main/README.md) pretrained on ImageNet, and put them in a folder `pretrained/`
+
+## Evaluation
+To evaluate PVT-Small + RetinaNet (640x) on COCO val2017 on a single node with 8 gpus run:
+```
+dist_test.sh configs/retinanet_pvt_s_fpn_1x_coco_640.py /path/to/checkpoint_file 8 --out results.pkl --eval bbox
+```
+This should give
+```
+Todo.
+```
+
+## Training
+To train PVT-Small + RetinaNet (640x) on COCO train2017 on a single node with 8 gpus for 12 epochs run:
+
+```
+dist_train.sh configs/retinanet_pvt_s_fpn_1x_coco_640.py 8
+```
+
+# License
+This repository is released under the Apache 2.0 license as found in the [LICENSE](LICENSE) file.
