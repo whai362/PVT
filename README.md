@@ -36,25 +36,6 @@ If you use this code for a paper please cite:
 - PVT + DETR/[Sparse R-CNN](https://github.com/PeizeSun/SparseR-CNN) config & models
 - PVT + Trans2Seg config & models
 
-# Model Zoo
-
-## Object Detection 
-
-Detection configs & models see [here](https://github.com/whai362/PVT/tree/main/detection).
-
-## Image Classification
-
-We provide baseline PVT models pretrained on ImageNet 2012.
-
-| name | acc@1 | #params (M) | url |
-| --- | --- | --- | --- |
-| PVT-Tiny | 75.1 | 13.2 | [51 M](https://drive.google.com/file/d/1NLw3hRJMoOQbUXAoftg8tUFCWuTwUIQz/view?usp=sharing), [PyTorch<=1.5](https://drive.google.com/file/d/1yau8uMRl-mnlTAUn4I7vypss3wjVltt5/view?usp=sharing) |
-| PVT-Small | 79.8 | 24.5 | [93 M](https://drive.google.com/file/d/1vtcyoU8KUqNzktlMGXZrYcMRsNNiVZFQ/view?usp=sharing), [PyTorch<=1.5](https://drive.google.com/file/d/1ds9Rb9wRh9IzGV0CZMM0hnS0QAM_qyIF/view?usp=sharing) |
-| PVT-Medium | 81.2 | 44.2 | Todo. |
-| PVT-Large | 81.7 | 61.4 | Todo. |
-
-Before using it, make sure you have the pytorch-image-models package [`timm==0.3.2`](https://github.com/rwightman/pytorch-image-models) by [Ross Wightman](https://github.com/rwightman) installed. Note that our work relies of the augmentations proposed in this library.
-
 # Usage
 
 First, clone the repository locally:
@@ -86,6 +67,23 @@ The directory structure is the standard layout for the torchvision [`datasets.Im
     class/2
       img4.jpeg
 ```
+
+# Model Zoo
+
+## Object Detection 
+
+Detection configs & models see [here](https://github.com/whai362/PVT/tree/main/detection).
+
+## Image Classification
+
+We provide baseline PVT models pretrained on ImageNet 2012.
+
+| name | acc@1 | #params (M) | url |
+| --- | --- | --- | --- |
+| PVT-Tiny | 75.1 | 13.2 | [51 M](https://drive.google.com/file/d/1NLw3hRJMoOQbUXAoftg8tUFCWuTwUIQz/view?usp=sharing), [PyTorch<=1.5](https://drive.google.com/file/d/1yau8uMRl-mnlTAUn4I7vypss3wjVltt5/view?usp=sharing) |
+| PVT-Small | 79.8 | 24.5 | [93 M](https://drive.google.com/file/d/1vtcyoU8KUqNzktlMGXZrYcMRsNNiVZFQ/view?usp=sharing), [PyTorch<=1.5](https://drive.google.com/file/d/1ds9Rb9wRh9IzGV0CZMM0hnS0QAM_qyIF/view?usp=sharing) |
+| PVT-Medium | 81.2 | 44.2 | Todo. |
+| PVT-Large | 81.7 | 61.4 | Todo. |
 
 ## Evaluation
 To evaluate a pre-trained PVT-Small on ImageNet val with a single GPU run:
