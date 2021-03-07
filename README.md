@@ -96,7 +96,8 @@ sh dist_train.sh pvt_small 1 /path/to/checkpoint_root --data-path /path/to/image
 ```
 This should give
 ```
-Todo.
+* Acc@1 79.764 Acc@5 94.950 loss 0.885
+Accuracy of the network on the 50000 test images: 79.8%
 ```
 
 ## Training
