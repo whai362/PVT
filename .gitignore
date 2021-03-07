@@ -11,3 +11,4 @@ tmp/
 **/data/
 **/pretrained/
 **/work_dirs/
+**/results.pkl
