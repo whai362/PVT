@@ -43,8 +43,8 @@ We provide baseline PVT models pretrained on ImageNet 2012.
 
 | name | acc@1 | #params (M) | url |
 | --- | --- | --- | --- |
-| PVT-Tiny | 75.1 | 13.2 | [51 M](https://drive.google.com/file/d/1NLw3hRJMoOQbUXAoftg8tUFCWuTwUIQz/view?usp=sharing) |
-| PVT-Small | 79.8 | 24.5 | [93 M](https://drive.google.com/file/d/1vtcyoU8KUqNzktlMGXZrYcMRsNNiVZFQ/view?usp=sharing) |
+| PVT-Tiny | 75.1 | 13.2 | [51 M](https://drive.google.com/file/d/1NLw3hRJMoOQbUXAoftg8tUFCWuTwUIQz/view?usp=sharing), [PyTorch<=1.5](https://drive.google.com/file/d/1yau8uMRl-mnlTAUn4I7vypss3wjVltt5/view?usp=sharing) |
+| PVT-Small | 79.8 | 24.5 | [93 M](https://drive.google.com/file/d/1vtcyoU8KUqNzktlMGXZrYcMRsNNiVZFQ/view?usp=sharing), [PyTorch<=1.5](https://drive.google.com/file/d/1ds9Rb9wRh9IzGV0CZMM0hnS0QAM_qyIF/view?usp=sharing) |
 | PVT-Medium | 81.2 | 44.2 | Todo. |
 | PVT-Large | 81.7 | 61.4 | Todo. |
 
