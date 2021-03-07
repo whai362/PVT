@@ -17,9 +17,21 @@ If you use this code for a paper please cite:
 }
 ```
 
-# Todo List
+## Todo List
 - PVT-Medium/-Large + RetinaNet
 - Mask R-CNN
+
+
+## Usage
+
+Install [MMDetection v2.8.0](https://github.com/open-mmlab/mmdetection/tree/v2.8.0).
+
+
+## Data preparation
+
+First, prepare COCO according to the guidelines in [MMDetection v2.8.0](https://github.com/open-mmlab/mmdetection/tree/v2.8.0).
+
+Then, download the [weights](https://github.com/whai362/PVT/blob/main/README.md) pretrained on ImageNet, and put them in a folder `pretrained/`
 
 ## Results and models
 
@@ -28,17 +40,6 @@ If you use this code for a paper please cite:
 |    PVT-Small + RetinaNet (640x)  | 1x | 38.7    |  [config](https://github.com/whai362/PVT/blob/main/detection/configs/retinanet_pvt_s_fpn_1x_coco_640.py)  | - | - |
 |    PVT-Small + RetinaNet (800x)  | 1x | 40.4    |  [config](https://github.com/whai362/PVT/blob/main/detection/configs/retinanet_pvt_s_fpn_1x_coco.py)  | - | - |
 
-# Usage
-
-Install [MMDetection v2.8.0](https://github.com/open-mmlab/mmdetection/tree/v2.8.0).
-
-
-
-## Data preparation
-
-First, prepare COCO according to the guidelines in [MMDetection v2.8.0](https://github.com/open-mmlab/mmdetection/tree/v2.8.0).
-
-Then, download the [weights](https://github.com/whai362/PVT/blob/main/README.md) pretrained on ImageNet, and put them in a folder `pretrained/`
 
 ## Evaluation
 To evaluate PVT-Small + RetinaNet (640x) on COCO val2017 on a single node with 8 gpus run:
