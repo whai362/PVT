@@ -30,13 +30,13 @@ If you use this code for a paper please cite:
 }
 ```
 
-# Todo List
+## Todo List
 - ImageNet model weights
 - PVT + Semantic FPN configs & models
 - PVT + DETR/[Sparse R-CNN](https://github.com/PeizeSun/SparseR-CNN) config & models
 - PVT + Trans2Seg config & models
 
-# Usage
+## Usage
 
 First, clone the repository locally:
 ```
@@ -49,7 +49,7 @@ conda install -c pytorch pytorch torchvision
 pip install timm==0.3.2
 ```
 
-# Data preparation
+## Data preparation
 
 Download and extract ImageNet train and val images from http://image-net.org/.
 The directory structure is the standard layout for the torchvision [`datasets.ImageFolder`](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder), and the training and validation data is expected to be in the `train/` folder and `val` folder respectively:
@@ -68,7 +68,7 @@ The directory structure is the standard layout for the torchvision [`datasets.Im
       img4.jpeg
 ```
 
-# Model Zoo
+## Model Zoo
 
 ### Object Detection 
 
@@ -85,7 +85,7 @@ We provide baseline PVT models pretrained on ImageNet 2012.
 | PVT-Medium | 81.2 | 44.2 | Todo. |
 | PVT-Large | 81.7 | 61.4 | Todo. |
 
-# Evaluation
+## Evaluation
 To evaluate a pre-trained PVT-Small on ImageNet val with a single GPU run:
 ```
 sh dist_train.sh pvt_small 1 /path/to/checkpoint_root --data-path /path/to/imagenet --resume /path/to/checkpoint_file --eval
@@ -95,12 +95,12 @@ This should give
 Todo.
 ```
 
-# Training
+## Training
 To train PVT-Small on ImageNet on a single node with 8 gpus for 300 epochs run:
 
 ```
 sh dist_train.sh pvt_small 8 /path/to/checkpoint_root --data-path /path/to/imagenet
 ```
 
-# License
+## License
 This repository is released under the Apache 2.0 license as found in the [LICENSE](LICENSE) file.
