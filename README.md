@@ -81,8 +81,8 @@ Detection configs & models see [here](https://github.com/whai362/PVT/tree/main/d
 |    Method   | Lr schd | box AP | mask AP | Config | Download  |
 | :-------------: | :-----: | :-----: | :------: | :------------: | :----: |
 |    PVT-Tiny + RetinaNet (800x)  | 1x | 36.7    | - | [config](https://github.com/whai362/PVT/blob/main/detection/configs/retinanet_pvt_t_fpn_1x_coco.py)  | Todo. |
-|    PVT-Small + RetinaNet (640x)  | 1x | 38.7    | - |  [config](https://github.com/whai362/PVT/blob/main/detection/configs/retinanet_pvt_s_fpn_1x_coco_640.py)  | Todo. |
-|    PVT-Small + RetinaNet (800x)  | 1x | 40.4    | - | [config](https://github.com/whai362/PVT/blob/main/detection/configs/retinanet_pvt_s_fpn_1x_coco.py)  | Todo. |
+|    PVT-Small + RetinaNet (640x)  | 1x | 38.7    | - |  [config](https://github.com/whai362/PVT/blob/main/detection/configs/retinanet_pvt_s_fpn_1x_coco_640.py)  | [model](https://drive.google.com/file/d/1L5wh2rYsVnuC_CEeFE6yMhU1kENt2gnk/view?usp=sharing) |
+|    PVT-Small + RetinaNet (800x)  | 1x | 40.4    | - | [config](https://github.com/whai362/PVT/blob/main/detection/configs/retinanet_pvt_s_fpn_1x_coco.py)  | [model](https://drive.google.com/file/d/1U02ngyT_IYxS8SlU3WXf5r0TFsoBE3Lm/view?usp=sharing) |
 |    R50 + DETR  | 50ep | 32.3  | - | [config](https://github.com/whai362/PVT/blob/main/detection/configs/detr_r50_8x2_50ep_coco_baseline.py)  | Todo. |
 |    PVT-Small + DETR  | 50ep | 34.7    | - | [config](https://github.com/whai362/PVT/blob/main/detection/configs/detr_pvt_s_8x2_50ep_coco.py)  | Todo. |
 
