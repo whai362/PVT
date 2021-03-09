@@ -130,10 +130,11 @@ class PyramidVisionTransformer(nn.Module):
     def __init__(self, img_size=224, patch_size=16, in_chans=3, num_classes=1000, embed_dims=[64, 128, 256, 512],
                  num_heads=[1, 2, 4, 8], mlp_ratios=[4, 4, 4, 4], qkv_bias=False, qk_scale=None, drop_rate=0.,
                  attn_drop_rate=0., drop_path_rate=0., norm_layer=nn.LayerNorm,
-                 depths=[3, 4, 6, 3], sr_ratios=[8, 4, 2, 1]):
+                 depths=[3, 4, 6, 3], sr_ratios=[8, 4, 2, 1], F4=False):
         super().__init__()
         self.num_classes = num_classes
         self.depths = depths
+        self.F4 = F4
 
         # patch_embed
         self.patch_embed1 = PatchEmbed(img_size=img_size, patch_size=patch_size, in_chans=in_chans,
@@ -282,6 +283,9 @@ class PyramidVisionTransformer(nn.Module):
     def forward(self, x):
         x = self.forward_features(x)
 
+        if self.F4:
+            x = x[3:4]
+
         return x
 
 
@@ -297,9 +301,27 @@ def _conv_filter(state_dict, patch_size=16):
 
 
 @BACKBONES.register_module()
+class pvt_tiny(PyramidVisionTransformer):
+    def __init__(self, **kwargs):
+        super(pvt_tiny, self).__init__(
+            patch_size=4, embed_dims=[64, 128, 320, 512], num_heads=[1, 2, 5, 8], mlp_ratios=[8, 8, 4, 4],
+            qkv_bias=True, norm_layer=partial(nn.LayerNorm, eps=1e-6), depths=[2, 2, 2, 2],
+            sr_ratios=[8, 4, 2, 1], drop_rate=0.0, drop_path_rate=0.1)
+
+
+@BACKBONES.register_module()
 class pvt_small(PyramidVisionTransformer):
     def __init__(self, **kwargs):
         super(pvt_small, self).__init__(
             patch_size=4, embed_dims=[64, 128, 320, 512], num_heads=[1, 2, 5, 8], mlp_ratios=[8, 8, 4, 4],
             qkv_bias=True, norm_layer=partial(nn.LayerNorm, eps=1e-6), depths=[3, 4, 6, 3],
             sr_ratios=[8, 4, 2, 1], drop_rate=0.0, drop_path_rate=0.1)
+
+
+@BACKBONES.register_module()
+class pvt_small_f4(PyramidVisionTransformer):
+    def __init__(self, **kwargs):
+        super(pvt_small_f4, self).__init__(
+            patch_size=4, embed_dims=[64, 128, 320, 512], num_heads=[1, 2, 5, 8], mlp_ratios=[8, 8, 4, 4],
+            qkv_bias=True, norm_layer=partial(nn.LayerNorm, eps=1e-6), depths=[3, 4, 6, 3],
+            sr_ratios=[8, 4, 2, 1], drop_rate=0.0, drop_path_rate=0.1, F4=True)
