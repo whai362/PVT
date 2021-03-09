@@ -37,9 +37,11 @@ Then, download the [weights](https://github.com/whai362/PVT/blob/main/README.md)
 
 |    Method   | Lr schd | box AP | mask AP | Config | Download  |
 | :-------------: | :-----: | :-----: | :------: | :------------: | :----: |
+|    PVT-Tiny + RetinaNet (800x)  | 1x | 36.7    | - | [config](https://github.com/whai362/PVT/blob/main/detection/configs/retinanet_pvt_t_fpn_1x_coco.py)  | Todo. |
 |    PVT-Small + RetinaNet (640x)  | 1x | 38.7    | - |  [config](https://github.com/whai362/PVT/blob/main/detection/configs/retinanet_pvt_s_fpn_1x_coco_640.py)  | Todo. |
 |    PVT-Small + RetinaNet (800x)  | 1x | 40.4    | - | [config](https://github.com/whai362/PVT/blob/main/detection/configs/retinanet_pvt_s_fpn_1x_coco.py)  | Todo. |
-
+|    R50 + DETR  | 50ep | 32.3  | - | [config](https://github.com/whai362/PVT/blob/main/detection/configs/detr_r50_8x2_50ep_coco_baseline.py)  | Todo. |
+|    PVT-Small + DETR  | 50ep | 34.7    | - | [config](https://github.com/whai362/PVT/blob/main/detection/configs/detr_pvt_s_8x2_50ep_coco.py)  | Todo. |
 
 ## Evaluation
 To evaluate PVT-Small + RetinaNet (640x) on COCO val2017 on a single node with 8 gpus run:
