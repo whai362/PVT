@@ -29,6 +29,7 @@ import collections
 
 def get_args_parser():
     parser = argparse.ArgumentParser('PVT training and evaluation script', add_help=False)
+    parser.add_argument('--fp32', action='store_true', default=False)
     parser.add_argument('--batch-size', default=64, type=int)
     parser.add_argument('--epochs', default=300, type=int)
 
@@ -199,7 +200,10 @@ def main(args):
             )
         else:
             sampler_train = torch.utils.data.DistributedSampler(
-                dataset_train, num_replicas=num_tasks, rank=global_rank, shuffle=True
+                dataset_train,
+                # num_replicas=num_tasks,
+                num_replicas=0,
+                rank=global_rank, shuffle=True
             )
         if args.dist_eval:
             if len(dataset_val) % num_tasks != 0:
@@ -207,7 +211,10 @@ def main(args):
                       'This will slightly alter validation results as extra duplicate entries are added to achieve '
                       'equal num of samples per-process.')
             sampler_val = torch.utils.data.DistributedSampler(
-                dataset_val, num_replicas=num_tasks, rank=global_rank, shuffle=False)
+                dataset_val,
+                # num_replicas=num_tasks,
+                num_replicas=0,
+                rank=global_rank, shuffle=False)
         else:
             sampler_val = torch.utils.data.SequentialSampler(dataset_val)
     else:
@@ -309,6 +316,8 @@ def main(args):
     args.lr = linear_scaled_lr
     optimizer = create_optimizer(args, model_without_ddp)
     loss_scaler = NativeScaler()
+    if args.fp32:
+        loss_scaler._scaler = torch.cuda.amp.GradScaler(enabled=False)
 
     lr_scheduler, _ = create_scheduler(args, optimizer)
 
@@ -379,10 +388,11 @@ def main(args):
     print(f"Start training for {args.epochs} epochs")
     start_time = time.time()
     max_accuracy = 0.0
-    model_without_ddp.reset_drop_path(0.0)
     max_epoch_dp_warm_up = 100
-    if args.model == 'pvt_small' or args.model == 'pvt_tiny':
+    if 'pvt_tiny' in args.model or 'pvt_small' in args.model:
         max_epoch_dp_warm_up = 0
+    if args.start_epoch < max_epoch_dp_warm_up:
+        model_without_ddp.reset_drop_path(0.0)
     for epoch in range(args.start_epoch, args.epochs):
         if epoch == max_epoch_dp_warm_up:
             model_without_ddp.reset_drop_path(args.drop_path)
@@ -394,7 +404,8 @@ def main(args):
             model, criterion, data_loader_train,
             optimizer, device, epoch, loss_scaler,
             args.clip_grad, model_ema, mixup_fn,
-            set_training_mode=args.finetune == ''  # keep in eval mode during finetuning
+            set_training_mode=args.finetune == '',  # keep in eval mode during finetuning
+            fp32=args.fp32
         )
 
         lr_scheduler.step(epoch)

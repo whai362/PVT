@@ -12,3 +12,6 @@ tmp/
 **/pretrained/
 **/work_dirs/
 **/results.pkl
+**/arun_log/
+tmp**
+arun_log/

@@ -5,6 +5,7 @@ A script to run multinode training with submitit.
 """
 import argparse
 import os
+import os.path as osp
 import uuid
 from pathlib import Path
 
@@ -28,9 +29,9 @@ def parse_args():
 
 
 def get_shared_folder() -> Path:
-    user = os.getenv("USER")
-    if Path("/checkpoint/").is_dir():
-        p = Path(f"/checkpoint/{user}/experiments")
+    root = '/mnt/lustre/wangwenhai/workspace/PVT/'
+    if Path(osp.join(root, 'checkpoints/')).is_dir():
+        p = Path(osp.join(root, 'checkpoints/experiments/'))
         p.mkdir(exist_ok=True)
         return p
     raise RuntimeError("No shared folder available")
@@ -99,15 +100,20 @@ def main():
         kwargs['slurm_comment'] = args.comment
 
     executor.update_parameters(
-        mem_gb=40 * num_gpus_per_node,
-        gpus_per_node=num_gpus_per_node,
+        # mem_gb=40 * num_gpus_per_node,
+        # gpus_per_node=num_gpus_per_node,
         tasks_per_node=num_gpus_per_node,  # one task per GPU
-        cpus_per_task=10,
+        # cpus_per_task=10,
         nodes=nodes,
-        timeout_min=timeout_min,  # max is 60 * 72
+        timeout_min=60 * 24 * 10,  # max is 60 * 72
         # Below are cluster dependent parameters
+        slurm_gres="gpu:%d" % num_gpus_per_node,
         slurm_partition=partition,
         slurm_signal_delay_s=120,
+        slurm_additional_parameters={
+            'qos': 'non-preemptable',
+            'mpi': 'pmi2'
+        },
         **kwargs
     )
 

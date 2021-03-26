@@ -206,22 +206,18 @@ class PyramidVisionTransformer(nn.Module):
         cur = 0
         for i in range(self.depths[0]):
             self.block1[i].drop_path.drop_prob = dpr[cur + i]
-            # print(dpr[cur + i])
 
         cur += self.depths[0]
         for i in range(self.depths[1]):
             self.block2[i].drop_path.drop_prob = dpr[cur + i]
-            # print(dpr[cur + i])
 
         cur += self.depths[1]
         for i in range(self.depths[2]):
             self.block3[i].drop_path.drop_prob = dpr[cur + i]
-            # print(dpr[cur + i])
 
         cur += self.depths[2]
         for i in range(self.depths[3]):
             self.block4[i].drop_path.drop_prob = dpr[cur + i]
-            # print(dpr[cur + i])
 
     def _init_weights(self, m):
         if isinstance(m, nn.Linear):
@@ -315,15 +311,8 @@ def pvt_tiny(pretrained=False, **kwargs):
     model = PyramidVisionTransformer(
         patch_size=4, embed_dims=[64, 128, 320, 512], num_heads=[1, 2, 5, 8], mlp_ratios=[8, 8, 4, 4], qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, eps=1e-6), depths=[2, 2, 2, 2], sr_ratios=[8, 4, 2, 1],
-        # drop_rate=0.0, drop_path_rate=0.1)
         **kwargs)
     model.default_cfg = _cfg()
-    # if pretrained:
-    #     checkpoint = torch.hub.load_state_dict_from_url(
-    #         url=None,
-    #         map_location="cpu", check_hash=True
-    #     )
-    #     model.load_state_dict(checkpoint["model"])
 
     return model
 
@@ -334,12 +323,6 @@ def pvt_small(pretrained=False, **kwargs):
         patch_size=4, embed_dims=[64, 128, 320, 512], num_heads=[1, 2, 5, 8], mlp_ratios=[8, 8, 4, 4], qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, eps=1e-6), depths=[3, 4, 6, 3], sr_ratios=[8, 4, 2, 1], **kwargs)
     model.default_cfg = _cfg()
-    # if pretrained:
-    #     checkpoint = torch.hub.load_state_dict_from_url(
-    #         url=None,
-    #         map_location="cpu", check_hash=True
-    #     )
-    #     model.load_state_dict(checkpoint["model"])
 
     return model
 
@@ -349,15 +332,8 @@ def pvt_medium(pretrained=False, **kwargs):
     model = PyramidVisionTransformer(
         patch_size=4, embed_dims=[64, 128, 320, 512], num_heads=[1, 2, 5, 8], mlp_ratios=[8, 8, 4, 4], qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, eps=1e-6), depths=[3, 4, 18, 3], sr_ratios=[8, 4, 2, 1],
-        # drop_rate=0.0, drop_path_rate=0.05)
         **kwargs)
     model.default_cfg = _cfg()
-    # if pretrained:
-    #     checkpoint = torch.hub.load_state_dict_from_url(
-    #         url=None,
-    #         map_location="cpu", check_hash=True
-    #     )
-    #     model.load_state_dict(checkpoint["model"])
 
     return model
 
@@ -367,14 +343,19 @@ def pvt_large(pretrained=False, **kwargs):
     model = PyramidVisionTransformer(
         patch_size=4, embed_dims=[64, 128, 320, 512], num_heads=[1, 2, 5, 8], mlp_ratios=[8, 8, 4, 4], qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, eps=1e-6), depths=[3, 8, 27, 3], sr_ratios=[8, 4, 2, 1],
+        **kwargs)
+    model.default_cfg = _cfg()
+
+    return model
+
+
+@register_model
+def pvt_huge_v2(pretrained=False, **kwargs):
+    model = PyramidVisionTransformer(
+        patch_size=4, embed_dims=[128, 256, 512, 768], num_heads=[2, 4, 8, 12], mlp_ratios=[8, 8, 4, 4], qkv_bias=True,
+        norm_layer=partial(nn.LayerNorm, eps=1e-6), depths=[3, 10, 60, 3], sr_ratios=[8, 4, 2, 1],
         # drop_rate=0.0, drop_path_rate=0.02)
         **kwargs)
     model.default_cfg = _cfg()
-    # if pretrained:
-    #     checkpoint = torch.hub.load_state_dict_from_url(
-    #         url=None,
-    #         map_location="cpu", check_hash=True
-    #     )
-    #     model.load_state_dict(checkpoint["model"])
 
     return model

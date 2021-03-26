@@ -20,7 +20,8 @@ def train_one_epoch(model: torch.nn.Module, criterion: DistillationLoss,
                     data_loader: Iterable, optimizer: torch.optim.Optimizer,
                     device: torch.device, epoch: int, loss_scaler, max_norm: float = 0,
                     model_ema: Optional[ModelEma] = None, mixup_fn: Optional[Mixup] = None,
-                    set_training_mode=True):
+                    set_training_mode=True,
+                    fp32=False):
     model.train(set_training_mode)
     metric_logger = utils.MetricLogger(delimiter="  ")
     metric_logger.add_meter('lr', utils.SmoothedValue(window_size=1, fmt='{value:.6f}'))
@@ -34,7 +35,10 @@ def train_one_epoch(model: torch.nn.Module, criterion: DistillationLoss,
         if mixup_fn is not None:
             samples, targets = mixup_fn(samples, targets)
 
-        with torch.cuda.amp.autocast():
+        # with torch.cuda.amp.autocast():
+        #     outputs = model(samples)
+        #     loss = criterion(samples, outputs, targets)
+        with torch.cuda.amp.autocast(enabled=not fp32):
             outputs = model(samples)
             loss = criterion(samples, outputs, targets)
 
