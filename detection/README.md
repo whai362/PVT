@@ -18,8 +18,7 @@ If you use this code for a paper please cite:
 ```
 
 ## Todo List
-- PVT-Medium/-Large + RetinaNet
-- Mask R-CNN
+- PVT-Medium/-Large + RetinaNet/Mask R-CNN
 
 
 ## Usage
