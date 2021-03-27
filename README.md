@@ -30,12 +30,8 @@ If you use this code for a paper please cite:
 }
 ```
 
-## Done
-- PVT-Tiny/-Small
-- PVT + Object Detection
 
 ## Todo List
-- ImageNet model weights
 - PVT + Semantic FPN configs & models
 - PVT + DETR/[Sparse R-CNN](https://github.com/PeizeSun/SparseR-CNN) config & models
 - PVT + Trans2Seg config & models
