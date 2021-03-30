@@ -29,7 +29,7 @@ import collections
 
 def get_args_parser():
     parser = argparse.ArgumentParser('PVT training and evaluation script', add_help=False)
-    parser.add_argument('--fp32', action='store_true', default=False)
+    parser.add_argument('--fp32-resume', action='store_true', default=False)
     parser.add_argument('--batch-size', default=64, type=int)
     parser.add_argument('--epochs', default=300, type=int)
 
@@ -316,9 +316,6 @@ def main(args):
     args.lr = linear_scaled_lr
     optimizer = create_optimizer(args, model_without_ddp)
     loss_scaler = NativeScaler()
-    if args.fp32:
-        loss_scaler._scaler = torch.cuda.amp.GradScaler(enabled=False)
-
     lr_scheduler, _ = create_scheduler(args, optimizer)
 
     criterion = LabelSmoothingCrossEntropy()
@@ -394,6 +391,10 @@ def main(args):
     if args.start_epoch < max_epoch_dp_warm_up:
         model_without_ddp.reset_drop_path(0.0)
     for epoch in range(args.start_epoch, args.epochs):
+        if args.fp32_resume and epoch > args.start_epoch + 1:
+            args.fp32_resume = False
+        loss_scaler._scaler = torch.cuda.amp.GradScaler(enabled=not args.fp32_resume)
+
         if epoch == max_epoch_dp_warm_up:
             model_without_ddp.reset_drop_path(args.drop_path)
 
@@ -405,7 +406,7 @@ def main(args):
             optimizer, device, epoch, loss_scaler,
             args.clip_grad, model_ema, mixup_fn,
             set_training_mode=args.finetune == '',  # keep in eval mode during finetuning
-            fp32=args.fp32
+            fp32=args.fp32_resume
         )
 
         lr_scheduler.step(epoch)
