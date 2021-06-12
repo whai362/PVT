@@ -32,7 +32,6 @@ If you use this code for a paper please cite:
 
 
 ## Todo List
-- PVT + Semantic FPN configs & models
 - PVT + DETR/[Sparse R-CNN](https://github.com/PeizeSun/SparseR-CNN) config & models
 
 ## Usage
