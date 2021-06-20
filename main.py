@@ -23,6 +23,8 @@ from losses import DistillationLoss
 from samplers import RASampler
 # import models
 import pvt
+import pvt_v2
+import pvt_v2_ap
 import utils
 import collections
 
@@ -32,6 +34,7 @@ def get_args_parser():
     parser.add_argument('--fp32-resume', action='store_true', default=False)
     parser.add_argument('--batch-size', default=64, type=int)
     parser.add_argument('--epochs', default=300, type=int)
+    parser.add_argument('--config', required=True, type=str, help='config')
 
     # Model parameters
     parser.add_argument('--model', default='pvt_small', type=str, metavar='MODEL',
@@ -364,10 +367,10 @@ def main(args):
         else:
             checkpoint = torch.load(args.resume, map_location='cpu')
         if 'model' in checkpoint:
-            model_without_ddp.load_state_dict(checkpoint['model'])
+            msg = model_without_ddp.load_state_dict(checkpoint['model'])
         else:
-            model_without_ddp.load_state_dict(checkpoint)
-
+            msg = model_without_ddp.load_state_dict(checkpoint)
+        print(msg)
         if not args.eval and 'optimizer' in checkpoint and 'lr_scheduler' in checkpoint and 'epoch' in checkpoint:
             optimizer.load_state_dict(checkpoint['optimizer'])
             lr_scheduler.load_state_dict(checkpoint['lr_scheduler'])
@@ -385,11 +388,7 @@ def main(args):
     print(f"Start training for {args.epochs} epochs")
     start_time = time.time()
     max_accuracy = 0.0
-    max_epoch_dp_warm_up = 100
-    if 'pvt_tiny' in args.model or 'pvt_small' in args.model:
-        max_epoch_dp_warm_up = 0
-    if args.start_epoch < max_epoch_dp_warm_up:
-        model_without_ddp.reset_drop_path(0.0)
+
     for epoch in range(args.start_epoch, args.epochs):
         if args.fp32_resume and epoch > args.start_epoch + 1:
             args.fp32_resume = False
@@ -445,6 +444,7 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('DeiT training and evaluation script', parents=[get_args_parser()])
     args = parser.parse_args()
+    args = utils.update_from_config(args)
     if args.output_dir:
         Path(args.output_dir).mkdir(parents=True, exist_ok=True)
     main(args)

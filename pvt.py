@@ -110,8 +110,8 @@ class PatchEmbed(nn.Module):
 
         self.img_size = img_size
         self.patch_size = patch_size
-        assert img_size[0] % patch_size[0] == 0 and img_size[1] % patch_size[1] == 0, \
-            f"img_size {img_size} should be divided by patch_size {patch_size}."
+        # assert img_size[0] % patch_size[0] == 0 and img_size[1] % patch_size[1] == 0, \
+        #     f"img_size {img_size} should be divided by patch_size {patch_size}."
         self.H, self.W = img_size[0] // patch_size[0], img_size[1] // patch_size[1]
         self.num_patches = self.H * self.W
         self.proj = nn.Conv2d(in_chans, embed_dim, kernel_size=patch_size, stride=patch_size)
@@ -131,60 +131,36 @@ class PyramidVisionTransformer(nn.Module):
     def __init__(self, img_size=224, patch_size=16, in_chans=3, num_classes=1000, embed_dims=[64, 128, 256, 512],
                  num_heads=[1, 2, 4, 8], mlp_ratios=[4, 4, 4, 4], qkv_bias=False, qk_scale=None, drop_rate=0.,
                  attn_drop_rate=0., drop_path_rate=0., norm_layer=nn.LayerNorm,
-                 depths=[3, 4, 6, 3], sr_ratios=[8, 4, 2, 1]):
+                 depths=[3, 4, 6, 3], sr_ratios=[8, 4, 2, 1], num_stages=4):
         super().__init__()
         self.num_classes = num_classes
         self.depths = depths
+        self.num_stages = num_stages
 
-        # patch_embed
-        self.patch_embed1 = PatchEmbed(img_size=img_size, patch_size=patch_size, in_chans=in_chans,
-                                       embed_dim=embed_dims[0])
-        self.patch_embed2 = PatchEmbed(img_size=img_size // 4, patch_size=2, in_chans=embed_dims[0],
-                                       embed_dim=embed_dims[1])
-        self.patch_embed3 = PatchEmbed(img_size=img_size // 8, patch_size=2, in_chans=embed_dims[1],
-                                       embed_dim=embed_dims[2])
-        self.patch_embed4 = PatchEmbed(img_size=img_size // 16, patch_size=2, in_chans=embed_dims[2],
-                                       embed_dim=embed_dims[3])
-
-        # pos_embed
-        self.pos_embed1 = nn.Parameter(torch.zeros(1, self.patch_embed1.num_patches, embed_dims[0]))
-        self.pos_drop1 = nn.Dropout(p=drop_rate)
-        self.pos_embed2 = nn.Parameter(torch.zeros(1, self.patch_embed2.num_patches, embed_dims[1]))
-        self.pos_drop2 = nn.Dropout(p=drop_rate)
-        self.pos_embed3 = nn.Parameter(torch.zeros(1, self.patch_embed3.num_patches, embed_dims[2]))
-        self.pos_drop3 = nn.Dropout(p=drop_rate)
-        self.pos_embed4 = nn.Parameter(torch.zeros(1, self.patch_embed4.num_patches + 1, embed_dims[3]))
-        self.pos_drop4 = nn.Dropout(p=drop_rate)
-
-        # transformer encoder
         dpr = [x.item() for x in torch.linspace(0, drop_path_rate, sum(depths))]  # stochastic depth decay rule
         cur = 0
-        self.block1 = nn.ModuleList([Block(
-            dim=embed_dims[0], num_heads=num_heads[0], mlp_ratio=mlp_ratios[0], qkv_bias=qkv_bias, qk_scale=qk_scale,
-            drop=drop_rate, attn_drop=attn_drop_rate, drop_path=dpr[cur + i], norm_layer=norm_layer,
-            sr_ratio=sr_ratios[0])
-            for i in range(depths[0])])
 
-        cur += depths[0]
-        self.block2 = nn.ModuleList([Block(
-            dim=embed_dims[1], num_heads=num_heads[1], mlp_ratio=mlp_ratios[1], qkv_bias=qkv_bias, qk_scale=qk_scale,
-            drop=drop_rate, attn_drop=attn_drop_rate, drop_path=dpr[cur + i], norm_layer=norm_layer,
-            sr_ratio=sr_ratios[1])
-            for i in range(depths[1])])
+        for i in range(num_stages):
+            patch_embed = PatchEmbed(img_size=img_size if i == 0 else img_size // (2 ** (i + 1)),
+                                     patch_size=patch_size if i == 0 else 2,
+                                     in_chans=in_chans if i == 0 else embed_dims[i - 1],
+                                     embed_dim=embed_dims[i])
+            num_patches = patch_embed.num_patches if i != num_stages - 1 else patch_embed.num_patches + 1
+            pos_embed = nn.Parameter(torch.zeros(1, num_patches, embed_dims[i]))
+            pos_drop = nn.Dropout(p=drop_rate)
 
-        cur += depths[1]
-        self.block3 = nn.ModuleList([Block(
-            dim=embed_dims[2], num_heads=num_heads[2], mlp_ratio=mlp_ratios[2], qkv_bias=qkv_bias, qk_scale=qk_scale,
-            drop=drop_rate, attn_drop=attn_drop_rate, drop_path=dpr[cur + i], norm_layer=norm_layer,
-            sr_ratio=sr_ratios[2])
-            for i in range(depths[2])])
+            block = nn.ModuleList([Block(
+                dim=embed_dims[i], num_heads=num_heads[i], mlp_ratio=mlp_ratios[i], qkv_bias=qkv_bias,
+                qk_scale=qk_scale, drop=drop_rate, attn_drop=attn_drop_rate, drop_path=dpr[cur + j],
+                norm_layer=norm_layer, sr_ratio=sr_ratios[i])
+                for j in range(depths[i])])
+            cur += depths[i]
 
-        cur += depths[2]
-        self.block4 = nn.ModuleList([Block(
-            dim=embed_dims[3], num_heads=num_heads[3], mlp_ratio=mlp_ratios[3], qkv_bias=qkv_bias, qk_scale=qk_scale,
-            drop=drop_rate, attn_drop=attn_drop_rate, drop_path=dpr[cur + i], norm_layer=norm_layer,
-            sr_ratio=sr_ratios[3])
-            for i in range(depths[3])])
+            setattr(self, f"patch_embed{i + 1}", patch_embed)
+            setattr(self, f"pos_embed{i + 1}", pos_embed)
+            setattr(self, f"pos_drop{i + 1}", pos_drop)
+            setattr(self, f"block{i + 1}", block)
+
         self.norm = norm_layer(embed_dims[3])
 
         # cls_token
@@ -194,30 +170,12 @@ class PyramidVisionTransformer(nn.Module):
         self.head = nn.Linear(embed_dims[3], num_classes) if num_classes > 0 else nn.Identity()
 
         # init weights
-        trunc_normal_(self.pos_embed1, std=.02)
-        trunc_normal_(self.pos_embed2, std=.02)
-        trunc_normal_(self.pos_embed3, std=.02)
-        trunc_normal_(self.pos_embed4, std=.02)
+        for i in range(num_stages):
+            pos_embed = getattr(self, f"pos_embed{i + 1}")
+            trunc_normal_(pos_embed, std=.02)
         trunc_normal_(self.cls_token, std=.02)
         self.apply(self._init_weights)
 
-    def reset_drop_path(self, drop_path_rate):
-        dpr = [x.item() for x in torch.linspace(0, drop_path_rate, sum(self.depths))]
-        cur = 0
-        for i in range(self.depths[0]):
-            self.block1[i].drop_path.drop_prob = dpr[cur + i]
-
-        cur += self.depths[0]
-        for i in range(self.depths[1]):
-            self.block2[i].drop_path.drop_prob = dpr[cur + i]
-
-        cur += self.depths[1]
-        for i in range(self.depths[2]):
-            self.block3[i].drop_path.drop_prob = dpr[cur + i]
-
-        cur += self.depths[2]
-        for i in range(self.depths[3]):
-            self.block4[i].drop_path.drop_prob = dpr[cur + i]
 
     def _init_weights(self, m):
         if isinstance(m, nn.Linear):
@@ -240,49 +198,37 @@ class PyramidVisionTransformer(nn.Module):
         self.num_classes = num_classes
         self.head = nn.Linear(self.embed_dim, num_classes) if num_classes > 0 else nn.Identity()
 
-    # def _get_pos_embed(self, pos_embed, patch_embed, H, W):
-    #     if H * W == self.patch_embed1.num_patches:
-    #         return pos_embed
-    #     else:
-    #         return F.interpolate(
-    #             pos_embed.reshape(1, patch_embed.H, patch_embed.W, -1).permute(0, 3, 1, 2),
-    #             size=(H, W), mode="bilinear").reshape(1, -1, H * W).permute(0, 2, 1)
+    def _get_pos_embed(self, pos_embed, patch_embed, H, W):
+        if H * W == self.patch_embed1.num_patches:
+            return pos_embed
+        else:
+            return F.interpolate(
+                pos_embed.reshape(1, patch_embed.H, patch_embed.W, -1).permute(0, 3, 1, 2),
+                size=(H, W), mode="bilinear").reshape(1, -1, H * W).permute(0, 2, 1)
 
     def forward_features(self, x):
         B = x.shape[0]
 
-        # stage 1
-        x, (H, W) = self.patch_embed1(x)
-        x = x + self.pos_embed1
-        x = self.pos_drop1(x)
-        for blk in self.block1:
-            x = blk(x, H, W)
-        x = x.reshape(B, H, W, -1).permute(0, 3, 1, 2).contiguous()
+        for i in range(self.num_stages):
+            patch_embed = getattr(self, f"patch_embed{i + 1}")
+            pos_embed = getattr(self, f"pos_embed{i + 1}")
+            pos_drop = getattr(self, f"pos_drop{i + 1}")
+            block = getattr(self, f"block{i + 1}")
+            x, (H, W) = patch_embed(x)
 
-        # stage 2
-        x, (H, W) = self.patch_embed2(x)
-        x = x + self.pos_embed2
-        x = self.pos_drop2(x)
-        for blk in self.block2:
-            x = blk(x, H, W)
-        x = x.reshape(B, H, W, -1).permute(0, 3, 1, 2).contiguous()
+            if i == self.num_stages - 1:
+                cls_tokens = self.cls_token.expand(B, -1, -1)
+                x = torch.cat((cls_tokens, x), dim=1)
+                pos_embed_ = self._get_pos_embed(pos_embed[:, 1:], patch_embed, H, W)
+                pos_embed = torch.cat((pos_embed[:, 0:1], pos_embed_), dim=1)
+            else:
+                pos_embed = self._get_pos_embed(pos_embed, patch_embed, H, W)
 
-        # stage 3
-        x, (H, W) = self.patch_embed3(x)
-        x = x + self.pos_embed3
-        x = self.pos_drop3(x)
-        for blk in self.block3:
-            x = blk(x, H, W)
-        x = x.reshape(B, H, W, -1).permute(0, 3, 1, 2).contiguous()
-
-        # stage 4
-        x, (H, W) = self.patch_embed4(x)
-        cls_tokens = self.cls_token.expand(B, -1, -1)
-        x = torch.cat((cls_tokens, x), dim=1)
-        x = x + self.pos_embed4
-        x = self.pos_drop4(x)
-        for blk in self.block4:
-            x = blk(x, H, W)
+            x = pos_drop(x + pos_embed)
+            for blk in block:
+                x = blk(x, H, W)
+            if i != self.num_stages - 1:
+                x = x.reshape(B, H, W, -1).permute(0, 3, 1, 2).contiguous()
 
         x = self.norm(x)
 

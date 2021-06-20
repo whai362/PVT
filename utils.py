@@ -13,7 +13,7 @@ import datetime
 
 import torch
 import torch.distributed as dist
-
+import mmcv
 
 class SmoothedValue(object):
     """Track a series of values and provide access to smoothed values over a
@@ -236,3 +236,11 @@ def init_distributed_mode(args):
                                          world_size=args.world_size, rank=args.rank)
     torch.distributed.barrier()
     setup_for_distributed(args.rank == 0)
+
+
+def update_from_config(args):
+    cfg = mmcv.Config.fromfile(args.config)
+    for _, cfg_item in cfg._cfg_dict.items():
+        for k, v in cfg_item.items():
+            setattr(args, k, v)
+    return args
