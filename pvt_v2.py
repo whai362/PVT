@@ -10,7 +10,7 @@ import math
 
 
 class Mlp(nn.Module):
-    def __init__(self, in_features, hidden_features=None, out_features=None, act_layer=nn.GELU, drop=0., ap=False):
+    def __init__(self, in_features, hidden_features=None, out_features=None, act_layer=nn.GELU, drop=0., linear=False):
         super().__init__()
         out_features = out_features or in_features
         hidden_features = hidden_features or in_features
@@ -19,8 +19,8 @@ class Mlp(nn.Module):
         self.act = act_layer()
         self.fc2 = nn.Linear(hidden_features, out_features)
         self.drop = nn.Dropout(drop)
-        self.ap = ap
-        if self.ap:
+        self.linear = linear
+        if self.linear:
             self.relu = nn.ReLU(inplace=True)
         self.apply(self._init_weights)
 
@@ -41,7 +41,7 @@ class Mlp(nn.Module):
 
     def forward(self, x, H, W):
         x = self.fc1(x)
-        if self.ap:
+        if self.linear:
             x = self.relu(x)
         x = self.dwconv(x, H, W)
         x = self.act(x)
@@ -52,7 +52,7 @@ class Mlp(nn.Module):
 
 
 class Attention(nn.Module):
-    def __init__(self, dim, num_heads=8, qkv_bias=False, qk_scale=None, attn_drop=0., proj_drop=0., sr_ratio=1, ap=False):
+    def __init__(self, dim, num_heads=8, qkv_bias=False, qk_scale=None, attn_drop=0., proj_drop=0., sr_ratio=1, linear=False):
         super().__init__()
         assert dim % num_heads == 0, f"dim {dim} should be divided by num_heads {num_heads}."
 
@@ -67,9 +67,9 @@ class Attention(nn.Module):
         self.proj = nn.Linear(dim, dim)
         self.proj_drop = nn.Dropout(proj_drop)
 
-        self.ap = ap
+        self.linear = linear
         self.sr_ratio = sr_ratio
-        if not ap:
+        if not linear:
             if sr_ratio > 1:
                 self.sr = nn.Conv2d(dim, dim, kernel_size=sr_ratio, stride=sr_ratio)
                 self.norm = nn.LayerNorm(dim)
@@ -99,7 +99,7 @@ class Attention(nn.Module):
         B, N, C = x.shape
         q = self.q(x).reshape(B, N, self.num_heads, C // self.num_heads).permute(0, 2, 1, 3)
 
-        if not self.ap:
+        if not self.linear:
             if self.sr_ratio > 1:
                 x_ = x.permute(0, 2, 1).reshape(B, C, H, W)
                 x_ = self.sr(x_).reshape(B, C, -1).permute(0, 2, 1)
@@ -129,18 +129,18 @@ class Attention(nn.Module):
 class Block(nn.Module):
 
     def __init__(self, dim, num_heads, mlp_ratio=4., qkv_bias=False, qk_scale=None, drop=0., attn_drop=0.,
-                 drop_path=0., act_layer=nn.GELU, norm_layer=nn.LayerNorm, sr_ratio=1, ap=False):
+                 drop_path=0., act_layer=nn.GELU, norm_layer=nn.LayerNorm, sr_ratio=1, linear=False):
         super().__init__()
         self.norm1 = norm_layer(dim)
         self.attn = Attention(
             dim,
             num_heads=num_heads, qkv_bias=qkv_bias, qk_scale=qk_scale,
-            attn_drop=attn_drop, proj_drop=drop, sr_ratio=sr_ratio, ap=ap)
+            attn_drop=attn_drop, proj_drop=drop, sr_ratio=sr_ratio, linear=linear)
         # NOTE: drop path for stochastic depth, we shall see if this is better than dropout here
         self.drop_path = DropPath(drop_path) if drop_path > 0. else nn.Identity()
         self.norm2 = norm_layer(dim)
         mlp_hidden_dim = int(dim * mlp_ratio)
-        self.mlp = Mlp(in_features=dim, hidden_features=mlp_hidden_dim, act_layer=act_layer, drop=drop, ap=ap)
+        self.mlp = Mlp(in_features=dim, hidden_features=mlp_hidden_dim, act_layer=act_layer, drop=drop, linear=linear)
 
         self.apply(self._init_weights)
 
@@ -213,7 +213,7 @@ class PyramidVisionTransformerV2(nn.Module):
     def __init__(self, img_size=224, patch_size=16, in_chans=3, num_classes=1000, embed_dims=[64, 128, 256, 512],
                  num_heads=[1, 2, 4, 8], mlp_ratios=[4, 4, 4, 4], qkv_bias=False, qk_scale=None, drop_rate=0.,
                  attn_drop_rate=0., drop_path_rate=0., norm_layer=nn.LayerNorm,
-                 depths=[3, 4, 6, 3], sr_ratios=[8, 4, 2, 1], num_stages=4, ap=False):
+                 depths=[3, 4, 6, 3], sr_ratios=[8, 4, 2, 1], num_stages=4, linear=False):
         super().__init__()
         self.num_classes = num_classes
         self.depths = depths
@@ -232,7 +232,7 @@ class PyramidVisionTransformerV2(nn.Module):
             block = nn.ModuleList([Block(
                 dim=embed_dims[i], num_heads=num_heads[i], mlp_ratio=mlp_ratios[i], qkv_bias=qkv_bias, qk_scale=qk_scale,
                 drop=drop_rate, attn_drop=attn_drop_rate, drop_path=dpr[cur + j], norm_layer=norm_layer,
-                sr_ratio=sr_ratios[i], ap=ap)
+                sr_ratio=sr_ratios[i], linear=linear)
                 for j in range(depths[i])])
             norm = norm_layer(embed_dims[i])
             cur += depths[i]
@@ -389,10 +389,10 @@ def pvt_v2_b5(pretrained=False, **kwargs):
 
 
 @register_model
-def pvt_v2_b2_ap(pretrained=False, **kwargs):
+def pvt_v2_b2_li(pretrained=False, **kwargs):
     model = PyramidVisionTransformerV2(
         patch_size=4, embed_dims=[64, 128, 320, 512], num_heads=[1, 2, 5, 8], mlp_ratios=[8, 8, 4, 4], qkv_bias=True,
-        norm_layer=partial(nn.LayerNorm, eps=1e-6), depths=[3, 4, 6, 3], sr_ratios=[8, 4, 2, 1], ap=True, **kwargs)
+        norm_layer=partial(nn.LayerNorm, eps=1e-6), depths=[3, 4, 6, 3], sr_ratios=[8, 4, 2, 1], linear=True, **kwargs)
     model.default_cfg = _cfg()
 
     return model
