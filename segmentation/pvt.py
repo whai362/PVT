@@ -129,92 +129,47 @@ class PatchEmbed(nn.Module):
 class PyramidVisionTransformer(nn.Module):
     def __init__(self, img_size=224, patch_size=16, in_chans=3, num_classes=1000, embed_dims=[64, 128, 256, 512],
                  num_heads=[1, 2, 4, 8], mlp_ratios=[4, 4, 4, 4], qkv_bias=False, qk_scale=None, drop_rate=0.,
-                 attn_drop_rate=0., drop_path_rate=0., norm_layer=nn.LayerNorm,
-                 depths=[3, 4, 6, 3], sr_ratios=[8, 4, 2, 1], F4=False):
+                 attn_drop_rate=0., drop_path_rate=0., norm_layer=nn.LayerNorm, depths=[3, 4, 6, 3],
+                 sr_ratios=[8, 4, 2, 1], num_stages=4, F4=False):
         super().__init__()
         self.num_classes = num_classes
         self.depths = depths
         self.F4 = F4
+        self.num_stages = num_stages
 
-        # patch_embed
-        self.patch_embed1 = PatchEmbed(img_size=img_size, patch_size=patch_size, in_chans=in_chans,
-                                       embed_dim=embed_dims[0])
-        self.patch_embed2 = PatchEmbed(img_size=img_size // 4, patch_size=2, in_chans=embed_dims[0],
-                                       embed_dim=embed_dims[1])
-        self.patch_embed3 = PatchEmbed(img_size=img_size // 8, patch_size=2, in_chans=embed_dims[1],
-                                       embed_dim=embed_dims[2])
-        self.patch_embed4 = PatchEmbed(img_size=img_size // 16, patch_size=2, in_chans=embed_dims[2],
-                                       embed_dim=embed_dims[3])
-
-        # pos_embed
-        self.pos_embed1 = nn.Parameter(torch.zeros(1, self.patch_embed1.num_patches, embed_dims[0]))
-        self.pos_drop1 = nn.Dropout(p=drop_rate)
-        self.pos_embed2 = nn.Parameter(torch.zeros(1, self.patch_embed2.num_patches, embed_dims[1]))
-        self.pos_drop2 = nn.Dropout(p=drop_rate)
-        self.pos_embed3 = nn.Parameter(torch.zeros(1, self.patch_embed3.num_patches, embed_dims[2]))
-        self.pos_drop3 = nn.Dropout(p=drop_rate)
-        self.pos_embed4 = nn.Parameter(torch.zeros(1, self.patch_embed4.num_patches + 1, embed_dims[3]))
-        self.pos_drop4 = nn.Dropout(p=drop_rate)
-
-        # transformer encoder
         dpr = [x.item() for x in torch.linspace(0, drop_path_rate, sum(depths))]  # stochastic depth decay rule
         cur = 0
-        self.block1 = nn.ModuleList([Block(
-            dim=embed_dims[0], num_heads=num_heads[0], mlp_ratio=mlp_ratios[0], qkv_bias=qkv_bias, qk_scale=qk_scale,
-            drop=drop_rate, attn_drop=attn_drop_rate, drop_path=dpr[cur + i], norm_layer=norm_layer,
-            sr_ratio=sr_ratios[0])
-            for i in range(depths[0])])
 
-        cur += depths[0]
-        self.block2 = nn.ModuleList([Block(
-            dim=embed_dims[1], num_heads=num_heads[1], mlp_ratio=mlp_ratios[1], qkv_bias=qkv_bias, qk_scale=qk_scale,
-            drop=drop_rate, attn_drop=attn_drop_rate, drop_path=dpr[cur + i], norm_layer=norm_layer,
-            sr_ratio=sr_ratios[1])
-            for i in range(depths[1])])
+        for i in range(num_stages):
+            patch_embed = PatchEmbed(img_size=img_size if i == 0 else img_size // (2 ** (i + 1)),
+                                     patch_size=patch_size if i == 0 else 2,
+                                     in_chans=in_chans if i == 0 else embed_dims[i - 1],
+                                     embed_dim=embed_dims[i])
+            num_patches = patch_embed.num_patches if i != num_stages - 1 else patch_embed.num_patches + 1
+            pos_embed = nn.Parameter(torch.zeros(1, num_patches, embed_dims[i]))
+            pos_drop = nn.Dropout(p=drop_rate)
 
-        cur += depths[1]
-        self.block3 = nn.ModuleList([Block(
-            dim=embed_dims[2], num_heads=num_heads[2], mlp_ratio=mlp_ratios[2], qkv_bias=qkv_bias, qk_scale=qk_scale,
-            drop=drop_rate, attn_drop=attn_drop_rate, drop_path=dpr[cur + i], norm_layer=norm_layer,
-            sr_ratio=sr_ratios[2])
-            for i in range(depths[2])])
+            block = nn.ModuleList([Block(
+                dim=embed_dims[i], num_heads=num_heads[i], mlp_ratio=mlp_ratios[i], qkv_bias=qkv_bias,
+                qk_scale=qk_scale, drop=drop_rate, attn_drop=attn_drop_rate, drop_path=dpr[cur + j],
+                norm_layer=norm_layer, sr_ratio=sr_ratios[i])
+                for j in range(depths[i])])
+            cur += depths[i]
 
-        cur += depths[2]
-        self.block4 = nn.ModuleList([Block(
-            dim=embed_dims[3], num_heads=num_heads[3], mlp_ratio=mlp_ratios[3], qkv_bias=qkv_bias, qk_scale=qk_scale,
-            drop=drop_rate, attn_drop=attn_drop_rate, drop_path=dpr[cur + i], norm_layer=norm_layer,
-            sr_ratio=sr_ratios[3])
-            for i in range(depths[3])])
+            setattr(self, f"patch_embed{i + 1}", patch_embed)
+            setattr(self, f"pos_embed{i + 1}", pos_embed)
+            setattr(self, f"pos_drop{i + 1}", pos_drop)
+            setattr(self, f"block{i + 1}", block)
+
+            trunc_normal_(pos_embed, std=.02)
 
         # init weights
-        trunc_normal_(self.pos_embed1, std=.02)
-        trunc_normal_(self.pos_embed2, std=.02)
-        trunc_normal_(self.pos_embed3, std=.02)
-        trunc_normal_(self.pos_embed4, std=.02)
         self.apply(self._init_weights)
 
     def init_weights(self, pretrained=None):
         if isinstance(pretrained, str):
             logger = get_root_logger()
             load_checkpoint(self, pretrained, map_location='cpu', strict=False, logger=logger)
-
-    def reset_drop_path(self, drop_path_rate):
-        dpr = [x.item() for x in torch.linspace(0, drop_path_rate, sum(self.depths))]
-        cur = 0
-        for i in range(self.depths[0]):
-            self.block1[i].drop_path.drop_prob = dpr[cur + i]
-
-        cur += self.depths[0]
-        for i in range(self.depths[1]):
-            self.block2[i].drop_path.drop_prob = dpr[cur + i]
-
-        cur += self.depths[1]
-        for i in range(self.depths[2]):
-            self.block3[i].drop_path.drop_prob = dpr[cur + i]
-
-        cur += self.depths[2]
-        for i in range(self.depths[3]):
-            self.block4[i].drop_path.drop_prob = dpr[cur + i]
 
     def _init_weights(self, m):
         if isinstance(m, nn.Linear):
@@ -238,45 +193,22 @@ class PyramidVisionTransformer(nn.Module):
 
         B = x.shape[0]
 
-        # stage 1
-        x, (H, W) = self.patch_embed1(x)
-        pos_embed1 = self._get_pos_embed(self.pos_embed1, self.patch_embed1, H, W)
-        x = x + pos_embed1
-        x = self.pos_drop1(x)
-        for blk in self.block1:
-            x = blk(x, H, W)
-        x = x.reshape(B, H, W, -1).permute(0, 3, 1, 2).contiguous()
-        outs.append(x)
+        for i in range(self.num_stages):
+            patch_embed = getattr(self, f"patch_embed{i + 1}")
+            pos_embed = getattr(self, f"pos_embed{i + 1}")
+            pos_drop = getattr(self, f"pos_drop{i + 1}")
+            block = getattr(self, f"block{i + 1}")
+            x, (H, W) = patch_embed(x)
+            if i == self.num_stages - 1:
+                pos_embed = self._get_pos_embed(pos_embed[:, 1:], patch_embed, H, W)
+            else:
+                pos_embed = self._get_pos_embed(pos_embed, patch_embed, H, W)
 
-        # stage 2
-        x, (H, W) = self.patch_embed2(x)
-        pos_embed2 = self._get_pos_embed(self.pos_embed2, self.patch_embed2, H, W)
-        x = x + pos_embed2
-        x = self.pos_drop2(x)
-        for blk in self.block2:
-            x = blk(x, H, W)
-        x = x.reshape(B, H, W, -1).permute(0, 3, 1, 2).contiguous()
-        outs.append(x)
-
-        # stage 3
-        x, (H, W) = self.patch_embed3(x)
-        pos_embed3 = self._get_pos_embed(self.pos_embed3, self.patch_embed3, H, W)
-        x = x + pos_embed3
-        x = self.pos_drop3(x)
-        for blk in self.block3:
-            x = blk(x, H, W)
-        x = x.reshape(B, H, W, -1).permute(0, 3, 1, 2).contiguous()
-        outs.append(x)
-
-        # stage 4
-        x, (H, W) = self.patch_embed4(x)
-        pos_embed4 = self._get_pos_embed(self.pos_embed4[:, 1:], self.patch_embed4, H, W)
-        x = x + pos_embed4
-        x = self.pos_drop4(x)
-        for blk in self.block4:
-            x = blk(x, H, W)
-        x = x.reshape(B, H, W, -1).permute(0, 3, 1, 2).contiguous()
-        outs.append(x)
+            x = pos_drop(x + pos_embed)
+            for blk in block:
+                x = blk(x, H, W)
+            x = x.reshape(B, H, W, -1).permute(0, 3, 1, 2).contiguous()
+            outs.append(x)
 
         return outs
 

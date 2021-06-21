@@ -129,8 +129,8 @@ class PatchEmbed(nn.Module):
 class PyramidVisionTransformer(nn.Module):
     def __init__(self, img_size=224, patch_size=16, in_chans=3, num_classes=1000, embed_dims=[64, 128, 256, 512],
                  num_heads=[1, 2, 4, 8], mlp_ratios=[4, 4, 4, 4], qkv_bias=False, qk_scale=None, drop_rate=0.,
-                 attn_drop_rate=0., drop_path_rate=0., norm_layer=nn.LayerNorm,
-                 depths=[3, 4, 6, 3], sr_ratios=[8, 4, 2, 1], F4=False, num_stages=4, pretrained=None):
+                 attn_drop_rate=0., drop_path_rate=0., norm_layer=nn.LayerNorm, depths=[3, 4, 6, 3],
+                 sr_ratios=[8, 4, 2, 1], F4=False, num_stages=4, pretrained=None):
         super().__init__()
         self.depths = depths
         self.F4 = F4
