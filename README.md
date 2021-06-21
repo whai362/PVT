@@ -96,7 +96,7 @@ We provide baseline PVT and PVT-V2 models pretrained on ImageNet 2012.
 | PVT-Large | 81.7 | 61.4 | [234M](https://drive.google.com/file/d/1C07_swTQeWvppIzQrl_0H7UDk4SsalkJ/view?usp=sharing) |
 | PVT-V2-B0 | 70.5 | 3.4 | [14M](https://drive.google.com/file/d/1qnqChpm93vtXULeTuCT_0mJ2ZKIDc-Qo/view?usp=sharing) |
 | PVT-V2-B1 | 78.7 | 13.1 | [54M](https://drive.google.com/file/d/1aM0KFE3f-qIpP3xfhihlULF0-NNuk1m7/view?usp=sharing) |
-| PVT-V2-B2-Li | 82.1 | 22.6 | Todo. |
+| PVT-V2-B2-Li | 82.1 | 22.6 | [86M](https://drive.google.com/file/d/1_HOJJCIGMMg6RztYAgzbTUge0m28rkZw/view?usp=sharing) |
 | PVT-V2-B2 | 82.0 | 25.4 | [97M](https://drive.google.com/file/d/1snw4TYUCD5z4d3aaId1iBdw-yUKjRmPC/view?usp=sharing) |
 | PVT-V2-B3 | 83.1 | 45.2 | [173M](https://drive.google.com/file/d/1PzTobv3pu5R3nb3V3lF6_DVnRDBtSmmS/view?usp=sharing) |
 | PVT-V2-B4 | 83.6 | 62.6 | [239M](https://drive.google.com/file/d/1LW-0CFHulqeIxV2cai45t-FyLNKGc5l0/view?usp=sharing) |
