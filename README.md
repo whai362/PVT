@@ -96,11 +96,11 @@ We provide baseline PVT and PVT-V2 models pretrained on ImageNet 2012.
 | PVT-Large | 81.7 | 61.4 | [config](configs/pvt/pvt_large.py) | [234M](https://drive.google.com/file/d/1C07_swTQeWvppIzQrl_0H7UDk4SsalkJ/view?usp=sharing) |
 | PVT-V2-B0 | 70.5 | 3.4 | [config](configs/pvt_v2/pvt_v2_b0.py) | [14M](https://drive.google.com/file/d/1qnqChpm93vtXULeTuCT_0mJ2ZKIDc-Qo/view?usp=sharing) |
 | PVT-V2-B1 | 78.7 | 13.1 | [config](configs/pvt_v2/pvt_v2_b1.py) | [54M](https://drive.google.com/file/d/1aM0KFE3f-qIpP3xfhihlULF0-NNuk1m7/view?usp=sharing) |
-| PVT-V2-B2-Li | 82.1 | 22.6 | [config](configs/pvt_v2/pvt_v2_b2.py) | [86M](https://drive.google.com/file/d/1_HOJJCIGMMg6RztYAgzbTUge0m28rkZw/view?usp=sharing) |
-| PVT-V2-B2 | 82.0 | 25.4 | [config](configs/pvt_v2/pvt_v2_b3.py) | [97M](https://drive.google.com/file/d/1snw4TYUCD5z4d3aaId1iBdw-yUKjRmPC/view?usp=sharing) |
-| PVT-V2-B3 | 83.1 | 45.2 | [config](configs/pvt_v2/pvt_v2_b4.py) | [173M](https://drive.google.com/file/d/1PzTobv3pu5R3nb3V3lF6_DVnRDBtSmmS/view?usp=sharing) |
-| PVT-V2-B4 | 83.6 | 62.6 | [config](configs/pvt_v2/pvt_v2_b5.py) | [239M](https://drive.google.com/file/d/1LW-0CFHulqeIxV2cai45t-FyLNKGc5l0/view?usp=sharing) |
-| PVT-V2-B5 | 83.8 | 82.0 | [313M](https://drive.google.com/file/d/1TKQIdpOFoFs9H6aApUNJKDUK95l_gWy0/view?usp=sharing) |
+| PVT-V2-B2-Li | 82.1 | 22.6 | [config](configs/pvt_v2/pvt_v2_b2_li.py) | [86M](https://drive.google.com/file/d/1_HOJJCIGMMg6RztYAgzbTUge0m28rkZw/view?usp=sharing) |
+| PVT-V2-B2 | 82.0 | 25.4 | [config](configs/pvt_v2/pvt_v2_b2.py) | [97M](https://drive.google.com/file/d/1snw4TYUCD5z4d3aaId1iBdw-yUKjRmPC/view?usp=sharing) |
+| PVT-V2-B3 | 83.1 | 45.2 | [config](configs/pvt_v2/pvt_v2_b3.py) | [173M](https://drive.google.com/file/d/1PzTobv3pu5R3nb3V3lF6_DVnRDBtSmmS/view?usp=sharing) |
+| PVT-V2-B4 | 83.6 | 62.6 | [config](configs/pvt_v2/pvt_v2_b4.py) | [239M](https://drive.google.com/file/d/1LW-0CFHulqeIxV2cai45t-FyLNKGc5l0/view?usp=sharing) |
+| PVT-V2-B5 | 83.8 | 82.0 | [config](configs/pvt_v2/pvt_v2_b5.py) | [313M](https://drive.google.com/file/d/1TKQIdpOFoFs9H6aApUNJKDUK95l_gWy0/view?usp=sharing) |
 
 ## Evaluation
 To evaluate a pre-trained PVT-Small on ImageNet val with a single GPU run:
