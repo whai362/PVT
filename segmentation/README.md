@@ -27,16 +27,16 @@ Install MMSegmentation.
 
 First, prepare ADE20K according to the guidelines in MMSegmentation.
 
-Then, download the [weights](https://github.com/whai362/PVT/blob/main/README.md) pretrained on ImageNet, and put them in a folder `pretrained/`
+Then, download the [weights](../README.md) pretrained on ImageNet, and put them in a folder `pretrained/`
 
 ## Results and models
 
 |    Backbone     | Iters | mIoU(code) | mIoU(paper) | Config | Download  |
 | :-------------: | :-----: | :-----: | :------: | :------------: | :----: |
-|    PVT-Tiny + Semantic FPN    | 40K | 36.6    | 35.7 |  [config](https://github.com/whai362/PVT/blob/main/segmentation/configs/sem_fpn/PVT/fpn_pvt_t_ade20k_40k.py)  | [model&log](https://drive.google.com/drive/folders/18O7n7vi9WzD9DkuHFvFZSF31QVaKZ4AS?usp=sharing) |
-|    PVT-Small + Semantic FPN   | 40K | 41.9    | 39.8 |  [config](https://github.com/whai362/PVT/blob/main/segmentation/configs/sem_fpn/PVT/fpn_pvt_s_ade20k_40k.py)  | [model&log](https://drive.google.com/drive/folders/18O7n7vi9WzD9DkuHFvFZSF31QVaKZ4AS?usp=sharing) |
-|    PVT-Medium + Semantic FPN  | 40K | 43.5    | 41.6 |  [config](https://github.com/whai362/PVT/blob/main/segmentation/configs/sem_fpn/PVT/fpn_pvt_m_ade20k_40k.py)  | [model&log](https://drive.google.com/drive/folders/18O7n7vi9WzD9DkuHFvFZSF31QVaKZ4AS?usp=sharing) |
-|    PVT-Large + Semantic FPN   | 40K | 43.5    | 42.1 |  [config](https://github.com/whai362/PVT/blob/main/segmentation/configs/sem_fpn/PVT/fpn_pvt_l_ade20k_40k.py)  | [model&log](https://drive.google.com/drive/folders/18O7n7vi9WzD9DkuHFvFZSF31QVaKZ4AS?usp=sharing) |
+|    PVT-Tiny + Semantic FPN    | 40K | 36.6    | 35.7 |  [config](configs/sem_fpn/PVT/fpn_pvt_t_ade20k_40k.py)  | [model&log](https://drive.google.com/drive/folders/18O7n7vi9WzD9DkuHFvFZSF31QVaKZ4AS?usp=sharing) |
+|    PVT-Small + Semantic FPN   | 40K | 41.9    | 39.8 |  [config](configs/sem_fpn/PVT/fpn_pvt_s_ade20k_40k.py)  | [model&log](https://drive.google.com/drive/folders/18O7n7vi9WzD9DkuHFvFZSF31QVaKZ4AS?usp=sharing) |
+|    PVT-Medium + Semantic FPN  | 40K | 43.5    | 41.6 |  [config](configs/sem_fpn/PVT/fpn_pvt_m_ade20k_40k.py)  | [model&log](https://drive.google.com/drive/folders/18O7n7vi9WzD9DkuHFvFZSF31QVaKZ4AS?usp=sharing) |
+|    PVT-Large + Semantic FPN   | 40K | 43.5    | 42.1 |  [config](configs/sem_fpn/PVT/fpn_pvt_l_ade20k_40k.py)  | [model&log](https://drive.google.com/drive/folders/18O7n7vi9WzD9DkuHFvFZSF31QVaKZ4AS?usp=sharing) |
 
 ## Evaluation
 To evaluate PVT-Small + Semantic FPN on a single node with 8 gpus run:
