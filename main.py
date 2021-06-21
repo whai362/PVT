@@ -394,8 +394,8 @@ def main(args):
             args.fp32_resume = False
         loss_scaler._scaler = torch.cuda.amp.GradScaler(enabled=not args.fp32_resume)
 
-        if epoch == max_epoch_dp_warm_up:
-            model_without_ddp.reset_drop_path(args.drop_path)
+        # if epoch == max_epoch_dp_warm_up:
+        #     model_without_ddp.reset_drop_path(args.drop_path)
 
         if args.distributed:
             data_loader_train.sampler.set_epoch(epoch)
