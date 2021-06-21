@@ -1,7 +1,8 @@
-## News
-- (21/06/2020) Code of PVTv2 is released! Better classification/detection performance than Swin.
-
 # Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions
+
+## News
+- (21/06/2020) Code of PVTv2 is released! PVTv2 has stronger classification/detection performance than Swin.
+
 
 This repository contains PyTorch evaluation code, training code and pretrained models for PVT (Pyramid Vision Transformer).
 
