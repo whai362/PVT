@@ -70,35 +70,42 @@ The directory structure is the standard layout for the torchvision [`datasets.Im
 
 ### Object Detection 
 
-Detection configs & models see [here](https://github.com/whai362/PVT/tree/main/detection).
+Detection configs & models see [here](detection/).
 
 |    Method   | Lr schd | box AP | mask AP | Config | Download  |
 | :-------------: | :-----: | :-----: | :------: | :------------: | :----: |
-|    PVT-Tiny + RetinaNet (800x)  | 1x | 36.7    | - | [config](https://github.com/whai362/PVT/blob/main/detection/configs/retinanet_pvt_t_fpn_1x_coco.py)  | Todo. |
-|    PVT-Small + RetinaNet (640x)  | 1x | 38.7    | - |  [config](https://github.com/whai362/PVT/blob/main/detection/configs/retinanet_pvt_s_fpn_1x_coco_640.py)  | [model](https://drive.google.com/file/d/1L5wh2rYsVnuC_CEeFE6yMhU1kENt2gnk/view?usp=sharing) |
-|    PVT-Small + RetinaNet (800x)  | 1x | 40.4    | - | [config](https://github.com/whai362/PVT/blob/main/detection/configs/retinanet_pvt_s_fpn_1x_coco.py)  | [model](https://drive.google.com/file/d/1U02ngyT_IYxS8SlU3WXf5r0TFsoBE3Lm/view?usp=sharing) |
-|    R50 + DETR  | 50ep | 32.3  | - | [config](https://github.com/whai362/PVT/blob/main/detection/configs/detr_r50_8x2_50ep_coco_baseline.py)  | Todo. |
-|    PVT-Small + DETR  | 50ep | 34.7    | - | [config](https://github.com/whai362/PVT/blob/main/detection/configs/detr_pvt_s_8x2_50ep_coco.py)  | Todo. |
-|    R50 + DETR  | 50ep | 32.3  | - | [config](https://github.com/whai362/PVT/blob/main/detection/configs/detr_r50_8x2_50ep_coco_baseline.py)  | Todo. |
-|    PVT-Tiny + Mask RCNN  | 1x | 36.7    | 35.1 | [config](https://github.com/whai362/PVT/blob/main/detection/configs/mask_rcnn_pvt_t_fpn_1x_coco.py)  | Todo. |
-|    PVT-Small + Mask RCNN  | 1x | 40.4    | 37.8 | [config](https://github.com/whai362/PVT/blob/main/detection/configs/mask_rcnn_pvt_s_fpn_1x_coco.py)  | Todo. |
+|    PVT-Tiny + RetinaNet (800x)  | 1x | 36.7    | - | [config](detection/configs/retinanet_pvt_t_fpn_1x_coco.py)  | Todo. |
+|    PVT-Small + RetinaNet (640x)  | 1x | 38.7    | - |  [config](detection/configs/retinanet_pvt_s_fpn_1x_coco_640.py)  | [model](https://drive.google.com/file/d/1L5wh2rYsVnuC_CEeFE6yMhU1kENt2gnk/view?usp=sharing) |
+|    PVT-Small + RetinaNet (800x)  | 1x | 40.4    | - | [config](detection/configs/retinanet_pvt_s_fpn_1x_coco.py)  | [model](https://drive.google.com/file/d/1U02ngyT_IYxS8SlU3WXf5r0TFsoBE3Lm/view?usp=sharing) |
+|    R50 + DETR  | 50ep | 32.3  | - | [config](detection/configs/detr_r50_8x2_50ep_coco_baseline.py)  | Todo. |
+|    PVT-Small + DETR  | 50ep | 34.7    | - | [config](detection/configs/detr_pvt_s_8x2_50ep_coco.py)  | Todo. |
+|    R50 + DETR  | 50ep | 32.3  | - | [config](detection/configs/detr_r50_8x2_50ep_coco_baseline.py)  | Todo. |
+|    PVT-Tiny + Mask RCNN  | 1x | 36.7    | 35.1 | [config](detection/configs/mask_rcnn_pvt_t_fpn_1x_coco.py)  | Todo. |
+|    PVT-Small + Mask RCNN  | 1x | 40.4    | 37.8 | [config](detection/configs/mask_rcnn_pvt_s_fpn_1x_coco.py)  | Todo. |
 
 
 ### Image Classification
 
-We provide baseline PVT models pretrained on ImageNet 2012.
+We provide baseline PVT and PVT-V2 models pretrained on ImageNet 2012.
 
 | name | acc@1 | #params (M) | url |
 | --- | --- | --- | --- |
-| PVT-Tiny | 75.1 | 13.2 | [51 M](https://drive.google.com/file/d/1NLw3hRJMoOQbUXAoftg8tUFCWuTwUIQz/view?usp=sharing), [PyTorch<=1.5](https://drive.google.com/file/d/1yau8uMRl-mnlTAUn4I7vypss3wjVltt5/view?usp=sharing) |
-| PVT-Small | 79.8 | 24.5 | [93 M](https://drive.google.com/file/d/1vtcyoU8KUqNzktlMGXZrYcMRsNNiVZFQ/view?usp=sharing), [PyTorch<=1.5](https://drive.google.com/file/d/1ds9Rb9wRh9IzGV0CZMM0hnS0QAM_qyIF/view?usp=sharing) |
+| PVT-Tiny | 75.1 | 13.2 | [51M](https://drive.google.com/file/d/1NLw3hRJMoOQbUXAoftg8tUFCWuTwUIQz/view?usp=sharing), [PyTorch<=1.5](https://drive.google.com/file/d/1yau8uMRl-mnlTAUn4I7vypss3wjVltt5/view?usp=sharing) |
+| PVT-Small | 79.8 | 24.5 | [93M](https://drive.google.com/file/d/1vtcyoU8KUqNzktlMGXZrYcMRsNNiVZFQ/view?usp=sharing), [PyTorch<=1.5](https://drive.google.com/file/d/1ds9Rb9wRh9IzGV0CZMM0hnS0QAM_qyIF/view?usp=sharing) |
 | PVT-Medium | 81.2 | 44.2 | [168M](https://drive.google.com/file/d/1c2EkzszygPET83h-w4eh-Ef4V_d1a8kw/view?usp=sharing) |
 | PVT-Large | 81.7 | 61.4 | [234M](https://drive.google.com/file/d/1C07_swTQeWvppIzQrl_0H7UDk4SsalkJ/view?usp=sharing) |
+| PVT-V2-B0 | 70.5 | 3.4 | [14M](https://drive.google.com/file/d/1qnqChpm93vtXULeTuCT_0mJ2ZKIDc-Qo/view?usp=sharing) |
+| PVT-V2-B1 | 78.7 | 13.1 | [54M](https://drive.google.com/file/d/1aM0KFE3f-qIpP3xfhihlULF0-NNuk1m7/view?usp=sharing) |
+| PVT-V2-B2-Li | 82.1 | 22.6 | Todo. |
+| PVT-V2-B2 | 82.0 | 25.4 | [97M](https://drive.google.com/file/d/1snw4TYUCD5z4d3aaId1iBdw-yUKjRmPC/view?usp=sharing) |
+| PVT-V2-B3 | 83.1 | 45.2 | [173M](https://drive.google.com/file/d/1PzTobv3pu5R3nb3V3lF6_DVnRDBtSmmS/view?usp=sharing) |
+| PVT-V2-B4 | 83.6 | 62.6 | [239M](https://drive.google.com/file/d/1LW-0CFHulqeIxV2cai45t-FyLNKGc5l0/view?usp=sharing) |
+| PVT-V2-B5 | 83.8 | 82.0 | [313M](https://drive.google.com/file/d/1TKQIdpOFoFs9H6aApUNJKDUK95l_gWy0/view?usp=sharing) |
 
 ## Evaluation
 To evaluate a pre-trained PVT-Small on ImageNet val with a single GPU run:
 ```
-sh dist_train.sh pvt_small 1 /path/to/checkpoint_root --data-path /path/to/imagenet --resume /path/to/checkpoint_file --eval
+sh dist_train.sh configs/pvt/pvt_small.py 1 --data-path /path/to/imagenet --resume /path/to/checkpoint_file --eval
 ```
 This should give
 ```
@@ -110,7 +117,7 @@ Accuracy of the network on the 50000 test images: 79.8%
 To train PVT-Small on ImageNet on a single node with 8 gpus for 300 epochs run:
 
 ```
-sh dist_train.sh pvt_small 8 /path/to/checkpoint_root --data-path /path/to/imagenet
+sh dist_train.sh configs/pvt/pvt_small.py 8 --data-path /path/to/imagenet
 ```
 
 ## License
