@@ -1,5 +1,5 @@
 # Updates
-- (21/06/2020) Code of PVTv2 is released! PVTv2 has stronger classification/detection performance than Swin.
+- (21/06/2020) Code of PVTv2 is released! PVTv2 largely improves PVTv1 and also being better than Swin Transformer on ImageNet-1K. Paper will be released recently.
 
 # Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions
 
@@ -36,6 +36,7 @@ If you use this code for a paper please cite:
 
 ## Todo List
 - PVT + DETR/[Sparse R-CNN](https://github.com/PeizeSun/SparseR-CNN) config & models
+- PVT + ImageNet-22K pre-training.
 
 ## Usage
 
@@ -89,7 +90,7 @@ Detection configs & models see [here](detection/).
 
 ### Image Classification
 
-We provide baseline PVT and PVT-V2 models pretrained on ImageNet 2012.
+We provide baseline PVT and PVT-V2 models pretrained on ImageNet-1K.
 
 | name | acc@1 | #params (M) | Config | url |
 | --- | --- | --- | --- | --- |
