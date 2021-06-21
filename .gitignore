@@ -16,3 +16,5 @@ tmp/
 tmp**
 arun_log/
 segmentation/work_dirs
+
+.idea/
