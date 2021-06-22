@@ -17,6 +17,7 @@ from mmdet.datasets import (build_dataloader, build_dataset,
                             replace_ImageToTensor)
 from mmdet.models import build_detector
 import pvt
+import pvt_v2
 
 def parse_args():
     parser = argparse.ArgumentParser(
