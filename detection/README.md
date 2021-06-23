@@ -65,6 +65,19 @@ Then, download the [weights pretrained on ImageNet](../classification/README.md)
 |    PVTv2-b4 + Mask R-CNN  | 1x | 47.5    | 42.7 | [config](configs/mask_rcnn_pvtv2_b4_fpn_1x_coco.py)  | Todo. |
 |    PVTv2-b5 + Mask R-CNN  | 1x | 47.4    | 42.5 | [config](configs/mask_rcnn_pvtv2_b5_fpn_1x_coco.py)  | Todo. |
 
+
+|    Method   | Lr schd | box AP | mask AP | Config | Download  |
+| :-------------: | :-----: | :-----: | :------: | :------------: | :----: |
+|    PVTv2-b2-Linear + Cascade R-CNN  | 1x | 50.9    | - | [config]()  | Todo. |
+|    PVTv2-b2 + Cascade R-CNN  | 1x | 51.1    | - | [config]()  | Todo. |
+|    PVTv2-b2-Linear + ATSS  | 1x | 48.9    | - | [config]()  | Todo. |
+|    PVTv2-b2 + ATSS  | 1x | 49.9    | - | [config]()  | Todo. |
+|    PVTv2-b2-Linear + GFL  | 1x | 49.2    | - | [config]()  | Todo. |
+|    PVTv2-b2 + GFL  | 1x | 50.2   | - | [config]()  | Todo. |
+|    PVTv2-b2-Linear + Sparse R-CNN  | 1x | 48.9    | - | [config]()  | Todo. |
+|    PVTv2-b2 + Sparse R-CNN  | 1x | 50.1  | - | [config]()  | Todo. |
+
+
 ## Evaluation
 To evaluate PVT-Small + RetinaNet (640x) on COCO val2017 on a single node with 8 gpus run:
 ```
