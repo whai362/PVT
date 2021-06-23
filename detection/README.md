@@ -38,7 +38,7 @@ Then, download the [weights pretrained on ImageNet](../classification/README.md)
 
 |    Method   | Lr schd | box AP | mask AP | Config | Download  |
 | :-------------: | :-----: | :-----: | :------: | :------------: | :----: |
-|    PVT-Tiny + RetinaNet (800x)  | 1x | 36.7    | - | [config](configs/retinanet_pvt_t_fpn_1x_coco.py)  | Todo. |
+|    PVT-Tiny + RetinaNet  | 1x | 36.7    | - | [config](configs/retinanet_pvt_t_fpn_1x_coco.py)  | Todo. |
 |    PVT-Small + RetinaNet (640x)  | 1x | 38.7    | - |  [config](configs/retinanet_pvt_s_fpn_1x_coco_640.py)  | [model](https://drive.google.com/file/d/1L5wh2rYsVnuC_CEeFE6yMhU1kENt2gnk/view?usp=sharing) |
 |    PVT-Small + RetinaNet (800x)  | 1x | 40.4    | - | [config](configs/retinanet_pvt_s_fpn_1x_coco.py)  | [model](https://drive.google.com/file/d/1U02ngyT_IYxS8SlU3WXf5r0TFsoBE3Lm/view?usp=sharing) |
 |    PVT-Tiny + Mask RCNN  | 1x | 36.7    | 35.1 | [config](configs/mask_rcnn_pvt_t_fpn_1x_coco.py)  | Todo. |
