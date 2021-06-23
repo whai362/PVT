@@ -36,6 +36,8 @@ Then, download the [weights pretrained on ImageNet](../classification/README.md)
 
 ## Results and models
 
+- PVTv1 on COCO
+
 |    Method   | Lr schd | box AP | mask AP | Config | Download  |
 | :-------------: | :-----: | :-----: | :------: | :------------: | :----: |
 |    PVT-Tiny + RetinaNet  | 1x | 36.7    | - | [config](configs/retinanet_pvt_t_fpn_1x_coco.py)  | Todo. |
@@ -44,6 +46,24 @@ Then, download the [weights pretrained on ImageNet](../classification/README.md)
 |    PVT-Tiny + Mask RCNN  | 1x | 36.7    | 35.1 | [config](configs/mask_rcnn_pvt_t_fpn_1x_coco.py)  | Todo. |
 |    PVT-Small + Mask RCNN  | 1x | 40.4    | 37.8 | [config](configs/mask_rcnn_pvt_s_fpn_1x_coco.py)  | Todo. |
 |    PVT-Small + DETR  | 50ep | 34.7    | - | [config](configs/detr_pvt_s_8x2_50ep_coco.py)  | Todo. |
+
+- PVTv2 on COCO
+
+
+|    Method   | Lr schd | box AP | mask AP | Config | Download  |
+| :-------------: | :-----: | :-----: | :------: | :------------: | :----: |
+|    PVTv2-b0 + RetinaNet  | 1x | 37.2    | - | [config](configs/retinanet_pvtv2_b0_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b1 + RetinaNet  | 1x | 41.2    | - | [config](configs/retinanet_pvtv2_b1_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b2 + RetinaNet  | 1x | 44.6    | - | [config](configs/retinanet_pvtv2_b2_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b3 + RetinaNet  | 1x | 45.9    | - | [config](configs/retinanet_pvtv2_b3_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b4 + RetinaNet  | 1x | 46.1    | - | [config](configs/retinanet_pvtv2_b4_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b5 + RetinaNet  | 1x | 46.2    | - | [config](configs/retinanet_pvtv2_b5_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b0 + Mask R-CNN  | 1x | 38.2    | 36.2 | [config](configs/mask_rcnn_pvtv2_b0_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b1 + Mask R-CNN  | 1x | 41.8    | 38.8 | [config](configs/mask_rcnn_pvtv2_b1_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b2 + Mask R-CNN  | 1x | 45.3    | 41.2 | [config](configs/mask_rcnn_pvtv2_b2_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b3 + Mask R-CNN  | 1x | 47.0    | 42.5 | [config](configs/mask_rcnn_pvtv2_b3_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b4 + Mask R-CNN  | 1x | 47.5    | 42.7 | [config](configs/mask_rcnn_pvtv2_b4_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b5 + Mask R-CNN  | 1x | 47.4    | 42.5 | [config](configs/mask_rcnn_pvtv2_b5_fpn_1x_coco.py)  | Todo. |
 
 ## Evaluation
 To evaluate PVT-Small + RetinaNet (640x) on COCO val2017 on a single node with 8 gpus run:
