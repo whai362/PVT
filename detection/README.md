@@ -50,32 +50,32 @@ Then, download the [weights pretrained on ImageNet](../classification/README.md)
 - PVTv2 on COCO
 
 
-|    Method   | Lr schd | box AP | mask AP | Config | Download  |
-| :-------------: | :-----: | :-----: | :------: | :------------: | :----: |
-|    PVTv2-b0 + RetinaNet  | 1x | 37.2    | - | [config](configs/retinanet_pvtv2_b0_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b1 + RetinaNet  | 1x | 41.2    | - | [config](configs/retinanet_pvtv2_b1_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b2 + RetinaNet  | 1x | 44.6    | - | [config](configs/retinanet_pvtv2_b2_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b3 + RetinaNet  | 1x | 45.9    | - | [config](configs/retinanet_pvtv2_b3_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b4 + RetinaNet  | 1x | 46.1    | - | [config](configs/retinanet_pvtv2_b4_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b5 + RetinaNet  | 1x | 46.2    | - | [config](configs/retinanet_pvtv2_b5_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b0 + Mask R-CNN  | 1x | 38.2    | 36.2 | [config](configs/mask_rcnn_pvtv2_b0_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b1 + Mask R-CNN  | 1x | 41.8    | 38.8 | [config](configs/mask_rcnn_pvtv2_b1_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b2 + Mask R-CNN  | 1x | 45.3    | 41.2 | [config](configs/mask_rcnn_pvtv2_b2_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b3 + Mask R-CNN  | 1x | 47.0    | 42.5 | [config](configs/mask_rcnn_pvtv2_b3_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b4 + Mask R-CNN  | 1x | 47.5    | 42.7 | [config](configs/mask_rcnn_pvtv2_b4_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b5 + Mask R-CNN  | 1x | 47.4    | 42.5 | [config](configs/mask_rcnn_pvtv2_b5_fpn_1x_coco.py)  | Todo. |
+|    Method   | Lr schd | Aug | box AP | mask AP | Config | Download  |
+| :-------------: | :-----: | :-----: | :-----: | :------: | :------------: | :----: |
+|    PVTv2-b0 + RetinaNet  | 1x | No | 37.2    | - | [config](configs/retinanet_pvtv2_b0_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b1 + RetinaNet  | 1x | No | 41.2    | - | [config](configs/retinanet_pvtv2_b1_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b2 + RetinaNet  | 1x | No | 44.6    | - | [config](configs/retinanet_pvtv2_b2_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b3 + RetinaNet  | 1x | No | 45.9    | - | [config](configs/retinanet_pvtv2_b3_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b4 + RetinaNet  | 1x | No | 46.1    | - | [config](configs/retinanet_pvtv2_b4_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b5 + RetinaNet  | 1x | No | 46.2    | - | [config](configs/retinanet_pvtv2_b5_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b0 + Mask R-CNN  | 1x | No | 38.2    | 36.2 | [config](configs/mask_rcnn_pvtv2_b0_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b1 + Mask R-CNN  | 1x | No | 41.8    | 38.8 | [config](configs/mask_rcnn_pvtv2_b1_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b2 + Mask R-CNN  | 1x | No | 45.3    | 41.2 | [config](configs/mask_rcnn_pvtv2_b2_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b3 + Mask R-CNN  | 1x | No | 47.0    | 42.5 | [config](configs/mask_rcnn_pvtv2_b3_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b4 + Mask R-CNN  | 1x | No | 47.5    | 42.7 | [config](configs/mask_rcnn_pvtv2_b4_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b5 + Mask R-CNN  | 1x | No | 47.4    | 42.5 | [config](configs/mask_rcnn_pvtv2_b5_fpn_1x_coco.py)  | Todo. |
 
 
-|    Method   | Lr schd | box AP | mask AP | Config | Download  |
-| :-------------: | :-----: | :-----: | :------: | :------------: | :----: |
-|    PVTv2-b2-Linear + Cascade R-CNN  | 1x | 50.9    | - | [config]()  | Todo. |
-|    PVTv2-b2 + Cascade R-CNN  | 1x | 51.1    | - | [config]()  | Todo. |
-|    PVTv2-b2-Linear + ATSS  | 1x | 48.9    | - | [config]()  | Todo. |
-|    PVTv2-b2 + ATSS  | 1x | 49.9    | - | [config]()  | Todo. |
-|    PVTv2-b2-Linear + GFL  | 1x | 49.2    | - | [config]()  | Todo. |
-|    PVTv2-b2 + GFL  | 1x | 50.2   | - | [config]()  | Todo. |
-|    PVTv2-b2-Linear + Sparse R-CNN  | 1x | 48.9    | - | [config]()  | Todo. |
-|    PVTv2-b2 + Sparse R-CNN  | 1x | 50.1  | - | [config]()  | Todo. |
+|    Method   | Lr schd | Aug | box AP | mask AP | Config | Download  |
+| :-------------: | :-----: | :-----: | :-----: | :------: | :------------: | :----: |
+|    PVTv2-b2-Linear + Cascade R-CNN  | 3x | Yes | 50.9    | - | [config]()  | Todo. |
+|    PVTv2-b2 + Cascade R-CNN  | 3x | Yes | 51.1    | - | [config]()  | Todo. |
+|    PVTv2-b2-Linear + ATSS  | 3x | Yes | 48.9    | - | [config]()  | Todo. |
+|    PVTv2-b2 + ATSS  | 3x | Yes | 49.9    | - | [config]()  | Todo. |
+|    PVTv2-b2-Linear + GFL  | 3x | Yes |49.2    | - | [config]()  | Todo. |
+|    PVTv2-b2 + GFL  | 3x | Yes |50.2   | - | [config]()  | Todo. |
+|    PVTv2-b2-Linear + Sparse R-CNN  | 3x | Yes |48.9    | - | [config]()  | Todo. |
+|    PVTv2-b2 + Sparse R-CNN  | 3x |Yes | 50.1  | - | [config]()  | Todo. |
 
 
 ## Evaluation
