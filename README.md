@@ -20,7 +20,7 @@ If you use this code for a paper please cite:
 
 ### Image Classification
 
-Classification configs & models see [here](classification/).
+Classification configs & models see >>>[here]<<<(classification/).
 
 - PVTv1 on ImageNet-1K
 
