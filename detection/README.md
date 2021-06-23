@@ -1,6 +1,6 @@
 # Applying PVT to Object Detection
 
-Here, we take [MMDetection v2.13.0](https://github.com/open-mmlab/mmdetection/tree/v2.13.0) as an example, applying PVT to RetinaNet and Mask R-CNN.
+Our detection code is developed on top of [MMDetection v2.13.0](https://github.com/open-mmlab/mmdetection/tree/v2.13.0).
 
 For details see [Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions](https://arxiv.org/pdf/2102.12122.pdf). 
 
@@ -19,6 +19,8 @@ If you use this code for a paper please cite:
 
 ## Todo List
 - PVT-Medium/-Large + RetinaNet/Mask R-CNN
+- PVTv2-b0/b1/b2/b3/b4/b5 + RetinaNet/Mask R-CNN
+- PVTv2-b2 + Sparse R-CNN/Cascade R-CNN/GFL/ATSS
 
 
 ## Usage
@@ -30,20 +32,51 @@ Install [MMDetection v2.13.0](https://github.com/open-mmlab/mmdetection/tree/v2.
 
 First, prepare COCO according to the guidelines in [MMDetection v2.13.0](https://github.com/open-mmlab/mmdetection/tree/v2.13.0).
 
-Then, download the [weights](../README.md) pretrained on ImageNet, and put them in a folder `pretrained/`
+Then, download the [weights pretrained on ImageNet](../classification/README.md), and put them in a folder `pretrained/`
 
 ## Results and models
 
+- PVTv1 on COCO
+
 |    Method   | Lr schd | box AP | mask AP | Config | Download  |
 | :-------------: | :-----: | :-----: | :------: | :------------: | :----: |
-|    PVT-Tiny + RetinaNet (800x)  | 1x | 36.7    | - | [config](configs/retinanet_pvt_t_fpn_1x_coco.py)  | Todo. |
+|    PVT-Tiny + RetinaNet  | 1x | 36.7    | - | [config](configs/retinanet_pvt_t_fpn_1x_coco.py)  | Todo. |
 |    PVT-Small + RetinaNet (640x)  | 1x | 38.7    | - |  [config](configs/retinanet_pvt_s_fpn_1x_coco_640.py)  | [model](https://drive.google.com/file/d/1L5wh2rYsVnuC_CEeFE6yMhU1kENt2gnk/view?usp=sharing) |
 |    PVT-Small + RetinaNet (800x)  | 1x | 40.4    | - | [config](configs/retinanet_pvt_s_fpn_1x_coco.py)  | [model](https://drive.google.com/file/d/1U02ngyT_IYxS8SlU3WXf5r0TFsoBE3Lm/view?usp=sharing) |
-|    R50 + DETR  | 50ep | 32.3  | - | [config](configs/detr_r50_8x2_50ep_coco_baseline.py)  | Todo. |
-|    PVT-Small + DETR  | 50ep | 34.7    | - | [config](configs/detr_pvt_s_8x2_50ep_coco.py)  | Todo. |
-|    R50 + DETR  | 50ep | 32.3  | - | [config](configs/detr_r50_8x2_50ep_coco_baseline.py)  | Todo. |
 |    PVT-Tiny + Mask RCNN  | 1x | 36.7    | 35.1 | [config](configs/mask_rcnn_pvt_t_fpn_1x_coco.py)  | Todo. |
 |    PVT-Small + Mask RCNN  | 1x | 40.4    | 37.8 | [config](configs/mask_rcnn_pvt_s_fpn_1x_coco.py)  | Todo. |
+|    PVT-Small + DETR  | 50ep | 34.7    | - | [config](configs/detr_pvt_s_8x2_50ep_coco.py)  | Todo. |
+
+- PVTv2 on COCO
+
+
+|    Method   | Lr schd | Aug | box AP | mask AP | Config | Download  |
+| :-------------: | :-----: | :-----: | :-----: | :------: | :------------: | :----: |
+|    PVTv2-b0 + RetinaNet  | 1x | No | 37.2    | - | [config](configs/retinanet_pvtv2_b0_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b1 + RetinaNet  | 1x | No | 41.2    | - | [config](configs/retinanet_pvtv2_b1_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b2 + RetinaNet  | 1x | No | 44.6    | - | [config](configs/retinanet_pvtv2_b2_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b3 + RetinaNet  | 1x | No | 45.9    | - | [config](configs/retinanet_pvtv2_b3_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b4 + RetinaNet  | 1x | No | 46.1    | - | [config](configs/retinanet_pvtv2_b4_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b5 + RetinaNet  | 1x | No | 46.2    | - | [config](configs/retinanet_pvtv2_b5_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b0 + Mask R-CNN  | 1x | No | 38.2    | 36.2 | [config](configs/mask_rcnn_pvtv2_b0_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b1 + Mask R-CNN  | 1x | No | 41.8    | 38.8 | [config](configs/mask_rcnn_pvtv2_b1_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b2 + Mask R-CNN  | 1x | No | 45.3    | 41.2 | [config](configs/mask_rcnn_pvtv2_b2_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b3 + Mask R-CNN  | 1x | No | 47.0    | 42.5 | [config](configs/mask_rcnn_pvtv2_b3_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b4 + Mask R-CNN  | 1x | No | 47.5    | 42.7 | [config](configs/mask_rcnn_pvtv2_b4_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b5 + Mask R-CNN  | 1x | No | 47.4    | 42.5 | [config](configs/mask_rcnn_pvtv2_b5_fpn_1x_coco.py)  | Todo. |
+
+
+|    Method   | Lr schd | Aug | box AP | mask AP | Config | Download  |
+| :-------------: | :-----: | :-----: | :-----: | :------: | :------------: | :----: |
+|    PVTv2-b2-Linear + Cascade R-CNN  | 3x | Yes | 50.9    | - | [config]()  | Todo. |
+|    PVTv2-b2 + Cascade R-CNN  | 3x | Yes | 51.1    | - | [config]()  | Todo. |
+|    PVTv2-b2-Linear + ATSS  | 3x | Yes | 48.9    | - | [config]()  | Todo. |
+|    PVTv2-b2 + ATSS  | 3x | Yes | 49.9    | - | [config]()  | Todo. |
+|    PVTv2-b2-Linear + GFL  | 3x | Yes |49.2    | - | [config]()  | Todo. |
+|    PVTv2-b2 + GFL  | 3x | Yes |50.2   | - | [config]()  | Todo. |
+|    PVTv2-b2-Linear + Sparse R-CNN  | 3x | Yes |48.9    | - | [config]()  | Todo. |
+|    PVTv2-b2 + Sparse R-CNN  | 3x |Yes | 50.1  | - | [config]()  | Todo. |
+
 
 ## Evaluation
 To evaluate PVT-Small + RetinaNet (640x) on COCO val2017 on a single node with 8 gpus run:
