@@ -13,8 +13,10 @@ tmp/
 **/work_dirs/
 **/results.pkl
 **/arun_log/
+**/checkpoints/
+**/tmp/
 tmp**
 arun_log/
 segmentation/work_dirs
-
+.*
 .idea/

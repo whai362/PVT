@@ -1,7 +1,8 @@
-# Updates
-- (21/06/2020) Code of PVTv2 is released! PVTv2 largely improves PVTv1 and also being better than Swin Transformer on classification/object detection with ImageNet-1K pre-training. Paper will be released recently.
-
 # Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions
+
+Our classification code is developed on top of [pytorch-image-models](https://github.com/rwightman/pytorch-image-models) and [deit](https://github.com/facebookresearch/deit).
+
+For details see [Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions](https://arxiv.org/pdf/2102.12122.pdf). 
 
 If you use this code for a paper please cite:
 
@@ -16,11 +17,43 @@ If you use this code for a paper please cite:
 }
 ```
 
+
+## Todo List
+- PVT + ImageNet-22K pre-training.
+
+## Usage
+
+First, clone the repository locally:
+```
+git clone https://github.com/whai362/PVT.git
+```
+Then, install PyTorch 1.6.0+ and torchvision 0.7.0+ and [pytorch-image-models 0.3.2](https://github.com/rwightman/pytorch-image-models):
+
+```
+conda install -c pytorch pytorch torchvision
+pip install timm==0.3.2
+```
+
+## Data preparation
+
+Download and extract ImageNet train and val images from http://image-net.org/.
+The directory structure is the standard layout for the torchvision [`datasets.ImageFolder`](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder), and the training and validation data is expected to be in the `train/` folder and `val` folder respectively:
+
+```
+/path/to/imagenet/
+  train/
+    class1/
+      img1.jpeg
+    class2/
+      img2.jpeg
+  val/
+    class1/
+      img3.jpeg
+    class/2
+      img4.jpeg
+```
+
 ## Model Zoo
-
-### Image Classification
-
-Classification configs & models see [here](classification/).
 
 - PVTv1 on ImageNet-1K
 
@@ -43,25 +76,23 @@ Classification configs & models see [here](classification/).
 | PVT-V2-B4 | 224 | 83.6 | 62.6 | [config](configs/pvt_v2/pvt_v2_b4.py) | [239M](https://drive.google.com/file/d/1LW-0CFHulqeIxV2cai45t-FyLNKGc5l0/view?usp=sharing) |
 | PVT-V2-B5 | 224 | 83.8 | 82.0 | [config](configs/pvt_v2/pvt_v2_b5.py) | [313M](https://drive.google.com/file/d/1TKQIdpOFoFs9H6aApUNJKDUK95l_gWy0/view?usp=sharing) |
 
-### Object Detection 
+## Evaluation
+To evaluate a pre-trained PVT-Small on ImageNet val with a single GPU run:
+```
+sh dist_train.sh configs/pvt/pvt_small.py 1 --data-path /path/to/imagenet --resume /path/to/checkpoint_file --eval
+```
+This should give
+```
+* Acc@1 79.764 Acc@5 94.950 loss 0.885
+Accuracy of the network on the 50000 test images: 79.8%
+```
 
-Detection configs & models see [here](detection/).
+## Training
+To train PVT-Small on ImageNet on a single node with 8 gpus for 300 epochs run:
 
-- PVTv1 on COCO
-
-|    Method   | Lr schd | box AP | mask AP | Config | Download  |
-| :-------------: | :-----: | :-----: | :------: | :------------: | :----: |
-|    PVT-Tiny + RetinaNet | 1x | 36.7    | - | [config](detection/configs/retinanet_pvt_t_fpn_1x_coco.py)  | Todo. | |
-|    PVT-Small + RetinaNet | 1x | 40.4    | - | [config](detection/configs/retinanet_pvt_s_fpn_1x_coco.py)  | [model](https://drive.google.com/file/d/1U02ngyT_IYxS8SlU3WXf5r0TFsoBE3Lm/view?usp=sharing) |
-|    PVT-Tiny + Mask RCNN  | 1x | 36.7    | 35.1 | [config](detection/configs/mask_rcnn_pvt_t_fpn_1x_coco.py)  | Todo. |
-|    PVT-Small + Mask RCNN  | 1x | 40.4    | 37.8 | [config](detection/configs/mask_rcnn_pvt_s_fpn_1x_coco.py)  | Todo. |
-|    PVT-Small + DETR  | 50ep | 34.7    | - | [config](detection/configs/detr_pvt_s_8x2_50ep_coco.py)  | Todo. |
-
-- PVTv2 on COCO
-
-### Semantic Segmentation
-
-- PVTv1 on ADE20K
+```
+sh dist_train.sh configs/pvt/pvt_small.py 8 --data-path /path/to/imagenet
+```
 
 ## License
 This repository is released under the Apache 2.0 license as found in the [LICENSE](LICENSE) file.
