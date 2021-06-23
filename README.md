@@ -1,5 +1,5 @@
 # Updates
-- (21/06/2020) Code of PVTv2 is released! PVTv2 largely improves PVTv1 and also being better than Swin Transformer on classification/object detection with ImageNet-1K pre-training. Paper will be released recently.
+- (21/06/2020) Code of PVTv2 is released! PVTv2 largely improves PVTv1 and also being better than Swin Transformer with ImageNet-1K pre-training. Paper will be released recently.
 
 # Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions
 This repository is the official implementation of PVT in classification, object detection, and semantic segmentation tasks.
