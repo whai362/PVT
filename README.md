@@ -26,8 +26,8 @@ Classification configs & models see [here](classification/).
 
 | name | Size | acc@1 | #params (M) | Config | url |
 | --- | --- | --- | --- | --- | --- |
-| PVT-Tiny | 224 | 75.1 | 13.2 | [config](classification/configs/pvt/pvt_tiny.py) | [51M](https://drive.google.com/file/d/1yau8uMRl-mnlTAUn4I7vypss3wjVltt5/view?usp=sharing) |
-| PVT-Small | 224 | 79.8 | 24.5 | [config](classification/configs/pvt/pvt_small.py) |[93M](https://drive.google.com/file/d/1ds9Rb9wRh9IzGV0CZMM0hnS0QAM_qyIF/view?usp=sharing) |
+| PVT-Tiny | 224 | 75.1 | 13.2 | [config](classification/configs/pvt/pvt_tiny.py) | [51M](https://drive.google.com/file/d/1NLw3hRJMoOQbUXAoftg8tUFCWuTwUIQz/view?usp=sharing), [PyTorch<=1.5](https://drive.google.com/file/d/1yau8uMRl-mnlTAUn4I7vypss3wjVltt5/view?usp=sharing) |
+| PVT-Small | 224 | 79.8 | 24.5 | [config](classification/configs/pvt/pvt_small.py) |[93M](https://drive.google.com/file/d/1vtcyoU8KUqNzktlMGXZrYcMRsNNiVZFQ/view?usp=sharing), [PyTorch<=1.5](https://drive.google.com/file/d/1ds9Rb9wRh9IzGV0CZMM0hnS0QAM_qyIF/view?usp=sharing) |
 | PVT-Medium | 224 | 81.2 | 44.2 | [config](classification/configs/pvt/pvt_medium.py) |[168M](https://drive.google.com/file/d/1c2EkzszygPET83h-w4eh-Ef4V_d1a8kw/view?usp=sharing) |
 | PVT-Large | 224 | 81.7 | 61.4 | [config](classification/configs/pvt/pvt_large.py) | [234M](https://drive.google.com/file/d/1C07_swTQeWvppIzQrl_0H7UDk4SsalkJ/view?usp=sharing) |
 
