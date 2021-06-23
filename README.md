@@ -26,7 +26,7 @@ Classification configs & models see >>>[here](classification/)<<<.
 
 - PVTv1 on ImageNet-1K
 
-| name | Size | acc@1 | #params (M) | Config | url |
+| Method | Size | Acc@1 | #Params (M) | Config | Download |
 | --- | --- | --- | --- | --- | --- |
 | PVT-Tiny | 224 | 75.1 | 13.2 | [config](classification/configs/pvt/pvt_tiny.py) | [51M](https://drive.google.com/file/d/1yau8uMRl-mnlTAUn4I7vypss3wjVltt5/view?usp=sharing) |
 | PVT-Small | 224 | 79.8 | 24.5 | [config](classification/configs/pvt/pvt_small.py) |[93M](https://drive.google.com/file/d/1ds9Rb9wRh9IzGV0CZMM0hnS0QAM_qyIF/view?usp=sharing) |
@@ -35,7 +35,7 @@ Classification configs & models see >>>[here](classification/)<<<.
 
 - PVTv2 on ImageNet-1K
 
-| name | Size | acc@1 | #params (M) | Config | url |
+| Method | Size | Acc@1 | #Params (M) | Config | Download |
 | --- | --- | --- | --- | --- | --- |
 | PVT-V2-B0 | 224 | 70.5 | 3.4 | [config](configs/pvt_v2/pvt_v2_b0.py) | [14M](https://drive.google.com/file/d/1qnqChpm93vtXULeTuCT_0mJ2ZKIDc-Qo/view?usp=sharing) |
 | PVT-V2-B1 | 224 | 78.7 | 13.1 | [config](configs/pvt_v2/pvt_v2_b1.py) | [54M](https://drive.google.com/file/d/1aM0KFE3f-qIpP3xfhihlULF0-NNuk1m7/view?usp=sharing) |
