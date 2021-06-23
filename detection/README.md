@@ -52,18 +52,18 @@ Then, download the [weights pretrained on ImageNet](../classification/README.md)
 
 |    Method   | Lr schd | Aug | box AP | mask AP | Config | Download  |
 | :-------------: | :-----: | :-----: | :-----: | :------: | :------------: | :----: |
-|    PVTv2-b0 + RetinaNet  | 1x | No | 37.2    | - | [config](configs/retinanet_pvtv2_b0_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b1 + RetinaNet  | 1x | No | 41.2    | - | [config](configs/retinanet_pvtv2_b1_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b2 + RetinaNet  | 1x | No | 44.6    | - | [config](configs/retinanet_pvtv2_b2_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b3 + RetinaNet  | 1x | No | 45.9    | - | [config](configs/retinanet_pvtv2_b3_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b4 + RetinaNet  | 1x | No | 46.1    | - | [config](configs/retinanet_pvtv2_b4_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b5 + RetinaNet  | 1x | No | 46.2    | - | [config](configs/retinanet_pvtv2_b5_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b0 + Mask R-CNN  | 1x | No | 38.2    | 36.2 | [config](configs/mask_rcnn_pvtv2_b0_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b1 + Mask R-CNN  | 1x | No | 41.8    | 38.8 | [config](configs/mask_rcnn_pvtv2_b1_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b2 + Mask R-CNN  | 1x | No | 45.3    | 41.2 | [config](configs/mask_rcnn_pvtv2_b2_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b3 + Mask R-CNN  | 1x | No | 47.0    | 42.5 | [config](configs/mask_rcnn_pvtv2_b3_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b4 + Mask R-CNN  | 1x | No | 47.5    | 42.7 | [config](configs/mask_rcnn_pvtv2_b4_fpn_1x_coco.py)  | Todo. |
-|    PVTv2-b5 + Mask R-CNN  | 1x | No | 47.4    | 42.5 | [config](configs/mask_rcnn_pvtv2_b5_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b0 + RetinaNet  | 1x | No | 37.2    | - | [config](configs/retinanet_pvt_v2_b0_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b1 + RetinaNet  | 1x | No | 41.2    | - | [config](configs/retinanet_pvt_v2_b1_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b2 + RetinaNet  | 1x | No | 44.6    | - | [config](configs/retinanet_pvt_v2_b2_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b3 + RetinaNet  | 1x | No | 45.9    | - | [config](configs/retinanet_pvt_v2_b3_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b4 + RetinaNet  | 1x | No | 46.1    | - | [config](configs/retinanet_pvt_v2_b4_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b5 + RetinaNet  | 1x | No | 46.2    | - | [config](configs/retinanet_pvt_v2_b5_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b0 + Mask R-CNN  | 1x | No | 38.2    | 36.2 | [config](configs/mask_rcnn_pvt_v2_b0_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b1 + Mask R-CNN  | 1x | No | 41.8    | 38.8 | [config](configs/mask_rcnn_pvt_v2_b1_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b2 + Mask R-CNN  | 1x | No | 45.3    | 41.2 | [config](configs/mask_rcnn_pvt_v2_b2_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b3 + Mask R-CNN  | 1x | No | 47.0    | 42.5 | [config](configs/mask_rcnn_pvt_v2_b3_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b4 + Mask R-CNN  | 1x | No | 47.5    | 42.7 | [config](configs/mask_rcnn_pvt_v2_b4_fpn_1x_coco.py)  | Todo. |
+|    PVTv2-b5 + Mask R-CNN  | 1x | No | 47.4    | 42.5 | [config](configs/mask_rcnn_pvt_v2_b5_fpn_1x_coco.py)  | Todo. |
 
 
 |    Method   | Lr schd | Aug | box AP | mask AP | Config | Download  |
