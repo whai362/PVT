@@ -6,19 +6,19 @@ _base_ = [
 ]
 # optimizer
 model = dict(
-    pretrained='pretrained/pvt_v2_b0.pth',
+    pretrained='pretrained/pvt_v2_b5.pth',
     backbone=dict(
-        type='pvt_v2_b0',
+        type='pvt_v2_b5',
         style='pytorch'),
     neck=dict(
         type='FPN',
-        in_channels=[32, 64, 160, 256],
+        in_channels=[64, 128, 320, 512],
         out_channels=256,
         start_level=1,
         add_extra_convs='on_input',
         num_outs=5))
 # optimizer
-optimizer = dict(type='AdamW', lr=0.0001, weight_decay=0.0001)
+optimizer = dict(type='AdamW', lr=0.0001 / 1.4, weight_decay=0.0001)
 optimizer_config = dict(grad_clip=None)
 # learning policy
 lr_config = dict(
@@ -28,3 +28,7 @@ lr_config = dict(
     warmup_ratio=0.001,
     step=[8, 11])
 runner = dict(type='EpochBasedRunner', max_epochs=12)
+# dataset settings
+data = dict(
+    samples_per_gpu=1,
+    workers_per_gpu=1)

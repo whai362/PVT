@@ -6,13 +6,13 @@ _base_ = [
 ]
 # optimizer
 model = dict(
-    pretrained='pretrained/pvt_v2_b0.pth',
+    pretrained='pretrained/pvt_v2_b1.pth',
     backbone=dict(
-        type='pvt_v2_b0',
+        type='pvt_v2_b1',
         style='pytorch'),
     neck=dict(
         type='FPN',
-        in_channels=[32, 64, 160, 256],
+        in_channels=[64, 128, 320, 512],
         out_channels=256,
         start_level=1,
         add_extra_convs='on_input',
