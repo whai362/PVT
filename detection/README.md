@@ -1,6 +1,6 @@
 # Applying PVT to Object Detection
 
-Here, we take [MMDetection v2.13.0](https://github.com/open-mmlab/mmdetection/tree/v2.13.0) as an example, applying PVT to RetinaNet and Mask R-CNN.
+Our detection code is developed on top of [MMDetection v2.13.0](https://github.com/open-mmlab/mmdetection/tree/v2.13.0).
 
 For details see [Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions](https://arxiv.org/pdf/2102.12122.pdf). 
 
@@ -19,6 +19,8 @@ If you use this code for a paper please cite:
 
 ## Todo List
 - PVT-Medium/-Large + RetinaNet/Mask R-CNN
+- PVTv2-b0/b1/b2/b3/b4/b5 + RetinaNet/Mask R-CNN
+- PVTv2-b2 + Sparse R-CNN/Cascade R-CNN/GFL/ATSS
 
 
 ## Usage
@@ -30,7 +32,7 @@ Install [MMDetection v2.13.0](https://github.com/open-mmlab/mmdetection/tree/v2.
 
 First, prepare COCO according to the guidelines in [MMDetection v2.13.0](https://github.com/open-mmlab/mmdetection/tree/v2.13.0).
 
-Then, download the [weights](../README.md) pretrained on ImageNet, and put them in a folder `pretrained/`
+Then, download the [weights pretrained on ImageNet](../classification/README.md), and put them in a folder `pretrained/`
 
 ## Results and models
 
