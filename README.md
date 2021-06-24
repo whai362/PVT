@@ -2,21 +2,14 @@
 - (2020/06/21) Code of PVTv2 is released! PVTv2 largely improves PVTv1 and works better than Swin Transformer with ImageNet-1K pre-training. Paper will be released recently.
 
 # Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions
-This repository is the official implementation of PVT in classification, object detection, and semantic segmentation tasks.
+This repository is the official implementation of PVTv1 & PVTv2 in classification, object detection, and semantic segmentation tasks.
+
+Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions.<br>
+[Wenhai Wang](https://whai362.github.io/), [Enze Xie](https://xieenze.github.io/), [Xiang Li](http://implus.github.io/), [Deng-Ping Fan](https://dpfan.net/), [Kaitao Song](https://scholar.google.com.hk/citations?user=LLk9dR8AAAAJ&hl=zh-CN), [Ding Liang](https://scholar.google.com.hk/citations?user=Dqjnn0gAAAAJ&hl=zh-CN), [Tong Lu](https://cs.nju.edu.cn/lutong/), [Ping Luo](http://luoping.me/), and [Ling Shao](https://scholar.google.com/citations?user=z84rLjoAAAAJ&hl=zh-CN).<br>
+Technical Report 2021.
 
 
-If you use this code for a paper please cite:
 
-```
-@misc{wang2021pyramid,
-      title={Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions}, 
-      author={Wenhai Wang and Enze Xie and Xiang Li and Deng-Ping Fan and Kaitao Song and Ding Liang and Tong Lu and Ping Luo and Ling Shao},
-      year={2021},
-      eprint={2102.12122},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-}
-```
 
 ## Model Zoo
 
@@ -96,3 +89,17 @@ Detection configs & weights see >>>[here](detection/)<<<.
 
 ## License
 This repository is released under the Apache 2.0 license as found in the [LICENSE](LICENSE) file.
+
+## Citation
+If you use this code for a paper, please cite:
+
+```
+@misc{wang2021pyramid,
+      title={Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions}, 
+      author={Wenhai Wang and Enze Xie and Xiang Li and Deng-Ping Fan and Kaitao Song and Ding Liang and Tong Lu and Ping Luo and Ling Shao},
+      year={2021},
+      eprint={2102.12122},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
