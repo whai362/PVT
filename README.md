@@ -62,7 +62,7 @@ Detection configs & weights see >>>[here](detection/)<<<.
 - PVTv2 on COCO
 
 
-|    Method   | Lr schd | Aug | box AP | mask AP | Config | Download  |
+|    Method   | Lr schd | Aug | box AP | mask AP |
 | :-------------: | :-----: | :-----: | :-----: | :------: |
 |    PVTv2-b0 + RetinaNet  | 1x | No | 37.2    | - |
 |    PVTv2-b1 + RetinaNet  | 1x | No | 41.2    | - |
