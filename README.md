@@ -89,7 +89,6 @@ Detection configs & weights see >>>[here](detection/)<<<.
 | Sparse R-CNN  | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  48.9  |
 | Sparse R-CNN  | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  50.1  |
 
-- PVTv2 on COCO
 
 ### Semantic Segmentation
 
