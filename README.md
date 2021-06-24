@@ -6,6 +6,9 @@
 <div align="center">
   <img width="400", src="./logo.png">
 </div>
+<p align="center">
+  The image is from Transformers: Revenge of the Fallen.
+</p>
 
 This repository contains the official implementation of [PVTv1](https://arxiv.org/abs/2102.12122) & PVTv2 in image classification, object detection, and semantic segmentation tasks.
 
