@@ -16,10 +16,6 @@ This repository contains the official implementation of [PVTv1](https://arxiv.or
 [Wenhai Wang](https://whai362.github.io/), [Enze Xie](https://xieenze.github.io/), [Xiang Li](http://implus.github.io/), [Deng-Ping Fan](https://dpfan.net/), [Kaitao Song](https://scholar.google.com.hk/citations?user=LLk9dR8AAAAJ&hl=zh-CN), [Ding Liang](https://scholar.google.com.hk/citations?user=Dqjnn0gAAAAJ&hl=zh-CN), [Tong Lu](https://cs.nju.edu.cn/lutong/), [Ping Luo](http://luoping.me/), and [Ling Shao](https://scholar.google.com/citations?user=z84rLjoAAAAJ&hl=zh-CN).<br>
 Technical Report 2021.
 
-[2] PVTv2: Improved Baselines with Pyramid Vision Transformer.<br>
-[Wenhai Wang](https://whai362.github.io/), [Enze Xie](https://xieenze.github.io/), [Xiang Li](http://implus.github.io/), [Deng-Ping Fan](https://dpfan.net/), [Kaitao Song](https://scholar.google.com.hk/citations?user=LLk9dR8AAAAJ&hl=zh-CN), [Ding Liang](https://scholar.google.com.hk/citations?user=Dqjnn0gAAAAJ&hl=zh-CN), [Tong Lu](https://cs.nju.edu.cn/lutong/), [Ping Luo](http://luoping.me/), and [Ling Shao](https://scholar.google.com/citations?user=z84rLjoAAAAJ&hl=zh-CN).<br>
-Technical Report 2021.
-
 
 
 
