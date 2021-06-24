@@ -4,7 +4,7 @@
 # Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions
 
 <div align="center">
-  <img width="200", src="./logo.png">
+  <img width="400", src="./logo.png">
 </div>
 
 This repository contains the official implementation of [PVTv1](https://arxiv.org/abs/2102.12122) & PVTv2 in image classification, object detection, and semantic segmentation tasks.
