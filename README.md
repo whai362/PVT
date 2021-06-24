@@ -70,7 +70,7 @@ Detection configs & weights see >>>[here](detection/)<<<.
 
 
 |   Method   | Backbone | Pretrain    | Lr schd | Aug | box AP | mask AP |
-|:----------:|----------|-------------|:-------:|:---:|:------:|:-------:|
+|------------|----------|-------------|:-------:|:---:|:------:|:-------:|
 |  RetinaNet | PVTv2-b0 | ImageNet-1K |    1x   |  No |  37.2  |    -    |
 |  RetinaNet | PVTv2-b1 | ImageNet-1K |    1x   |  No |  41.2  |    -    |
 |  RetinaNet | PVTv2-b2 | ImageNet-1K |    1x   |  No |  44.6  |    -    |
@@ -88,8 +88,8 @@ Detection configs & weights see >>>[here](detection/)<<<.
 #### Advanced Detectors
 
 
-| Method        | Backbone        | Pretrain    | Lr schd | Aug | box AP |
-|---------------|-----------------|-------------|:-------:|:---:|:------:|
+| Method             | Backbone        | Pretrain    | Lr schd | Aug | box AP |
+|--------------------|-----------------|-------------|:-------:|:---:|:------:|
 | Cascade Mask R-CNN | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  50.9  |
 | Cascade Mask R-CNN | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  51.1  |
 | ATSS          | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  48.9  |
