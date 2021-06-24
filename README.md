@@ -47,7 +47,7 @@ Classification configs & weights see >>>[here](classification/)<<<.
 
 ### Object Detection 
 
-Detection configs & models see >>>[here](detection/)<<<.
+Detection configs & weights see >>>[here](detection/)<<<.
 
 - PVTv1 on COCO
 
