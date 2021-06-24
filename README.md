@@ -58,6 +58,8 @@ Detection configs & weights see >>>[here](detection/)<<<.
 
 - PVTv2 on COCO
 
+#### Baseline Detectors
+
 
 |   Method   | Backbone | Pretrain    | Lr schd | Aug | box AP | mask AP |
 |:----------:|----------|-------------|:-------:|:---:|:------:|:-------:|
@@ -75,6 +77,9 @@ Detection configs & weights see >>>[here](detection/)<<<.
 | Mask R-CNN | PVTv2-b5 | ImageNet-1K |    1x   |  No |  47.4  |   42.5  |
 
 
+#### Advanced Detectors
+
+
 | Method        | Backbone        | Pretrain    | Lr schd | Aug | box AP |
 |---------------|-----------------|-------------|:-------:|:---:|:------:|
 | Cascade R-CNN | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  50.9  |
@@ -90,6 +95,13 @@ Detection configs & weights see >>>[here](detection/)<<<.
 ### Semantic Segmentation
 
 - PVTv1 on ADE20K
+
+| Method       | Backbone   | Pretrain    | Iters | mIoU |
+|--------------|------------|-------------|-------|------|
+| Semantic FPN | PVT-Tiny   | ImageNet-1K | 40K   | 35.7 |
+| Semantic FPN | PVT-Small  | ImageNet-1K | 40K   | 39.8 |
+| Semantic FPN | PVT-Medium | ImageNet-1K | 40K   | 41.6 |
+| Semantic FPN | PVT-Large  | ImageNet-1K | 40K   | 42.1 |
 
 ## License
 This repository is released under the Apache 2.0 license as found in the [LICENSE](LICENSE) file.
