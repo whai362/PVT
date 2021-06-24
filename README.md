@@ -87,8 +87,8 @@ Detection configs & weights see >>>[here](detection/)<<<.
 
 | Method        | Backbone        | Pretrain    | Lr schd | Aug | box AP |
 |---------------|-----------------|-------------|:-------:|:---:|:------:|
-| Cascade R-CNN | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  50.9  |
-| Cascade R-CNN | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  51.1  |
+| Cascade Mask R-CNN | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  50.9  |
+| Cascade Mask R-CNN | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  51.1  |
 | ATSS          | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  48.9  |
 | ATSS          | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  49.9  |
 | GFL           | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  49.2  |
