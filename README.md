@@ -26,24 +26,24 @@ Classification configs & weights see >>>[here](classification/)<<<.
 
 - PVTv1 on ImageNet-1K
 
-| Method | Size | Acc@1 | #Params (M) |
-| --- | --- | --- | --- |
-| PVT-Tiny | 224 | 75.1 | 13.2 |
-| PVT-Small | 224 | 79.8 | 24.5 |
-| PVT-Medium | 224 | 81.2 | 44.2 |
-| PVT-Large | 224 | 81.7 | 61.4 |
+| Method     | Size | Acc@1 | #Params (M) |
+|------------|:----:|:-----:|:-----------:|
+| PVT-Tiny   |  224 |  75.1 |     13.2    |
+| PVT-Small  |  224 |  79.8 |     24.5    |
+| PVT-Medium |  224 |  81.2 |     44.2    |
+| PVT-Large  |  224 |  81.7 |     61.4    |
 
 - PVTv2 on ImageNet-1K
 
-| Method | Size | Acc@1 | #Params (M) |
-| --- | --- | --- | --- |
-| PVT-V2-B0 | 224 | 70.5 | 3.4 |
-| PVT-V2-B1 | 224 | 78.7 | 13.1 |
-| PVT-V2-B2-Linear | 224 | 82.1 | 22.6 |
-| PVT-V2-B2 | 224 | 82.0 | 25.4 |
-| PVT-V2-B3 | 224 | 83.1 | 45.2 |
-| PVT-V2-B4 | 224 | 83.6 | 62.6 |
-| PVT-V2-B5 | 224 | 83.8 | 82.0 |
+| Method           | Size | Acc@1 | #Params (M) |
+|------------------|:----:|:-----:|:-----------:|
+| PVT-V2-B0        |  224 |  70.5 |     3.4     |
+| PVT-V2-B1        |  224 |  78.7 |     13.1    |
+| PVT-V2-B2-Linear |  224 |  82.1 |     22.6    |
+| PVT-V2-B2        |  224 |  82.0 |     25.4    |
+| PVT-V2-B3        |  224 |  83.1 |     45.2    |
+| PVT-V2-B4        |  224 |  83.6 |     62.6    |
+| PVT-V2-B5        |  224 |  83.8 |     82.0    |
 
 ### Object Detection 
 
