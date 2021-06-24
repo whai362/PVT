@@ -1,5 +1,5 @@
 # Updates
-- (2020/06/21) Code of PVTv2 is released! PVTv2 largely improves PVT and works better than Swin Transformer with ImageNet-1K pre-training. Paper will be released recently.
+- (2020/06/21) Code of PVTv2 is released! PVTv2 largely improves PVTv1 and works better than Swin Transformer with ImageNet-1K pre-training. Paper will be released recently.
 
 # Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions
 This repository is the official implementation of PVT in classification, object detection, and semantic segmentation tasks.
@@ -51,43 +51,43 @@ Detection configs & weights see >>>[here](detection/)<<<.
 
 - PVTv1 on COCO
 
-|    Method   | Lr schd | box AP | mask AP | 
-| :-------------: | :-----: | :-----: | :------:
-|    PVT-Tiny + RetinaNet | 1x | 36.7    | - |
-|    PVT-Small + RetinaNet | 1x | 40.4    | - |
-|    PVT-Tiny + Mask RCNN  | 1x | 36.7    | 35.1 |
-|    PVT-Small + Mask RCNN  | 1x | 40.4    | 37.8 |
-|    PVT-Small + DETR  | 50ep | 34.7    | - |
+| Detector  | BackBone  | Pretrain    | Lr schd | box AP | mask AP |
+|-----------|-----------|-------------|:-------:|:------:|:-------:|
+| RetinaNet | PVT-Tiny  | ImageNet-1K |    1x   |  36.7  |    -    |
+| RetinaNet | PVT-Small | ImageNet-1K |    1x   |  40.4  |    -    |
+| Mask RCNN | PVT-Tiny  | ImageNet-1K |    1x   |  36.7  |   35.1  |
+| Mask RCNN | PVT-Small | ImageNet-1K |    1x   |  40.4  |   37.8  |
+| DETR      | PVT-Small | ImageNet-1K |   50ep  |  34.7  |    -    |
 
 - PVTv2 on COCO
 
 
-|    Method   | Lr schd | Aug | box AP | mask AP |
-| :-------------: | :-----: | :-----: | :-----: | :------: |
-|    PVTv2-b0 + RetinaNet  | 1x | No | 37.2    | - |
-|    PVTv2-b1 + RetinaNet  | 1x | No | 41.2    | - |
-|    PVTv2-b2 + RetinaNet  | 1x | No | 44.6    | - |
-|    PVTv2-b3 + RetinaNet  | 1x | No | 45.9    | - |
-|    PVTv2-b4 + RetinaNet  | 1x | No | 46.1    | - |
-|    PVTv2-b5 + RetinaNet  | 1x | No | 46.2    | - |
-|    PVTv2-b0 + Mask R-CNN  | 1x | No | 38.2    | 36.2 |
-|    PVTv2-b1 + Mask R-CNN  | 1x | No | 41.8    | 38.8 |
-|    PVTv2-b2 + Mask R-CNN  | 1x | No | 45.3    | 41.2 |
-|    PVTv2-b3 + Mask R-CNN  | 1x | No | 47.0    | 42.5 |
-|    PVTv2-b4 + Mask R-CNN  | 1x | No | 47.5    | 42.7 |
-|    PVTv2-b5 + Mask R-CNN  | 1x | No | 47.4    | 42.5 |
+|   Method   | Backbone | Pretrain    | Lr schd | Aug | box AP | mask AP |
+|:----------:|----------|-------------|:-------:|:---:|:------:|:-------:|
+|  RetinaNet | PVTv2-b0 | ImageNet-1K |    1x   |  No |  37.2  |    -    |
+|  RetinaNet | PVTv2-b1 | ImageNet-1K |    1x   |  No |  41.2  |    -    |
+|  RetinaNet | PVTv2-b2 | ImageNet-1K |    1x   |  No |  44.6  |    -    |
+|  RetinaNet | PVTv2-b3 | ImageNet-1K |    1x   |  No |  45.9  |    -    |
+|  RetinaNet | PVTv2-b4 | ImageNet-1K |    1x   |  No |  46.1  |    -    |
+|  RetinaNet | PVTv2-b5 | ImageNet-1K |    1x   |  No |  46.2  |    -    |
+| Mask R-CNN | PVTv2-b0 | ImageNet-1K |    1x   |  No |  38.2  |   36.2  |
+| Mask R-CNN | PVTv2-b1 | ImageNet-1K |    1x   |  No |  41.8  |   38.8  |
+| Mask R-CNN | PVTv2-b2 | ImageNet-1K |    1x   |  No |  45.3  |   41.2  |
+| Mask R-CNN | PVTv2-b3 | ImageNet-1K |    1x   |  No |  47.0  |   42.5  |
+| Mask R-CNN | PVTv2-b4 | ImageNet-1K |    1x   |  No |  47.5  |   42.7  |
+| Mask R-CNN | PVTv2-b5 | ImageNet-1K |    1x   |  No |  47.4  |   42.5  |
 
 
-|    Method   | Lr schd | Aug | box AP | mask AP |
-| :-------------: | :-----: | :-----: | :-----: | :------: |
-|    PVTv2-b2-Linear + Cascade R-CNN  | 3x | Yes | 50.9    | - |
-|    PVTv2-b2 + Cascade R-CNN  | 3x | Yes | 51.1    | - |
-|    PVTv2-b2-Linear + ATSS  | 3x | Yes | 48.9    | - |
-|    PVTv2-b2 + ATSS  | 3x | Yes | 49.9    | - |
-|    PVTv2-b2-Linear + GFL  | 3x | Yes |49.2    | - |
-|    PVTv2-b2 + GFL  | 3x | Yes |50.2   | - |
-|    PVTv2-b2-Linear + Sparse R-CNN  | 3x | Yes |48.9    | - |
-|    PVTv2-b2 + Sparse R-CNN  | 3x |Yes | 50.1  | - |
+| Method        | BackBone        | Lr schd | Aug | box AP |
+|---------------|-----------------|:-------:|:---:|:------:|
+| Cascade R-CNN | PVTv2-b2-Linear |    3x   | Yes |  50.9  |
+| Cascade R-CNN | PVTv2-b2        |    3x   | Yes |  51.1  |
+| ATSS          | PVTv2-b2-Linear |    3x   | Yes |  48.9  |
+| ATSS          | PVTv2-b2        |    3x   | Yes |  49.9  |
+| GFL           | PVTv2-b2-Linear |    3x   | Yes |  49.2  |
+| GFL           | PVTv2-b2        |    3x   | Yes |  50.2  |
+| Sparse R-CNN  | PVTv2-b2-Linear |    3x   | Yes |  48.9  |
+| Sparse R-CNN  | PVTv2-b2        |    3x   | Yes |  50.1  |
 
 - PVTv2 on COCO
 
