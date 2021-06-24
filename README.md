@@ -61,6 +61,36 @@ Detection configs & weights see >>>[here](detection/)<<<.
 
 - PVTv2 on COCO
 
+
+|    Method   | Lr schd | Aug | box AP | mask AP | Config | Download  |
+| :-------------: | :-----: | :-----: | :-----: | :------: |
+|    PVTv2-b0 + RetinaNet  | 1x | No | 37.2    | - |
+|    PVTv2-b1 + RetinaNet  | 1x | No | 41.2    | - |
+|    PVTv2-b2 + RetinaNet  | 1x | No | 44.6    | - |
+|    PVTv2-b3 + RetinaNet  | 1x | No | 45.9    | - |
+|    PVTv2-b4 + RetinaNet  | 1x | No | 46.1    | - |
+|    PVTv2-b5 + RetinaNet  | 1x | No | 46.2    | - |
+|    PVTv2-b0 + Mask R-CNN  | 1x | No | 38.2    | 36.2 |
+|    PVTv2-b1 + Mask R-CNN  | 1x | No | 41.8    | 38.8 |
+|    PVTv2-b2 + Mask R-CNN  | 1x | No | 45.3    | 41.2 |
+|    PVTv2-b3 + Mask R-CNN  | 1x | No | 47.0    | 42.5 |
+|    PVTv2-b4 + Mask R-CNN  | 1x | No | 47.5    | 42.7 |
+|    PVTv2-b5 + Mask R-CNN  | 1x | No | 47.4    | 42.5 |
+
+
+|    Method   | Lr schd | Aug | box AP | mask AP |
+| :-------------: | :-----: | :-----: | :-----: | :------: |
+|    PVTv2-b2-Linear + Cascade R-CNN  | 3x | Yes | 50.9    | - |
+|    PVTv2-b2 + Cascade R-CNN  | 3x | Yes | 51.1    | - |
+|    PVTv2-b2-Linear + ATSS  | 3x | Yes | 48.9    | - |
+|    PVTv2-b2 + ATSS  | 3x | Yes | 49.9    | - |
+|    PVTv2-b2-Linear + GFL  | 3x | Yes |49.2    | - |
+|    PVTv2-b2 + GFL  | 3x | Yes |50.2   | - |
+|    PVTv2-b2-Linear + Sparse R-CNN  | 3x | Yes |48.9    | - |
+|    PVTv2-b2 + Sparse R-CNN  | 3x |Yes | 50.1  | - |
+
+- PVTv2 on COCO
+
 ### Semantic Segmentation
 
 - PVTv1 on ADE20K
