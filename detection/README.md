@@ -68,14 +68,14 @@ Then, download the [weights pretrained on ImageNet](../classification/README.md)
 
 | Method        | Backbone        | Lr schd | Aug | box AP | mask AP | Config     | Download |
 |---------------|-----------------|:-------:|:---:|:------:|:-------:|------------|----------|
-| Cascade R-CNN | PVTv2-b2-Linear |    3x   | Yes |  50.9  |    -    | [config]() | Todo.    |
-| Cascade R-CNN | PVTv2-b2        |    3x   | Yes |  51.1  |    -    | [config]() | Todo.    |
-| ATSS          | PVTv2-b2-Linear |    3x   | Yes |  48.9  |    -    | [config]() | Todo.    |
-| ATSS          | PVTv2-b2        |    3x   | Yes |  49.9  |    -    | [config]() | Todo.    |
-| GFL           | PVTv2-b2-Linear |    3x   | Yes |  49.2  |    -    | [config]() | Todo.    |
-| GFL           | PVTv2-b2        |    3x   | Yes |  50.2  |    -    | [config]() | Todo.    |
-| Sparse R-CNN  | PVTv2-b2-Linear |    3x   | Yes |  48.9  |    -    | [config]() | Todo.    |
-| Sparse R-CNN  | PVTv2-b2        |    3x   | Yes |  50.1  |    -    | [config]() | Todo.    |
+| Cascade Mask R-CNN | PVTv2-b2-Linear |    3x   | Yes |  50.9  |    -    | [config](configs/cascade_mask_rcnn_pvt_v2_b2_li_fpn_3x_mstrain_fp16.py) | Todo.    |
+| Cascade Mask R-CNN | PVTv2-b2        |    3x   | Yes |  51.1  |    -    | [config](configs/cascade_mask_rcnn_pvt_v2_b2_fpn_3x_mstrain_fp16.py) | Todo.    |
+| ATSS          | PVTv2-b2-Linear |    3x   | Yes |  48.9  |    -    | [config](configs/atss_pvt_v2_b2_li_fpn_3x_mstrain_fp16.py) | Todo.    |
+| ATSS          | PVTv2-b2        |    3x   | Yes |  49.9  |    -    | [config](configs/atss_pvt_v2_b2_fpn_3x_mstrain_fp16.py) | Todo.    |
+| GFL           | PVTv2-b2-Linear |    3x   | Yes |  49.2  |    -    | [config](configs/gfl_pvt_v2_b2_fpn_li_3x_mstrain_fp16.py) | Todo.    |
+| GFL           | PVTv2-b2        |    3x   | Yes |  50.2  |    -    | [config](configs/gfl_pvt_v2_b2_fpn_3x_mstrain_fp16.py) | Todo.    |
+| Sparse R-CNN  | PVTv2-b2-Linear |    3x   | Yes |  48.9  |    -    | [config](configs/sparse_rcnn_pvt_v2_b2_li_fpn_300_proposals_crop_mstrain_480-800_3x_coco.py) | Todo.    |
+| Sparse R-CNN  | PVTv2-b2        |    3x   | Yes |  50.1  |    -    | [config](configs/sparse_rcnn_pvt_v2_b2_fpn_300_proposals_crop_mstrain_480-800_3x_coco.py) | Todo.    |
 
 
 ## Evaluation

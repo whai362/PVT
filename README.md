@@ -4,7 +4,7 @@
 # Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions
 
 <div align="center">
-  <img width="200", src="./logo.png">
+  <img width="400", src="./logo.png">
 </div>
 
 This repository contains the official implementation of [PVTv1](https://arxiv.org/abs/2102.12122) & PVTv2 in image classification, object detection, and semantic segmentation tasks.
@@ -87,8 +87,8 @@ Detection configs & weights see >>>[here](detection/)<<<.
 
 | Method        | Backbone        | Pretrain    | Lr schd | Aug | box AP |
 |---------------|-----------------|-------------|:-------:|:---:|:------:|
-| Cascade R-CNN | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  50.9  |
-| Cascade R-CNN | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  51.1  |
+| Cascade Mask R-CNN | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  50.9  |
+| Cascade Mask R-CNN | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  51.1  |
 | ATSS          | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  48.9  |
 | ATSS          | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  49.9  |
 | GFL           | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  49.2  |
