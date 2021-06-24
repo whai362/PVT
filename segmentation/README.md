@@ -31,12 +31,12 @@ Then, download the [weights](../README.md) pretrained on ImageNet, and put them 
 
 ## Results and models
 
-|    Backbone     | Iters | mIoU(code) | mIoU(paper) | Config | Download  |
-| :-------------: | :-----: | :-----: | :------: | :------------: | :----: |
-|    PVT-Tiny + Semantic FPN    | 40K | 36.6    | 35.7 |  [config](configs/sem_fpn/PVT/fpn_pvt_t_ade20k_40k.py) | [model&log](https://drive.google.com/drive/folders/18O7n7vi9WzD9DkuHFvFZSF31QVaKZ4AS?usp=sharing) |
-|    PVT-Small + Semantic FPN   | 40K | 41.9    | 39.8 |  [config](configs/sem_fpn/PVT/fpn_pvt_s_ade20k_40k.py) | [model&log](https://drive.google.com/drive/folders/18O7n7vi9WzD9DkuHFvFZSF31QVaKZ4AS?usp=sharing) |
-|    PVT-Medium + Semantic FPN  | 40K | 43.5    | 41.6 |  [config](configs/sem_fpn/PVT/fpn_pvt_m_ade20k_40k.py) | [model&log](https://drive.google.com/drive/folders/18O7n7vi9WzD9DkuHFvFZSF31QVaKZ4AS?usp=sharing) |
-|    PVT-Large + Semantic FPN   | 40K | 43.5    | 42.1 |  [config](configs/sem_fpn/PVT/fpn_pvt_l_ade20k_40k.py) | [model&log](https://drive.google.com/drive/folders/18O7n7vi9WzD9DkuHFvFZSF31QVaKZ4AS?usp=sharing) |
+| Method       | Backbone   | Pretrain    | Iters | mIoU(code) | mIoU(paper) | Config                                                | Download                                                                                          |
+|--------------|------------|-------------|:-----:|:----------:|:-----------:|-------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| Semantic FPN | PVT-Tiny   | ImageNet-1K |  40K  |    36.6    |     35.7    | [config](configs/sem_fpn/PVT/fpn_pvt_t_ade20k_40k.py) | [model&log](https://drive.google.com/drive/folders/18O7n7vi9WzD9DkuHFvFZSF31QVaKZ4AS?usp=sharing) |
+| Semantic FPN | PVT-Small  | ImageNet-1K |  40K  |    41.9    |     39.8    | [config](configs/sem_fpn/PVT/fpn_pvt_s_ade20k_40k.py) | [model&log](https://drive.google.com/drive/folders/18O7n7vi9WzD9DkuHFvFZSF31QVaKZ4AS?usp=sharing) |
+| Semantic FPN | PVT-Medium | ImageNet-1K |  40K  |    43.5    |     41.6    | [config](configs/sem_fpn/PVT/fpn_pvt_m_ade20k_40k.py) | [model&log](https://drive.google.com/drive/folders/18O7n7vi9WzD9DkuHFvFZSF31QVaKZ4AS?usp=sharing) |
+| Semantic FPN | PVT-Large  | ImageNet-1K |  40K  |    43.5    |     42.1    | [config](configs/sem_fpn/PVT/fpn_pvt_l_ade20k_40k.py) | [model&log](https://drive.google.com/drive/folders/18O7n7vi9WzD9DkuHFvFZSF31QVaKZ4AS?usp=sharing) |
 
 ## Evaluation
 To evaluate PVT-Small + Semantic FPN on a single node with 8 gpus run:
