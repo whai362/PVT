@@ -51,7 +51,7 @@ Detection configs & weights see >>>[here](detection/)<<<.
 
 - PVTv1 on COCO
 
-| Detector  | BackBone  | Pretrain    | Lr schd | box AP | mask AP |
+| Detector  | Backbone  | Pretrain    | Lr schd | box AP | mask AP |
 |-----------|-----------|-------------|:-------:|:------:|:-------:|
 | RetinaNet | PVT-Tiny  | ImageNet-1K |    1x   |  36.7  |    -    |
 | RetinaNet | PVT-Small | ImageNet-1K |    1x   |  40.4  |    -    |
@@ -78,16 +78,16 @@ Detection configs & weights see >>>[here](detection/)<<<.
 | Mask R-CNN | PVTv2-b5 | ImageNet-1K |    1x   |  No |  47.4  |   42.5  |
 
 
-| Method        | BackBone        | Lr schd | Aug | box AP |
-|---------------|-----------------|:-------:|:---:|:------:|
-| Cascade R-CNN | PVTv2-b2-Linear |    3x   | Yes |  50.9  |
-| Cascade R-CNN | PVTv2-b2        |    3x   | Yes |  51.1  |
-| ATSS          | PVTv2-b2-Linear |    3x   | Yes |  48.9  |
-| ATSS          | PVTv2-b2        |    3x   | Yes |  49.9  |
-| GFL           | PVTv2-b2-Linear |    3x   | Yes |  49.2  |
-| GFL           | PVTv2-b2        |    3x   | Yes |  50.2  |
-| Sparse R-CNN  | PVTv2-b2-Linear |    3x   | Yes |  48.9  |
-| Sparse R-CNN  | PVTv2-b2        |    3x   | Yes |  50.1  |
+| Method        | Backbone        | Pretrain    | Lr schd | Aug | box AP |
+|---------------|-----------------|-------------|:-------:|:---:|:------:|
+| Cascade R-CNN | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  50.9  |
+| Cascade R-CNN | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  51.1  |
+| ATSS          | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  48.9  |
+| ATSS          | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  49.9  |
+| GFL           | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  49.2  |
+| GFL           | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  50.2  |
+| Sparse R-CNN  | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  48.9  |
+| Sparse R-CNN  | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  50.1  |
 
 - PVTv2 on COCO
 
