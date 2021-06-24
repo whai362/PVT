@@ -94,6 +94,7 @@ Detection configs & weights see >>>[here](detection/)<<<.
 ## License
 This repository is released under the Apache 2.0 license as found in the [LICENSE](LICENSE) file.
 
+
 ## Citation
 If you use this code for a paper, please cite:
 
@@ -107,3 +108,7 @@ If you use this code for a paper, please cite:
       primaryClass={cs.CV}
 }
 ```
+
+## Contact
+
+This repo is currently maintained by Wenhai Wang ([@whai362](https://github.com/whai362)), Enze Xie ([@xieenze](https://github.com/xieenze)), and Zhe Chen ([czczup](https://github.com/czczup)).
