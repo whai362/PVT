@@ -1,7 +1,7 @@
 # Updates
 - (2020/06/21) Code of PVTv2 is released! PVTv2 largely improves PVTv1 and works better than Swin Transformer with ImageNet-1K pre-training. Paper will be released recently.
 
-# Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions
+# Pyramid Vision Transformer
 
 <div align="center">
   <img width="400", src="./logo.png">
