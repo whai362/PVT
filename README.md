@@ -88,16 +88,16 @@ Detection configs & weights see >>>[here](detection/)<<<.
 #### Advanced Detectors
 
 
-| Method             | Backbone        | Pretrain    | Lr schd | Aug | box AP |
-|--------------------|-----------------|-------------|:-------:|:---:|:------:|
-| Cascade Mask R-CNN | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  50.9  |
-| Cascade Mask R-CNN | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  51.1  |
-| ATSS          | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  48.9  |
-| ATSS          | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  49.9  |
-| GFL           | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  49.2  |
-| GFL           | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  50.2  |
-| Sparse R-CNN  | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  48.9  |
-| Sparse R-CNN  | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  50.1  |
+| Method             | Backbone        | Pretrain    | Lr schd | Aug | box AP | mask AP |
+|--------------------|-----------------|-------------|:-------:|:---:|:------:|:-------:|
+| Cascade Mask R-CNN | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  50.9  |   44.0  |
+| Cascade Mask R-CNN | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  51.1  |   44.4  |
+| ATSS          | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  48.9  |   -   |
+| ATSS          | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  49.9  |   -   |
+| GFL           | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  49.2  |   -   |
+| GFL           | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  50.2  |   -   |
+| Sparse R-CNN  | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  48.9  |   -   |
+| Sparse R-CNN  | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  50.1  |   -   |
 
 
 ### Semantic Segmentation
