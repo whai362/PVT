@@ -30,15 +30,6 @@ Technical Report 2021.
 
 Classification configs & weights see >>>[here](classification/)<<<.
 
-- PVTv1 on ImageNet-1K
-
-| Method     | Size | Acc@1 | #Params (M) |
-|------------|:----:|:-----:|:-----------:|
-| PVT-Tiny   |  224 |  75.1 |     13.2    |
-| PVT-Small  |  224 |  79.8 |     24.5    |
-| PVT-Medium |  224 |  81.2 |     44.2    |
-| PVT-Large  |  224 |  81.7 |     61.4    |
-
 - PVTv2 on ImageNet-1K
 
 | Method           | Size | Acc@1 | #Params (M) |
@@ -51,19 +42,20 @@ Classification configs & weights see >>>[here](classification/)<<<.
 | PVT-V2-B4        |  224 |  83.6 |     62.6    |
 | PVT-V2-B5        |  224 |  83.8 |     82.0    |
 
+- PVTv1 on ImageNet-1K
+
+| Method     | Size | Acc@1 | #Params (M) |
+|------------|:----:|:-----:|:-----------:|
+| PVT-Tiny   |  224 |  75.1 |     13.2    |
+| PVT-Small  |  224 |  79.8 |     24.5    |
+| PVT-Medium |  224 |  81.2 |     44.2    |
+| PVT-Large  |  224 |  81.7 |     61.4    |
+
+
 ### Object Detection 
 
 Detection configs & weights see >>>[here](detection/)<<<.
 
-- PVTv1 on COCO
-
-| Detector  | Backbone  | Pretrain    | Lr schd | box AP | mask AP |
-|-----------|-----------|-------------|:-------:|:------:|:-------:|
-| RetinaNet | PVT-Tiny  | ImageNet-1K |    1x   |  36.7  |    -    |
-| RetinaNet | PVT-Small | ImageNet-1K |    1x   |  40.4  |    -    |
-| Mask RCNN | PVT-Tiny  | ImageNet-1K |    1x   |  36.7  |   35.1  |
-| Mask RCNN | PVT-Small | ImageNet-1K |    1x   |  40.4  |   37.8  |
-| DETR      | PVT-Small | ImageNet-1K |   50ep  |  34.7  |    -    |
 
 - PVTv2 on COCO
 
@@ -99,6 +91,16 @@ Detection configs & weights see >>>[here](detection/)<<<.
 | GFL           | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  50.2  |   -   |
 | Sparse R-CNN  | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  48.9  |   -   |
 | Sparse R-CNN  | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  50.1  |   -   |
+
+- PVTv1 on COCO
+
+| Detector  | Backbone  | Pretrain    | Lr schd | box AP | mask AP |
+|-----------|-----------|-------------|:-------:|:------:|:-------:|
+| RetinaNet | PVT-Tiny  | ImageNet-1K |    1x   |  36.7  |    -    |
+| RetinaNet | PVT-Small | ImageNet-1K |    1x   |  40.4  |    -    |
+| Mask RCNN | PVT-Tiny  | ImageNet-1K |    1x   |  36.7  |   35.1  |
+| Mask RCNN | PVT-Small | ImageNet-1K |    1x   |  40.4  |   37.8  |
+| DETR      | PVT-Small | ImageNet-1K |   50ep  |  34.7  |    -    |
 
 
 ### Semantic Segmentation
