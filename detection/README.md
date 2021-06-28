@@ -52,10 +52,11 @@ Then, download the [weights pretrained on ImageNet](../classification/README.md)
 
 | Method     | Backbone | Pretrain    | Lr schd | Aug | box AP | mask AP | Config                                               | Download |
 |------------|----------|-------------|:-------:|:---:|:------:|:-------:|------------------------------------------------------|----------|
-| RetinaNet  | PVTv2-b0 | ImageNet-1K |    1x   |  No |  37.2  |    -    | [config](configs/retinanet_pvt_v2_b0_fpn_1x_coco.py) | Todo.    |
-| RetinaNet  | PVTv2-b1 | ImageNet-1K |    1x   |  No |  41.2  |    -    | [config](configs/retinanet_pvt_v2_b1_fpn_1x_coco.py) | Todo.    |
-| RetinaNet  | PVTv2-b2 | ImageNet-1K |    1x   |  No |  44.6  |    -    | [config](configs/retinanet_pvt_v2_b2_fpn_1x_coco.py) | Todo.    |
-| RetinaNet  | PVTv2-b3 | ImageNet-1K |    1x   |  No |  45.9  |    -    | [config](configs/retinanet_pvt_v2_b3_fpn_1x_coco.py) | Todo.    |
+| RetinaNet  | PVTv2-b0 | ImageNet-1K |    1x   |  No |  37.2  |    -    | [config](configs/retinanet_pvt_v2_b0_fpn_1x_coco.py) | [log](https://drive.google.com/file/d/1190iSH3oas_71DPEVjMK9JTn59RYdF3T/view?usp=sharing) [model](https://drive.google.com/file/d/1K6OkU3CYVglnLSDSvsY8HpDcISB6eKzM/view?usp=sharing) |
+| RetinaNet  | PVTv2-b1 | ImageNet-1K |    1x   |  No |  41.2  |    -    | [config](configs/retinanet_pvt_v2_b1_fpn_1x_coco.py) | [log](https://drive.google.com/file/d/19Wsg25yvKdiqMjXWIFEe-DcaHlkw3iSv/view?usp=sharing) [model](https://drive.google.com/file/d/1UyBfxAyQygVgAtBeynXrG2iCJj70kiP9/view?usp=sharing) |
+| RetinaNet  | PVTv2-b2-li | ImageNet-1K |    1x   |  No |  43.6  |    -    | [config](configs/retinanet_pvt_v2_b3_fpn_1x_coco.py) | [log](https://drive.google.com/file/d/1PRSG3q0M_ZztMMbTxB_961ta4I626T-T/view?usp=sharing) [model](https://drive.google.com/file/d/1v3j4D1FZuasPi6lGHoHM3bok7PM8F1sg/view?usp=sharing) |
+| RetinaNet  | PVTv2-b2 | ImageNet-1K |    1x   |  No |  44.6  |    -    | [config](configs/retinanet_pvt_v2_b2_fpn_1x_coco.py) | [log](https://drive.google.com/file/d/1AMkXwopXLJtW71zT3MjXo0YdoojUbxpQ/view?usp=sharing) [model](https://drive.google.com/file/d/1VqrLiQ0329HpqiG3BU3q0LoXi6ncS1_k/view?usp=sharing) |
+| RetinaNet  | PVTv2-b3 | ImageNet-1K |    1x   |  No |  45.9  |    -    | [config](configs/retinanet_pvt_v2_b3_fpn_1x_coco.py) | [log](https://drive.google.com/file/d/1L59JWC2jepRMT-l5lo8bqygSUGixfGsr/view?usp=sharing) [model](https://drive.google.com/file/d/1Lz4qRtDoYT8RvDpVxJCvstM3qTtHlLqL/view?usp=sharing) |
 | RetinaNet  | PVTv2-b4 | ImageNet-1K |    1x   |  No |  46.1  |    -    | [config](configs/retinanet_pvt_v2_b4_fpn_1x_coco.py) | Todo.    |
 | RetinaNet  | PVTv2-b5 | ImageNet-1K |    1x   |  No |  46.2  |    -    | [config](configs/retinanet_pvt_v2_b5_fpn_1x_coco.py) | Todo.    |
 | Mask R-CNN | PVTv2-b0 | ImageNet-1K |    1x   |  No |  38.2  |   36.2  | [config](configs/mask_rcnn_pvt_v2_b0_fpn_1x_coco.py) | Todo.    |
@@ -72,7 +73,7 @@ Then, download the [weights pretrained on ImageNet](../classification/README.md)
 | Cascade Mask R-CNN | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  51.1  |    44.4    | [config](configs/cascade_mask_rcnn_pvt_v2_b2_fpn_3x_mstrain_fp16.py) | Todo.    |
 | ATSS          | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  48.9  |    -    | [config](configs/atss_pvt_v2_b2_li_fpn_3x_mstrain_fp16.py) | Todo.    |
 | ATSS          | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  49.9  |    -    | [config](configs/atss_pvt_v2_b2_fpn_3x_mstrain_fp16.py) | Todo.    |
-| GFL           | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  49.2  |    -    | [config](configs/gfl_pvt_v2_b2_fpn_li_3x_mstrain_fp16.py) | Todo.    |
+| GFL           | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  49.2  |    -    | [config](configs/gfl_pvt_v2_b2_li_fpn_3x_mstrain_fp16.py) | Todo.    |
 | GFL           | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  50.2  |    -    | [config](configs/gfl_pvt_v2_b2_fpn_3x_mstrain_fp16.py) | Todo.    |
 | Sparse R-CNN  | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  48.9  |    -    | [config](configs/sparse_rcnn_pvt_v2_b2_li_fpn_300_proposals_crop_mstrain_480-800_3x_coco.py) | Todo.    |
 | Sparse R-CNN  | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  50.1  |    -    | [config](configs/sparse_rcnn_pvt_v2_b2_fpn_300_proposals_crop_mstrain_480-800_3x_coco.py) | Todo.    |
