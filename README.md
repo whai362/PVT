@@ -94,6 +94,8 @@ Detection configs & weights see >>>[here](detection/)<<<.
 
 ### Semantic Segmentation
 
+Segmentation configs & weights see >>>[here](segmentation/)<<<.
+
 - PVTv1 on ADE20K
 
 | Method       | Backbone   | Pretrain    | Iters | mIoU |
