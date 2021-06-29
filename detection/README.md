@@ -36,21 +36,6 @@ Then, download the [weights pretrained on ImageNet](../classification/README.md)
 
 ## Results and models
 
-- PVTv1 on COCO
-
-| Method           | Backbone  | Pretrain    | Lr schd | box AP | mask AP | Config                                               | Download                                                                                    |
-|------------------|-----------|-------------|:-------:|:------:|:-------:|------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| RetinaNet        | PVT-Tiny  | ImageNet-1K |    1x   |  36.7  |    -    | [config](configs/retinanet_pvt_t_fpn_1x_coco.py)     | [log](https://drive.google.com/file/d/1w5giZkGZ0raFnl6TE8V7G3vbFoeRDqWC/view?usp=sharing) & [model](https://drive.google.com/file/d/1ZbS-g3oqAChkYiDYTiZLzw61lal2pgbl/view?usp=sharing) |
-| RetinaNet (640x) | PVT-Small | ImageNet-1K |    1x   |  38.7  |    -    | [config](configs/retinanet_pvt_s_fpn_1x_coco_640.py) | [log](https://drive.google.com/file/d/1lkDW5jmUz9YwED4BNiUYFSi9bkcAB36y/view?usp=sharing) & [model](https://drive.google.com/file/d/1L5wh2rYsVnuC_CEeFE6yMhU1kENt2gnk/view?usp=sharing) |
-| RetinaNet (800x) | PVT-Small | ImageNet-1K |    1x   |  40.4  |    -    | [config](configs/retinanet_pvt_s_fpn_1x_coco.py)     | [log]() & [model](https://drive.google.com/file/d/1U02ngyT_IYxS8SlU3WXf5r0TFsoBE3Lm/view?usp=sharing) |
-| RetinaNet        | PVT-Medium  | ImageNet-1K |    1x   |  41.9  |    -    | [config](configs/retinanet_pvt_m_fpn_1x_coco.py)     | [log](https://drive.google.com/file/d/1sbHtmaFoQvbjE881MqmgOw1QtwrD2MVF/view?usp=sharing) & [model](https://drive.google.com/file/d/1DJCmbrpLJhQi20ztSCmtruDaXtqOsrns/view?usp=sharing) |
-| RetinaNet        | PVT-Large  | ImageNet-1K |    1x   |  42.6  |    -    | [config](configs/retinanet_pvt_l_fpn_1x_coco.py)     | [log](https://drive.google.com/file/d/1PjvUY1tRZ7Qhdtx1MQ9J0lPMRZgV3x1n/view?usp=sharing) & [model](https://drive.google.com/file/d/1zG_Ji_GamjQgPbe6hHOjZlIHs5jZbVFL/view?usp=sharing) |
-| Mask R-CNN        | PVT-Tiny  | ImageNet-1K |    1x   |  36.7  |   35.1  | [config](configs/mask_rcnn_pvt_t_fpn_1x_coco.py)     | [log](https://drive.google.com/file/d/1PE__Sp2tgKIYkJaUa0V8q-GSxyLkcWke/view?usp=sharing) & [model](https://drive.google.com/file/d/1JGcl7ZnDIf-qQjrCXVtb71XeRWOIu7Xf/view?usp=sharing) |
-| Mask R-CNN        | PVT-Small | ImageNet-1K |    1x   |  40.4  |   37.8  | [config](configs/mask_rcnn_pvt_s_fpn_1x_coco.py)     | [log](https://drive.google.com/file/d/1qrP563Tv_Xc-gMDlX6cXiyhLpM0Yi_iN/view?usp=sharing) & [model](https://drive.google.com/file/d/1XGJQTivM_KviRDVvKTPgkJQhFco2oXSA/view?usp=sharing) |
-| Mask R-CNN        | PVT-Medium | ImageNet-1K |    1x   |  42.0  |   39.0  | [config](configs/mask_rcnn_pvt_m_fpn_1x_coco.py)     | [log](https://drive.google.com/file/d/1773WWorAkeh5mVvvbJoqewAB4W0qa8yb/view?usp=sharing) & [model](https://drive.google.com/file/d/1m0TFlJOVSLaAA4alVqp_VRckg0uRGTJ-/view?usp=sharing) |
-| Mask R-CNN        | PVT-Large | ImageNet-1K |    1x   |  42.9  |   39.5  | [config](configs/mask_rcnn_pvt_l_fpn_1x_coco.py)     | [log](https://drive.google.com/file/d/1PjvUY1tRZ7Qhdtx1MQ9J0lPMRZgV3x1n/view?usp=sharing) & [model](https://drive.google.com/file/d/1zG_Ji_GamjQgPbe6hHOjZlIHs5jZbVFL/view?usp=sharing) |
-| DETR             | PVT-Small | ImageNet-1K |   50ep  |  34.7  |    -    | [config](configs/detr_pvt_s_8x2_50ep_coco.py)        | [log](https://drive.google.com/file/d/1svBJbh8sHK2Ea0ORY5g2PxVr_O16AI0i/view?usp=sharing) & [model] |
-
 - PVTv2 on COCO
 
 
@@ -82,6 +67,21 @@ Then, download the [weights pretrained on ImageNet](../classification/README.md)
 | GFL           | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  50.2  |    -    | [config](configs/gfl_pvt_v2_b2_fpn_3x_mstrain_fp16.py) | [log](https://drive.google.com/file/d/1AEMecyBnsomn4bxj1ySMxFdCsi8KCzGT/view?usp=sharing) & [model](https://drive.google.com/file/d/1XODtTQ3UAQz75vqhXBddqn7JpQke0vn6/view?usp=sharing) |
 | Sparse R-CNN  | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  48.9  |    -    | [config](configs/sparse_rcnn_pvt_v2_b2_li_fpn_300_proposals_crop_mstrain_480-800_3x_coco.py) | [log](https://drive.google.com/file/d/1uVHEwr5FDqlL3UvstpncCuaClU54lig6/view?usp=sharing) & [model](https://drive.google.com/file/d/1W8Wt2WbyhEi0JOUblaEcH9gx0I6z1wAv/view?usp=sharing) |
 | Sparse R-CNN  | PVTv2-b2        | ImageNet-1K |    3x   | Yes |  50.1  |    -    | [config](configs/sparse_rcnn_pvt_v2_b2_fpn_300_proposals_crop_mstrain_480-800_3x_coco.py) | [log](https://drive.google.com/file/d/1hDJwwICMmFqqF0A2Z35uNR6C5nI-2m22/view?usp=sharing) & [model](https://drive.google.com/file/d/17NsRmwHaKmU6m5lYFtuUeBbCcMQe5FQb/view?usp=sharing)    |
+
+- PVTv1 on COCO
+
+| Method           | Backbone  | Pretrain    | Lr schd | box AP | mask AP | Config                                               | Download                                                                                    |
+|------------------|-----------|-------------|:-------:|:------:|:-------:|------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| RetinaNet        | PVT-Tiny  | ImageNet-1K |    1x   |  36.7  |    -    | [config](configs/retinanet_pvt_t_fpn_1x_coco.py)     | [log](https://drive.google.com/file/d/1w5giZkGZ0raFnl6TE8V7G3vbFoeRDqWC/view?usp=sharing) & [model](https://drive.google.com/file/d/1ZbS-g3oqAChkYiDYTiZLzw61lal2pgbl/view?usp=sharing) |
+| RetinaNet (640x) | PVT-Small | ImageNet-1K |    1x   |  38.7  |    -    | [config](configs/retinanet_pvt_s_fpn_1x_coco_640.py) | [log](https://drive.google.com/file/d/1lkDW5jmUz9YwED4BNiUYFSi9bkcAB36y/view?usp=sharing) & [model](https://drive.google.com/file/d/1L5wh2rYsVnuC_CEeFE6yMhU1kENt2gnk/view?usp=sharing) |
+| RetinaNet (800x) | PVT-Small | ImageNet-1K |    1x   |  40.4  |    -    | [config](configs/retinanet_pvt_s_fpn_1x_coco.py)     | [log]() & [model](https://drive.google.com/file/d/1U02ngyT_IYxS8SlU3WXf5r0TFsoBE3Lm/view?usp=sharing) |
+| RetinaNet        | PVT-Medium  | ImageNet-1K |    1x   |  41.9  |    -    | [config](configs/retinanet_pvt_m_fpn_1x_coco.py)     | [log](https://drive.google.com/file/d/1sbHtmaFoQvbjE881MqmgOw1QtwrD2MVF/view?usp=sharing) & [model](https://drive.google.com/file/d/1DJCmbrpLJhQi20ztSCmtruDaXtqOsrns/view?usp=sharing) |
+| RetinaNet        | PVT-Large  | ImageNet-1K |    1x   |  42.6  |    -    | [config](configs/retinanet_pvt_l_fpn_1x_coco.py)     | [log](https://drive.google.com/file/d/1PjvUY1tRZ7Qhdtx1MQ9J0lPMRZgV3x1n/view?usp=sharing) & [model](https://drive.google.com/file/d/1zG_Ji_GamjQgPbe6hHOjZlIHs5jZbVFL/view?usp=sharing) |
+| Mask R-CNN        | PVT-Tiny  | ImageNet-1K |    1x   |  36.7  |   35.1  | [config](configs/mask_rcnn_pvt_t_fpn_1x_coco.py)     | [log](https://drive.google.com/file/d/1PE__Sp2tgKIYkJaUa0V8q-GSxyLkcWke/view?usp=sharing) & [model](https://drive.google.com/file/d/1JGcl7ZnDIf-qQjrCXVtb71XeRWOIu7Xf/view?usp=sharing) |
+| Mask R-CNN        | PVT-Small | ImageNet-1K |    1x   |  40.4  |   37.8  | [config](configs/mask_rcnn_pvt_s_fpn_1x_coco.py)     | [log](https://drive.google.com/file/d/1qrP563Tv_Xc-gMDlX6cXiyhLpM0Yi_iN/view?usp=sharing) & [model](https://drive.google.com/file/d/1XGJQTivM_KviRDVvKTPgkJQhFco2oXSA/view?usp=sharing) |
+| Mask R-CNN        | PVT-Medium | ImageNet-1K |    1x   |  42.0  |   39.0  | [config](configs/mask_rcnn_pvt_m_fpn_1x_coco.py)     | [log](https://drive.google.com/file/d/1773WWorAkeh5mVvvbJoqewAB4W0qa8yb/view?usp=sharing) & [model](https://drive.google.com/file/d/1m0TFlJOVSLaAA4alVqp_VRckg0uRGTJ-/view?usp=sharing) |
+| Mask R-CNN        | PVT-Large | ImageNet-1K |    1x   |  42.9  |   39.5  | [config](configs/mask_rcnn_pvt_l_fpn_1x_coco.py)     | [log](https://drive.google.com/file/d/1PjvUY1tRZ7Qhdtx1MQ9J0lPMRZgV3x1n/view?usp=sharing) & [model](https://drive.google.com/file/d/1zG_Ji_GamjQgPbe6hHOjZlIHs5jZbVFL/view?usp=sharing) |
+| DETR             | PVT-Small | ImageNet-1K |   50ep  |  34.7  |    -    | [config](configs/detr_pvt_s_8x2_50ep_coco.py)        | [log](https://drive.google.com/file/d/1svBJbh8sHK2Ea0ORY5g2PxVr_O16AI0i/view?usp=sharing) & [model] |
 
 
 ## Evaluation
