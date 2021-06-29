@@ -6,6 +6,7 @@ For details see [Pyramid Vision Transformer: A Versatile Backbone for Dense Pred
 
 If you use this code for a paper please cite:
 
+PVTv1
 ```
 @misc{wang2021pyramid,
       title={Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions}, 
@@ -15,7 +16,10 @@ If you use this code for a paper please cite:
       archivePrefix={arXiv},
       primaryClass={cs.CV}
 }
+```
 
+PVTv2
+```
 @misc{wang2021pvtv2,
       title={PVTv2: Improved Baselines with Pyramid Vision Transformer}, 
       author={Wenhai Wang and Enze Xie and Xiang Li and Deng-Ping Fan and Kaitao Song and Ding Liang and Tong Lu and Ping Luo and Ling Shao},
