@@ -121,12 +121,25 @@ This repository is released under the Apache 2.0 license as found in the [LICENS
 ## Citation
 If you use this code for a paper, please cite:
 
+PVTv1
 ```
 @misc{wang2021pyramid,
       title={Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions}, 
       author={Wenhai Wang and Enze Xie and Xiang Li and Deng-Ping Fan and Kaitao Song and Ding Liang and Tong Lu and Ping Luo and Ling Shao},
       year={2021},
       eprint={2102.12122},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
+
+PVTv2
+```
+@misc{wang2021pvtv2,
+      title={PVTv2: Improved Baselines with Pyramid Vision Transformer}, 
+      author={Wenhai Wang and Enze Xie and Xiang Li and Deng-Ping Fan and Kaitao Song and Ding Liang and Tong Lu and Ping Luo and Ling Shao},
+      year={2021},
+      eprint={2106.13797},
       archivePrefix={arXiv},
       primaryClass={cs.CV}
 }
