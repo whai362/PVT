@@ -79,23 +79,25 @@ def get_pvt_li_flops(net, input_shape):
 
 
 with torch.cuda.device(0):
+    # calculate vit flops
     # net = models.vit_small_patch16_224()
     # input_shape = (3, 224, 224)
     # flops, params = get_vit_flops(net, input_shape, 16)
 
+    # calculate pvtv1 flops
     # net = pvt.pvt_small()
     # input_shape = (3, 224, 224)
     # flops, params = get_pvt_flops(net, input_shape)
 
-    net = pvt_v2.pvt_v2_b2()
+    # calculate pvtv2 flops
+    # net = pvt_v2.pvt_v2_b2()
     # input_shape = (3, 224, 224)
-    input_shape = (3, 1280, 800)
-    flops, params = get_pvt_flops(net, input_shape)
+    # flops, params = get_pvt_flops(net, input_shape)
 
-    # net = pvt_v2.pvt_v2_b2_li()
-    # # input_shape = (3, 224, 224)
-    # input_shape = (3, 1280, 800)
-    # flops, params = get_pvt_li_flops(net, input_shape)
+    # calculate pvtv2-li flops
+    net = pvt_v2.pvt_v2_b2_li()
+    input_shape = (3, 224, 224)
+    flops, params = get_pvt_li_flops(net, input_shape)
 
     split_line = '=' * 30
     print(f'{split_line}\nInput shape: {input_shape}\n'
