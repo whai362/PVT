@@ -34,13 +34,13 @@ Classification configs & weights see >>>[here](classification/)<<<.
 
 | Method           | Size | Acc@1 | #Params (M) |
 |------------------|:----:|:-----:|:-----------:|
-| PVT-V2-B0        |  224 |  70.5 |     3.4     |
-| PVT-V2-B1        |  224 |  78.7 |     13.1    |
-| PVT-V2-B2-Linear |  224 |  82.1 |     22.6    |
-| PVT-V2-B2        |  224 |  82.0 |     25.4    |
-| PVT-V2-B3        |  224 |  83.1 |     45.2    |
-| PVT-V2-B4        |  224 |  83.6 |     62.6    |
-| PVT-V2-B5        |  224 |  83.8 |     82.0    |
+| PVTv2-B0        |  224 |  70.5 |     3.4     |
+| PVTv2-B1        |  224 |  78.7 |     13.1    |
+| PVTv2-B2-Linear |  224 |  82.1 |     22.6    |
+| PVTv2-B2        |  224 |  82.0 |     25.4    |
+| PVTv2-B3        |  224 |  83.1 |     45.2    |
+| PVTv2-B4        |  224 |  83.6 |     62.6    |
+| PVTv2-B5        |  224 |  83.8 |     82.0    |
 
 - PVTv1 on ImageNet-1K
 
