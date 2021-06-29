@@ -34,6 +34,25 @@ PVTv2
 
 Install [MMDetection v2.13.0](https://github.com/open-mmlab/mmdetection/tree/v2.13.0).
 
+Apex (optional):
+```
+git clone https://github.com/NVIDIA/apex
+cd apex
+python setup.py install --cpp_ext --cuda_ext --user
+```
+
+If you would like to disable apex, modify the type of runner as `EpochBasedRunner` and comment out the following code block in the configuration files:
+```
+fp16 = None
+optimizer_config = dict(
+    type="DistOptimizerHook",
+    update_interval=1,
+    grad_clip=None,
+    coalesce=True,
+    bucket_size_mb=-1,
+    use_fp16=True,
+)
+```
 
 ## Data preparation
 
