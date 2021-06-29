@@ -18,7 +18,7 @@ model = dict(
         add_extra_convs='on_input',
         num_outs=5))
 # optimizer
-optimizer = dict(type='AdamW', lr=0.0001 / 1.4, weight_decay=0.0001)
+optimizer = dict(_delete_=True, type='AdamW', lr=0.0001 / 1.4, weight_decay=0.0001)
 optimizer_config = dict(grad_clip=None)
 # dataset settings
 data = dict(
