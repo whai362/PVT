@@ -10,7 +10,7 @@
   The image is from Transformers: Revenge of the Fallen.
 </p>
 
-This repository contains the official implementation of [PVTv1](https://arxiv.org/abs/2102.12122) & [PVTv2](https://whai362.github.io/resources/papers/PVTv2_Improved_Baselines_with_Pyramid_Vision_Transformer.pdf) in image classification, object detection, and semantic segmentation tasks.
+This repository contains the official implementation of [PVTv1](https://arxiv.org/abs/2102.12122) & [PVTv2](https://arxiv.org/pdf/2106.13797.pdf) in image classification, object detection, and semantic segmentation tasks.
 
 
 ## Model Zoo
