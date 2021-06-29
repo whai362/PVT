@@ -30,12 +30,6 @@ PVTv2
 }
 ```
 
-## Todo List
-- PVT-Medium/-Large + RetinaNet/Mask R-CNN
-- PVTv2-b0/b1/b2/b3/b4/b5 + RetinaNet/Mask R-CNN
-- PVTv2-b2 + Sparse R-CNN/Cascade R-CNN/GFL/ATSS
-
-
 ## Usage
 
 Install [MMDetection v2.13.0](https://github.com/open-mmlab/mmdetection/tree/v2.13.0).
