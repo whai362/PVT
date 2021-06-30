@@ -107,7 +107,7 @@ Then, download the [weights pretrained on ImageNet](../classification/README.md)
 | Mask R-CNN        | PVT-Small | ImageNet-1K |    1x   |  40.4  |   37.8  | [config](configs/mask_rcnn_pvt_s_fpn_1x_coco.py)     | [log](https://drive.google.com/file/d/1qrP563Tv_Xc-gMDlX6cXiyhLpM0Yi_iN/view?usp=sharing) & [model](https://drive.google.com/file/d/1XGJQTivM_KviRDVvKTPgkJQhFco2oXSA/view?usp=sharing) |
 | Mask R-CNN        | PVT-Medium | ImageNet-1K |    1x   |  42.0  |   39.0  | [config](configs/mask_rcnn_pvt_m_fpn_1x_coco.py)     | [log](https://drive.google.com/file/d/1773WWorAkeh5mVvvbJoqewAB4W0qa8yb/view?usp=sharing) & [model](https://drive.google.com/file/d/1m0TFlJOVSLaAA4alVqp_VRckg0uRGTJ-/view?usp=sharing) |
 | Mask R-CNN        | PVT-Large | ImageNet-1K |    1x   |  42.9  |   39.5  | [config](configs/mask_rcnn_pvt_l_fpn_1x_coco.py)     | [log](https://drive.google.com/file/d/1PjvUY1tRZ7Qhdtx1MQ9J0lPMRZgV3x1n/view?usp=sharing) & [model](https://drive.google.com/file/d/1zG_Ji_GamjQgPbe6hHOjZlIHs5jZbVFL/view?usp=sharing) |
-| DETR             | PVT-Small | ImageNet-1K |   50ep  |  34.7  |    -    | [config](configs/detr_pvt_s_8x2_50ep_coco.py)        | [log](https://drive.google.com/file/d/1svBJbh8sHK2Ea0ORY5g2PxVr_O16AI0i/view?usp=sharing) & [model](https://drive.google.com/file/d/1n_2AwkJxQPCmkjmoCHszBGQbJ9HSiEBT/view?usp=sharing) |
+| DETR             | PVT-Small | ImageNet-1K |   50ep  |  34.7  |    -    | [config](configs/detr_pvt_s_8x2_50ep_coco.py)        | [log](https://drive.google.com/file/d/1svBJbh8sHK2Ea0ORY5g2PxVr_O16AI0i/view?usp=sharing) & [model](https://drive.google.com/file/d/1rIf2qUEvaeV2ZMzhVyiXxEplE0bCi3Jv/view?usp=sharing) |
 
 
 ## Evaluation
@@ -136,6 +136,18 @@ To train PVT-Small + RetinaNet (640x) on COCO train2017 on a single node with 8 
 
 ```
 dist_train.sh configs/retinanet_pvt_s_fpn_1x_coco_640.py 8
+```
+
+## Calculating FLOPS & Params
+
+```
+python get_flops.py configs/gfl_pvt_v2_b2_fpn_3x_mstrain_fp16.py
+```
+This should give
+```
+Input shape: (3, 1280, 800)
+Flops: 260.65 GFLOPs
+Params: 33.11 M
 ```
 
 # License
