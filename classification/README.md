@@ -108,5 +108,17 @@ To train PVT-Small on ImageNet on a single node with 8 gpus for 300 epochs run:
 sh dist_train.sh configs/pvt/pvt_small.py 8 --data-path /path/to/imagenet
 ```
 
+## Calculating FLOPS & Params
+
+```
+python get_flops.py pvt_v2_b2
+```
+This should give
+```
+Input shape: (3, 224, 224)
+Flops: 4.04 GFLOPs
+Params: 25.36 M
+```
+
 ## License
 This repository is released under the Apache 2.0 license as found in the [LICENSE](LICENSE) file.
