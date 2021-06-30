@@ -15,6 +15,7 @@ tmp/
 **/arun_log/
 **/checkpoints/
 **/tmp/
+**/vis/
 tmp**
 arun_log/
 segmentation/work_dirs
