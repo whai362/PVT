@@ -138,5 +138,17 @@ To train PVT-Small + RetinaNet (640x) on COCO train2017 on a single node with 8 
 dist_train.sh configs/retinanet_pvt_s_fpn_1x_coco_640.py 8
 ```
 
+## Calculating FLOPS & Params
+
+```
+python get_flops.py configs/gfl_pvt_v2_b2_fpn_3x_mstrain_fp16.py
+```
+This should give
+```
+Input shape: (3, 1280, 800)
+Flops: 260.65 GFLOPs
+Params: 33.11 M
+```
+
 # License
 This repository is released under the Apache 2.0 license as found in the [LICENSE](LICENSE) file.
