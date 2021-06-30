@@ -5,7 +5,8 @@ _base_ = [
 ]
 model = dict(
     type='GFL',
-    pretrained='pretrained/pvt_v2_b2.pth',
+    # pretrained='pretrained/pvt_v2_b2.pth',
+    pretrained='https://github.com/whai362/PVT/releases/download/v2/pvt_v2_b2.pth',
     backbone=dict(
         type='pvt_v2_b2',
         style='pytorch'),
@@ -109,4 +110,4 @@ optimizer_config = dict(
     use_fp16=True,
 )
 
-find_unused_parameters=True
+find_unused_parameters = True

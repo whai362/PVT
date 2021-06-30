@@ -4,7 +4,8 @@ _base_ = [
 ]
 model = dict(
     type='DETR',
-    pretrained='pretrained/pvt_small.pth',
+    # pretrained='pretrained/pvt_small.pth',
+    pretrained='https://github.com/whai362/PVT/releases/download/v2/pvt_small.pth',
     backbone=dict(
         type='pvt_small_f4',
         style='pytorch'),

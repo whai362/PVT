@@ -4,8 +4,8 @@ _base_ = [
 ]
 model = dict(
     type='DETR',
-    # pretrained='torchvision://resnet50',
-    pretrained='pretrained/resnet50-19c8e357.pth',
+    pretrained='torchvision://resnet50',
+    # pretrained='pretrained/resnet50-19c8e357.pth',
     backbone=dict(
         type='ResNet',
         depth=50,

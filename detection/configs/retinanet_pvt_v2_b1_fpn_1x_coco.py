@@ -6,7 +6,8 @@ _base_ = [
 ]
 # optimizer
 model = dict(
-    pretrained='pretrained/pvt_v2_b1.pth',
+    # pretrained='pretrained/pvt_v2_b1.pth',
+    pretrained='https://github.com/whai362/PVT/releases/download/v2/pvt_v2_b1.pth',
     backbone=dict(
         type='pvt_v2_b1',
         style='pytorch'),

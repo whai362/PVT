@@ -5,7 +5,8 @@ _base_ = [
 ]
 model = dict(
     type='ATSS',
-    pretrained='pretrained/pvt_v2_b2.pth',
+    # pretrained='pretrained/pvt_v2_b2.pth',
+    pretrained='https://github.com/whai362/PVT/releases/download/v2/pvt_v2_b2.pth',
     backbone=dict(
         type='pvt_v2_b2',
         style='pytorch'),
@@ -99,7 +100,6 @@ optimizer = dict(_delete_=True, type='AdamW', lr=0.0001, betas=(0.9, 0.999), wei
                                                  'norm': dict(decay_mult=0.)}))
 lr_config = dict(step=[27, 33])
 
-
 # do not use apex fp16
 # runner = dict(type='EpochBasedRunner', max_epochs=36)
 
@@ -115,4 +115,4 @@ optimizer_config = dict(
     use_fp16=True,
 )
 
-find_unused_parameters=True
+find_unused_parameters = True

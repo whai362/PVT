@@ -5,7 +5,8 @@ _base_ = [
     '_base_/default_runtime.py'
 ]
 model = dict(
-    pretrained='pretrained/pvt_small.pth',
+    # pretrained='pretrained/pvt_small.pth',
+    pretrained='https://github.com/whai362/PVT/releases/download/v2/pvt_small.pth',
     backbone=dict(
         type='pvt_small',
         style='pytorch'),
