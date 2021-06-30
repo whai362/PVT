@@ -75,7 +75,7 @@ The directory structure is the standard layout for the torchvision [`datasets.Im
 |------------------|:----:|:-----:|:-----------:|------------------------------------------|--------------------------------------------------------------------------------------------|
 | PVT-V2-B0        |  224 |  70.5 |     3.4     | [config](configs/pvt_v2/pvt_v2_b0.py)    | [14M](https://drive.google.com/file/d/1qnqChpm93vtXULeTuCT_0mJ2ZKIDc-Qo/view?usp=sharing)  |
 | PVT-V2-B1        |  224 |  78.7 |     13.1    | [config](configs/pvt_v2/pvt_v2_b1.py)    | [54M](https://drive.google.com/file/d/1aM0KFE3f-qIpP3xfhihlULF0-NNuk1m7/view?usp=sharing)  |
-| PVT-V2-B2-Linear |  224 |  82.1 |     22.6    | [config](configs/pvt_v2/pvt_v2_b2_li.py) | [86M](https://drive.google.com/file/d/1_HOJJCIGMMg6RztYAgzbTUge0m28rkZw/view?usp=sharing)  |
+| PVT-V2-B2-Linear |  224 |  82.1 |     22.6    | [config](configs/pvt_v2/pvt_v2_b2_li.py) | [86M](https://github.com/whai362/PVT/releases/download/v2/pvt_v2_b2_li.pth)  |
 | PVT-V2-B2        |  224 |  82.0 |     25.4    | [config](configs/pvt_v2/pvt_v2_b2.py)    | [97M](https://drive.google.com/file/d/1snw4TYUCD5z4d3aaId1iBdw-yUKjRmPC/view?usp=sharing)  |
 | PVT-V2-B3        |  224 |  83.1 |     45.2    | [config](configs/pvt_v2/pvt_v2_b3.py)    | [173M](https://drive.google.com/file/d/1PzTobv3pu5R3nb3V3lF6_DVnRDBtSmmS/view?usp=sharing) |
 | PVT-V2-B4        |  224 |  83.6 |     62.6    | [config](configs/pvt_v2/pvt_v2_b4.py)    | [239M](https://drive.google.com/file/d/1LW-0CFHulqeIxV2cai45t-FyLNKGc5l0/view?usp=sharing) |
