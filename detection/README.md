@@ -34,6 +34,12 @@ PVTv2
 
 Install [MMDetection v2.13.0](https://github.com/open-mmlab/mmdetection/tree/v2.13.0).
 
+or
+
+```
+pip install mmdet==2.13.0 --user
+```
+
 Apex (optional):
 ```
 git clone https://github.com/NVIDIA/apex
@@ -56,9 +62,8 @@ optimizer_config = dict(
 
 ## Data preparation
 
-First, prepare COCO according to the guidelines in [MMDetection v2.13.0](https://github.com/open-mmlab/mmdetection/tree/v2.13.0).
+Prepare COCO according to the guidelines in [MMDetection v2.13.0](https://github.com/open-mmlab/mmdetection/tree/v2.13.0).
 
-Then, download the [weights pretrained on ImageNet](../classification/README.md), and put them in a folder `pretrained/`
 
 ## Results and models
 
