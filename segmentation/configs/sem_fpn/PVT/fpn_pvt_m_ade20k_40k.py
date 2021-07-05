@@ -6,7 +6,8 @@ _base_ = [
 # model settings
 model = dict(
     type='EncoderDecoder',
-    pretrained='pretrained/pvt_medium.pth',
+    # pretrained='pretrained/pvt_medium.pth',
+    pretrained='https://github.com/whai362/PVT/releases/download/v2/pvt_medium.pth',
     backbone=dict(
         type='pvt_medium',
         style='pytorch'),
