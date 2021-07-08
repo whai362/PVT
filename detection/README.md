@@ -143,6 +143,12 @@ To train PVT-Small + RetinaNet (640x) on COCO train2017 on a single node with 8 
 dist_train.sh configs/retinanet_pvt_s_fpn_1x_coco_640.py 8
 ```
 
+## Demo
+```
+python demo.py demo.jpg /path/to/config_file /path/to/checkpoint_file
+```
+
+
 ## Calculating FLOPS & Params
 
 ```
