@@ -23,8 +23,8 @@ Classification configs & weights see >>>[here](classification/)<<<.
 
 | Method           | Size | Acc@1 | #Params (M) |
 |------------------|:----:|:-----:|:-----------:|
-| PVTv2-B0        |  224 |  70.5 |     3.4     |
-| PVTv2-B1        |  224 |  78.7 |     13.1    |
+| PVTv2-B0        |  224 |  70.5 |     3.7     |
+| PVTv2-B1        |  224 |  78.7 |     14.0    |
 | PVTv2-B2-Linear |  224 |  82.1 |     22.6    |
 | PVTv2-B2        |  224 |  82.0 |     25.4    |
 | PVTv2-B3        |  224 |  83.1 |     45.2    |
