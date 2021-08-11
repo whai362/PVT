@@ -39,9 +39,8 @@ Install MMSegmentation.
 
 ## Data preparation
 
-First, prepare ADE20K according to the guidelines in MMSegmentation.
+Preparing ADE20K according to the [guidelines](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/dataset_prepare.md#prepare-datasets) in MMSegmentation.
 
-Then, download the [weights](../README.md) pretrained on ImageNet, and put them in a folder `pretrained/`
 
 ## Results and models
 
