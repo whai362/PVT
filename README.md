@@ -114,25 +114,21 @@ If you use this code for a paper, please cite:
 
 PVTv1
 ```
-@misc{wang2021pyramid,
-      title={Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions}, 
-      author={Wenhai Wang and Enze Xie and Xiang Li and Deng-Ping Fan and Kaitao Song and Ding Liang and Tong Lu and Ping Luo and Ling Shao},
-      year={2021},
-      eprint={2102.12122},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@inproceedings{wang2021pyramid,
+  title={Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions},
+  author={Wang, Wenhai and Xie, Enze and Li, Xiang and Fan, Deng-Ping and Song, Kaitao and Liang, Ding and Lu, Tong and Luo, Ping and Shao, Ling},
+  booktitle={IEEE ICCV},
+  year={2021}
 }
 ```
 
 PVTv2
 ```
-@misc{wang2021pvtv2,
-      title={PVTv2: Improved Baselines with Pyramid Vision Transformer}, 
-      author={Wenhai Wang and Enze Xie and Xiang Li and Deng-Ping Fan and Kaitao Song and Ding Liang and Tong Lu and Ping Luo and Ling Shao},
-      year={2021},
-      eprint={2106.13797},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@article{wang2021pvtv2,
+  title={Pvtv2: Improved baselines with pyramid vision transformer},
+  author={Wang, Wenhai and Xie, Enze and Li, Xiang and Fan, Deng-Ping and Song, Kaitao and Liang, Ding and Lu, Tong and Luo, Ping and Shao, Ling},
+  journal={arXiv preprint arXiv:2106.13797},
+  year={2021}
 }
 ```
 
