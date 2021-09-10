@@ -17,10 +17,19 @@ model = dict(
         start_level=1,
         add_extra_convs='on_input',
         num_outs=5))
-# optimizer
-optimizer = dict(_delete_=True, type='AdamW', lr=0.0001 / 1.4, weight_decay=0.0001)
-optimizer_config = dict(grad_clip=None)
-# dataset settings
-data = dict(
-    samples_per_gpu=1,
-    workers_per_gpu=1)
+
+optimizer = dict(_delete_=True, type='AdamW', lr=0.0001, weight_decay=0.0001)
+
+#fp16
+runner = dict(type='EpochBasedRunnerAmp', max_epochs=12)
+fp16 = None
+optimizer_config = dict(
+    type="DistOptimizerHook",
+    update_interval=1,
+    grad_clip=None,
+    coalesce=True,
+    bucket_size_mb=-1,
+    use_fp16=True,
+)
+
+find_unused_parameters = True
