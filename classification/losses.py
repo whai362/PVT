@@ -43,7 +43,7 @@ class DistillationLoss(torch.nn.Module):
             raise ValueError("When knowledge distillation is enabled, the model is "
                              "expected to return a Tuple[Tensor, Tensor] with the output of the "
                              "class_token and the dist_token")
-        # don't backprop throught the teacher
+        # don't backprop through the teacher
         with torch.no_grad():
             teacher_outputs = self.teacher_model(inputs)
 
