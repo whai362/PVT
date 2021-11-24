@@ -172,9 +172,12 @@ class OverlapPatchEmbed(nn.Module):
 
     def __init__(self, img_size=224, patch_size=7, stride=4, in_chans=3, embed_dim=768):
         super().__init__()
+        
         img_size = to_2tuple(img_size)
         patch_size = to_2tuple(patch_size)
-
+        
+        assert max(patch_size) > stride, "Set larger patch_size than stride"
+        
         self.img_size = img_size
         self.patch_size = patch_size
         self.H, self.W = img_size[0] // stride, img_size[1] // stride
