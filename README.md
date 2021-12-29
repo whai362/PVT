@@ -95,6 +95,7 @@ Detection configs & weights see >>>[here](detection/)<<<.
 ### Semantic Segmentation
 
 Segmentation configs & weights see >>>[here](segmentation/)<<<.
+
 PVT-v2 + Segmentation see >>>[here](https://github.com/whai362/PVTv2-Seg)<<<.
 
 - PVTv1 on ADE20K
