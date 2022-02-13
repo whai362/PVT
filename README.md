@@ -117,9 +117,10 @@ If you use this code for a paper, please cite:
 PVTv1
 ```
 @inproceedings{wang2021pyramid,
-  title={Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions},
+  title={Pyramid vision transformer: A versatile backbone for dense prediction without convolutions},
   author={Wang, Wenhai and Xie, Enze and Li, Xiang and Fan, Deng-Ping and Song, Kaitao and Liang, Ding and Lu, Tong and Luo, Ping and Shao, Ling},
-  booktitle={IEEE ICCV},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={568--578},
   year={2021}
 }
 ```
@@ -129,8 +130,12 @@ PVTv2
 @article{wang2021pvtv2,
   title={Pvtv2: Improved baselines with pyramid vision transformer},
   author={Wang, Wenhai and Xie, Enze and Li, Xiang and Fan, Deng-Ping and Song, Kaitao and Liang, Ding and Lu, Tong and Luo, Ping and Shao, Ling},
-  journal={arXiv preprint arXiv:2106.13797},
-  year={2021}
+  journal={Computational Visual Media},
+  volume={8},
+  number={3},
+  pages={1--10},
+  year={2022},
+  publisher={Springer}
 }
 ```
 
