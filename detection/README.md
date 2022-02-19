@@ -88,6 +88,12 @@ Prepare COCO according to the guidelines in [MMDetection v2.13.0](https://github
 | Mask R-CNN | PVTv2-b5 | ImageNet-1K |    1x   |  No |  47.4  |   42.5  | [config](configs/mask_rcnn_pvt_v2_b5_fpn_1x_coco.py) | [log](https://drive.google.com/file/d/19LN-8TWsrVKsF5aBzXiqKva5mQrAusDw/view?usp=sharing) & [model](https://drive.google.com/file/d/1BvI5XXaGbv3tbLrXbVQ5K45gFVEHbBGX/view?usp=sharing) |
 
 
+| Method     | Backbone | Pretrain    | Lr schd | Aug | box AP | mask AP | Config                                               | Download |
+|------------|----------|-------------|:-------:|:---:|:------:|:-------:|------------------------------------------------------|----------|
+| Mask R-CNN | PVTv2-b0 | ImageNet-1K |    3x   |  Yes |  41.6  |   38.2  | config | log & model |
+| Mask R-CNN | PVTv2-b2 | ImageNet-1K |    3x   |  Yes |  47.8  |   43.1  | config | log & model |
+
+
 | Method        | Backbone        | Pretrain    | Lr schd | Aug | box AP | mask AP | Config     | Download |
 |---------------|-----------------|-------------|:-------:|:---:|:------:|:-------:|------------|----------|
 | Cascade Mask R-CNN | PVTv2-b2-Linear | ImageNet-1K |    3x   | Yes |  50.9  |    44.0    | [config](configs/cascade_mask_rcnn_pvt_v2_b2_li_fpn_3x_mstrain_fp16.py) | [log](https://drive.google.com/file/d/1X_DC4yd89t4MJjQt9XmuCwx1hRmklN3z/view?usp=sharing) & [model](https://drive.google.com/file/d/1dG4O-M0EqKYdTtZqJdRjJopiwwnoakee/view?usp=sharing)    |
