@@ -1,4 +1,5 @@
 # Updates
+- (2022/08/09) Application examples for polyp segmentation (polyp-pvt) and vision-language modeling.
 - (2020/06/21) Code of PVTv2 is released! PVTv2 largely improves PVTv1 and works better than Swin Transformer with ImageNet-1K pre-training.
 
 # Pyramid Vision Transformer
