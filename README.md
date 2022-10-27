@@ -112,7 +112,7 @@ PVT-v2 + Segmentation see >>>[here](https://github.com/whai362/PVTv2-Seg)<<<.
 Polyp-PVT: Polyp Segmentation with Pyramid Vision Transformers. [pdf](https://arxiv.org/abs/2108.06932) | [code](https://github.com/DengPingFan/Polyp-PVT)
 
 ### Vision-Language Modeling
-Masked Vision-Language Transformer in Fashion. pdf | code
+Masked Vision-Language Transformer in Fashion. [pdf](https://dengpingfan.github.io/papers/[2022][MIR]MVLT.pdf) | [code](https://github.com/GewelsJI/MVLT)
 
 ## License
 This repository is released under the Apache 2.0 license as found in the [LICENSE](LICENSE) file.
